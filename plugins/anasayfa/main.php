@@ -72,7 +72,8 @@ $upcomingRelease = $muzibu->homepage->getUpcomingReleases();
                                data-track="<?php echo $trackPath; ?>" 
                                data-poster="<?php echo $thumbPath; ?>" 
                                data-title="<?php echo $song->title_tr; ?>" 
-                               data-singer="<?php echo $song->artist_title; ?>">
+                               data-singer="<?php echo $song->artist_title; ?>"
+                               data-id="<?php echo $song->id; ?>">
                                 <i class="fas fa-play"></i>
                             </a>
                             <span><?php echo str_pad($counter, 2, '0', STR_PAD_LEFT); ?></span>
@@ -158,7 +159,8 @@ $upcomingRelease = $muzibu->homepage->getUpcomingReleases();
                                data-track="<?php echo $trackPath; ?>" 
                                data-poster="<?php echo $popular->album_thumb ? SITEURL . '/thumbmaker.php?src=' . SITEURL . '/modules/muzibu/dataimages/' . $popular->album_thumb . '&amp;h=300&amp;w=300&amp;s=1&amp;a=c&amp;q=80' : THEMEURL . '/assets/media/tracks/poster-images/track-0' . ($counter % 5 + 1) . '.jpg'; ?>" 
                                data-title="<?php echo $popular->title_tr; ?>" 
-                               data-singer="<?php echo $popular->artist_title; ?>">
+                               data-singer="<?php echo $popular->artist_title; ?>"
+                               data-id="<?php echo $popular->id; ?>">
                                 <i class="fas fa-play"></i>
                             </a>
                             <span><?php echo str_pad($counter, 2, '0', STR_PAD_LEFT); ?></span>
@@ -213,7 +215,8 @@ $upcomingRelease = $muzibu->homepage->getUpcomingReleases();
                                data-track="<?php echo $trackPath; ?>" 
                                data-poster="<?php echo $recommend->album_thumb ? SITEURL . '/thumbmaker.php?src=' . SITEURL . '/modules/muzibu/dataimages/' . $recommend->album_thumb . '&amp;h=300&amp;w=300&amp;s=1&amp;a=c&amp;q=80' : THEMEURL . '/assets/media/tracks/poster-images/track-0' . ($counter % 5 + 1) . '.jpg'; ?>" 
                                data-title="<?php echo $recommend->title_tr; ?>" 
-                               data-singer="<?php echo $recommend->artist_title; ?>">
+                               data-singer="<?php echo $recommend->artist_title; ?>"
+                               data-id="<?php echo $recommend->id; ?>">
                                 <i class="fas fa-play"></i>
                             </a>
                             <span><?php echo str_pad($counter, 2, '0', STR_PAD_LEFT); ?></span>
@@ -300,4 +303,4 @@ $upcomingRelease = $muzibu->homepage->getUpcomingReleases();
     </div>
 </section>
 <!-- Albums Area End -->
-
+<!-- Albums Area End -->

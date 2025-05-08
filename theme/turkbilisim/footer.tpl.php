@@ -122,6 +122,7 @@ if ( !defined( "_VALID_PHP" ) )
          data-poster="<?php echo $posterPath; ?>" 
          data-title="<?php echo $title; ?>" 
          data-singer="<?php echo $artist; ?>"
+         data-id="<?php echo $randomSong ? $randomSong->id : ''; ?>"
          data-user-logged="<?php echo $user->logged_in ? 'true' : 'false'; ?>">
     </div>
 </div>
@@ -197,6 +198,12 @@ var isShuffle = false;
 var isLoop = false;
 var isUserLoggedIn = false;
 
+// Dinleme istatistikleri için değişkenler
+var songPlayTimer = 0;
+var songPlayTimerInterval = null;
+var currentSongId = null;
+var songPlayed = false;
+
 function audioInit(){
     var audio = $("#audio-player"),
     playerId = audio.closest('.mejs__container').attr('id'),
@@ -233,12 +240,56 @@ function audioInit(){
         
         // 30 saniye sınırlaması için doğrudan event listener ekle
         playerObject.media.addEventListener('timeupdate', function() {
-            if (playerObject.media.currentTime >= 30) {
+            if (playerObject.media.currentTime >= 30 && !isUserLoggedIn) {
+                playerObject.pause();
+                document.querySelector('.membership-warning').style.display = 'block';
+            }
+        });
+        
+        // Kullanıcının 30 saniyeden sonra kaydırmasını engelle
+        playerObject.media.addEventListener('seeking', function() {
+            if (playerObject.media.currentTime > 30 && !isUserLoggedIn) {
+                playerObject.media.currentTime = 30;
                 playerObject.pause();
                 document.querySelector('.membership-warning').style.display = 'block';
             }
         });
     }
+    
+    // Şarkı dinlenme takibi
+    playerObject.media.addEventListener('play', function() {
+        if (currentSongId) {
+            songPlayTimer = 0;
+            songPlayed = false;
+            
+            // Dinleme sayacını başlat
+            clearInterval(songPlayTimerInterval);
+            songPlayTimerInterval = setInterval(function() {
+                songPlayTimer++;
+                
+                // 30 saniyeden fazla dinlendiyse ve henüz kaydedilmediyse
+                if (songPlayTimer >= 30 && !songPlayed) {
+                    songPlayed = true;
+                    logSongPlay(currentSongId);
+                }
+            }, 1000);
+        }
+    });
+    
+    playerObject.media.addEventListener('pause', function() {
+        clearInterval(songPlayTimerInterval);
+    });
+    
+    playerObject.media.addEventListener('ended', function() {
+        clearInterval(songPlayTimerInterval);
+        
+        // Şarkı bittiğinde
+        if (!isUserLoggedIn) {
+            document.querySelector('.membership-warning').style.display = 'block';
+        } else {
+            playNextTrack();
+        }
+    });
     
     // Shuffle butonunu oluştur
     const shuffleBtn = document.createElement('div');
@@ -284,7 +335,6 @@ function audioInit(){
             return;
         }
         playPrevTrack();
-        console.log("Loop modu: " + (isLoop ? "Açik" : "Kapali"));
     });
     
     // Next butonunu olustur
@@ -298,7 +348,6 @@ function audioInit(){
             return;
         }
         playNextTrack(false);
-        console.log("Loop modu: " + (isLoop ? "Açik" : "Kapali"));
     });
     
     // Süre göstergesini bul ve shuffle butonunu yanina ekle
@@ -306,24 +355,39 @@ function audioInit(){
     const timeDisplay = controls.find('.mejs__duration-container'); // Süre göstergesi (geçen süre / toplam süre)
         
     if (timeDisplay.length) {
-        timeDisplay.after(shuffleBtn); // Süre güstergesinin yanina ekle
-        timeDisplay.after(loopBtn);    // Loop butonunu ekle
-        timeDisplay.after(nextTrackBtn);    // Loop butonunu ekle
-        timeDisplay.after(prevTrackBtn);    // Loop butonunu ekle
+        timeDisplay.after(shuffleBtn); 
+        timeDisplay.after(loopBtn);   
+        timeDisplay.after(nextTrackBtn);  
+        timeDisplay.after(prevTrackBtn);  
     }
+}
+
+// Şarkı dinlemeyi kaydet
+function logSongPlay(songId) {
+    if (!songId) return;
     
-    // Şarkı bittiğinde
-    playerObject.media.addEventListener("ended", function() {
-        if (!isUserLoggedIn) {
-            document.querySelector('.membership-warning').style.display = 'block';
-        } else {
-            playNextTrack();
+    // AJAX ile veritabanına kaydet
+    $.ajax({
+        url: SITEURL + '/modules/muzibu/ajax_songplay.php',
+        type: 'POST',
+        data: {
+            song_id: songId,
+            action: 'log_play'
+        },
+        success: function(response) {
+            console.log('Şarkı dinleme kaydedildi', response);
+        },
+        error: function(xhr, status, error) {
+            console.error('Şarkı dinleme kaydedilemedi', error);
         }
     });
 }
 
 function playNextTrack(shuffle=true) {
     if (trackList.length === 0) return;
+    
+    // Dinleme sayacını temizle
+    clearInterval(songPlayTimerInterval);
     
     // Kullanıcı giriş yapmamışsa, şarkı değiştirmeye izin vermeyelim
     if (!isUserLoggedIn) {
@@ -335,21 +399,22 @@ function playNextTrack(shuffle=true) {
     if (isShuffle && shuffle) {
         do {
             nextIndex = Math.floor(Math.random() * trackList.length);
-			
-        } while (nextIndex === currentTrackIndex);
+        } while (nextIndex === currentTrackIndex && trackList.length > 1);
     } else {
         nextIndex = (currentTrackIndex + 1) % trackList.length;
     }
 
     currentTrackIndex = nextIndex;
     const nextTrack = trackList[currentTrackIndex];
-    console.log(nextTrack);
 
-    changeAudio(nextTrack.element, nextTrack.track, nextTrack.poster, nextTrack.title, nextTrack.singer);
+    changeAudio(nextTrack.element, nextTrack.track, nextTrack.poster, nextTrack.title, nextTrack.singer, nextTrack.song_id);
 }
 
 function playPrevTrack() {
     if (trackList.length === 0) return;
+    
+    // Dinleme sayacını temizle
+    clearInterval(songPlayTimerInterval);
     
     // Kullanıcı giriş yapmamışsa, şarkı değiştirmeye izin vermeyelim
     if (!isUserLoggedIn) {
@@ -358,105 +423,133 @@ function playPrevTrack() {
     }
     
     let prevIndex;
-    prevIndex = (currentTrackIndex - 1) % trackList.length;
+    if (currentTrackIndex === 0) {
+        prevIndex = trackList.length - 1;
+    } else {
+        prevIndex = currentTrackIndex - 1;
+    }
 
     currentTrackIndex = prevIndex;
     const prevTrack = trackList[currentTrackIndex];
-    console.log(prevTrack);
 
-    changeAudio(prevTrack.element, prevTrack.track, prevTrack.poster, prevTrack.title, prevTrack.singer);
+    changeAudio(prevTrack.element, prevTrack.track, prevTrack.poster, prevTrack.title, prevTrack.singer, prevTrack.song_id);
 }
 
-function changeAudio(clickEl,sourceUrl, posterUrl, trackTitle, trackSinger, playAudio = true ) {
+function changeAudio(clickEl, sourceUrl, posterUrl, trackTitle, trackSinger, songId, playAudio = true) {
     var audio = $("#audio-player"),
         playerId = audio.closest('.mejs__container').attr('id'),
         playerObject = mejs.players[playerId];
-		
-    console.log(audio,playerId,playerObject);
-		
+    
+    // Mevcut şarkı ID'sini kaydet
+    currentSongId = songId;
+    
+    // Dinleme sayacını temizle
+    clearInterval(songPlayTimerInterval);
+    songPlayTimer = 0;
+    songPlayed = false;
+    
     if(clickEl == checkelement){
-        
         if (playerObject.node.paused) {
             playerObject.play();
             jQuery(clickEl).find('i').removeClass('fas fa-play').addClass('far fa-pause');
+            
+            // Oynatma başladığında sayacı başlat
+            songPlayTimerInterval = setInterval(function() {
+                songPlayTimer++;
+                if (songPlayTimer >= 30 && !songPlayed) {
+                    songPlayed = true;
+                    logSongPlay(currentSongId);
+                }
+            }, 1000);
         } else {
             playerObject.pause();
             jQuery(clickEl).find('i').removeClass('far fa-pause').addClass('fas fa-play');
+            clearInterval(songPlayTimerInterval);
         }
         
         return true;
-    }else{
+    } else {
         checkelement = clickEl;
-
         jQuery('.track-list').find('i').removeClass('far fa-pause').addClass('fas fa-play');
     }
 
     trackPlaying = sourceUrl;
 
-    audio.attr( 'poster', posterUrl );
-    audio.attr( 'title', trackTitle );
+    audio.attr('poster', posterUrl);
+    audio.attr('title', trackTitle);
 
     jQuery('.mejs__layers').html('').html('<div class="mejs-track-artwork"><img src="'+ posterUrl +'" alt="Track Poster" /></div><div class="mejs-track-details"><h3>'+ trackTitle +'<br><span>'+ trackSinger +'</span></h3></div>');
 
-    if( sourceUrl != '' ) {
-        playerObject.setSrc( sourceUrl );
+    if(sourceUrl != '') {
+        playerObject.setSrc(sourceUrl);
     }
     playerObject.pause();
     playerObject.load();
 
-    if( playAudio == true ) {
+    if(playAudio == true) {
         playerObject.play();
         jQuery(clickEl).find('i').removeClass('fas fa-play').addClass('far fa-pause');
+        
+        // Dinleme sayacını başlat
+        songPlayTimerInterval = setInterval(function() {
+            songPlayTimer++;
+            if (songPlayTimer >= 30 && !songPlayed) {
+                songPlayed = true;
+                logSongPlay(currentSongId);
+            }
+        }, 1000);
     }
 }
 
-jQuery('#pjax-container').on('click','.track-list' ,function () {
+jQuery('#pjax-container').on('click', '.track-list', function() {
     var _this = this,
         audioTrack = jQuery(this).attr('data-track'),
         posterUrl = jQuery(this).attr('data-poster'),
-        trackTitle = jQuery(this).attr('data-title');
-    	trackSinger = jQuery(this).attr('data-singer');
+        trackTitle = jQuery(this).attr('data-title'),
+        trackSinger = jQuery(this).attr('data-singer'),
+        songId = jQuery(this).attr('data-id');
         
     var parentList = jQuery(this).closest('.songs-list');
-	var trackItems = parentList.find('.track-list');
+    var trackItems = parentList.find('.track-list');
 
     trackList = [];
-    trackItems.each(function (index) {
+    trackItems.each(function(index) {
         trackList.push({
             element: this,
             track: jQuery(this).attr('data-track'),
             poster: jQuery(this).attr('data-poster'),
             title: jQuery(this).attr('data-title'),
-            singer: jQuery(this).attr('data-singer')
+            singer: jQuery(this).attr('data-singer'),
+            song_id: jQuery(this).attr('data-id')
         });
         if (this === _this) {
             currentTrackIndex = index;
         }
     });
-    console.log(trackList);
+    
     const clickedTrack = trackList[currentTrackIndex];
-    changeAudio(clickedTrack.element, clickedTrack.track, clickedTrack.poster, clickedTrack.title, clickedTrack.singer);
+    changeAudio(clickedTrack.element, clickedTrack.track, clickedTrack.poster, clickedTrack.title, clickedTrack.singer, clickedTrack.song_id);
     return false;
 });
 
-jQuery(window).on( 'load', function(){
+jQuery(window).on('load', function(){
     var trackOnload = jQuery('#track-onload');
 
-    if( trackOnload.length > 0 ) {
-        var audioTrack = trackOnload.attr('data-track'), // Track url
-            posterUrl = trackOnload.attr('data-poster'), // Track Poster Image
-            trackTitle = trackOnload.attr('data-title'); // Track Title
-            trackSinger = trackOnload.attr('data-singer'); // Track Singer Name
+    if(trackOnload.length > 0) {
+        var audioTrack = trackOnload.attr('data-track'),
+            posterUrl = trackOnload.attr('data-poster'),
+            trackTitle = trackOnload.attr('data-title'), 
+            trackSinger = trackOnload.attr('data-singer'),
+            songId = trackOnload.attr('data-id');
             
-        // Kullanıcının giriş yapıp yapmadığını kontrol edelim ve bunu global değişkene atayalım
         isUserLoggedIn = trackOnload.attr('data-user-logged') === 'true';
-		
-        setTimeout( function(){
-            changeAudio(trackOnload, audioTrack, posterUrl, trackTitle, trackSinger, false );
+        
+        setTimeout(function(){
+            changeAudio(trackOnload, audioTrack, posterUrl, trackTitle, trackSinger, songId, false);
         }, 500);
     }
-	
-	audioInit();
+    
+    audioInit();
 });
 </script>
 

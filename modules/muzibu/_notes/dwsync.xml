@@ -2,19 +2,19 @@
 <dwsync>
 <file name="album_list.php" server="95.216.33.155/public_html/" local="133911983718586461" remote="133911947400000000" Dst="0" />
 <file name="playlist_list.php" server="95.216.33.155/public_html/" local="133912018909791005" remote="133911982800000000" Dst="0" />
-<file name="album_detail.php" server="95.216.33.155/public_html/" local="133911997041179250" remote="133909956600000000" Dst="0" />
-<file name="artist_detail.php" server="95.216.33.155/public_html/" local="133911997049815453" remote="133909956600000000" Dst="0" />
-<file name="artist_list.php" server="95.216.33.155/public_html/" local="133911997050392665" remote="133909956600000000" Dst="0" />
-<file name="favorites.php" server="95.216.33.155/public_html/" local="133912034730209067" remote="133911998400000000" Dst="0" />
+<file name="album_detail.php" server="95.216.33.155/public_html/" local="133912060289242612" remote="133912024200000000" Dst="0" />
+<file name="artist_detail.php" server="95.216.33.155/public_html/" local="133912070428347773" remote="133912034400000000" Dst="0" />
+<file name="artist_list.php" server="95.216.33.155/public_html/" local="133912070621327924" remote="133912034400000000" Dst="0" />
+<file name="favorites.php" server="95.216.33.155/public_html/" local="133912060785895528" remote="133912024200000000" Dst="0" />
 <file name="find_paths.php" server="95.216.33.155/public_html/" local="133911997052280612" remote="133909956600000000" Dst="0" />
-<file name="genre_detail.php" server="95.216.33.155/public_html/" local="133911997052728931" remote="133909956600000000" Dst="0" />
+<file name="genre_detail.php" server="95.216.33.155/public_html/" local="133912060450570684" remote="133912024200000000" Dst="0" />
 <file name="genre_list.php" server="95.216.33.155/public_html/" local="133911997053892922" remote="133909956600000000" Dst="0" />
 <file name="main.php" server="95.216.33.155/public_html/" local="133911997054479518" remote="133909956600000000" Dst="0" />
-<file name="muzibu_main.php" server="95.216.33.155/public_html/" local="133911997055054386" remote="133909956600000000" Dst="0" />
-<file name="playlist_detail.php" server="95.216.33.155/public_html/" local="133911997056354203" remote="133909956600000000" Dst="0" />
-<file name="sector_detail.php" server="95.216.33.155/public_html/" local="133911997056944866" remote="133909956600000000" Dst="0" />
-<file name="sector_list.php" server="95.216.33.155/public_html/" local="133911997067828716" remote="133909956600000000" Dst="0" />
-<file name="song_detail.php" server="95.216.33.155/public_html/" local="133911997068755699" remote="133909956600000000" Dst="0" />
-<file name="song_list.php" server="95.216.33.155/public_html/" local="133911997069350351" remote="133909956600000000" Dst="0" />
+<file name="muzibu_main.php" server="95.216.33.155/public_html/" local="133912071725855966" remote="133912035600000000" Dst="0" />
+<file name="playlist_detail.php" server="95.216.33.155/public_html/" local="133912060653596593" remote="133912024200000000" Dst="0" />
+<file name="sector_detail.php" server="95.216.33.155/public_html/" local="133912071469370747" remote="133912035000000000" Dst="0" />
+<file name="sector_list.php" server="95.216.33.155/public_html/" local="133912071528336006" remote="133912035000000000" Dst="0" />
+<file name="song_detail.php" server="95.216.33.155/public_html/" local="133912071607499109" remote="133912035600000000" Dst="0" />
+<file name="song_list.php" server="95.216.33.155/public_html/" local="133912060998159614" remote="133912024800000000" Dst="0" />
 <file name="test_urls.php" server="95.216.33.155/public_html/" local="133911997069885488" remote="133909956600000000" Dst="0" />
 </dwsync>

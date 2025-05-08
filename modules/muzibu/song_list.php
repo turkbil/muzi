@@ -1,9 +1,8 @@
- <!-- Banner Area Start -->
+<!-- Banner Area Start -->
          <Section class="playlist-banner">
             <img src="<?php echo THEMEURL; ?>/assets/media/bg/playlist-banner-bg.png" alt="">
             <div class="content">
                 <h1>Şarkılar</h1>
-                <p class="mb-24">Lorem ipsum dolor sit amet consectetur. Ultrices tellus adipiscing et risus. Eget platea euismod dictumst amet. Integer velit lorem gravida faucibus nec massa in. </p>
                 
             </div>
          </Section>
@@ -31,7 +30,14 @@
                 <div class="song-card">
                      <div class="left-block">
                         <div class="play">
-                            <a href="javascript:;" class="play track-list" data-track="<?php echo $trackPath; ?>" data-poster="<?php echo SITEURL;?>/thumbmaker.php?src=<?php echo SITEURL;?>/modules/muzibu/dataimages/<?php echo $song->thumb;?>&amp;h=410&amp;w=410&amp;s=1&amp;a=c&amp;q=80" data-title="<?php echo $song->title_tr; ?>" data-singer="<?php echo $song->artist_name; ?>"><i class="fas fa-play"></i></a>
+                            <a href="javascript:;" class="play track-list"
+                               data-track="<?php echo $trackPath; ?>" 
+                               data-poster="<?php echo SITEURL;?>/thumbmaker.php?src=<?php echo SITEURL;?>/modules/muzibu/dataimages/<?php echo $song->thumb;?>&amp;h=410&amp;w=410&amp;s=1&amp;a=c&amp;q=80" 
+                               data-title="<?php echo $song->title_tr; ?>" 
+                               data-singer="<?php echo $song->artist_name; ?>"
+                               data-id="<?php echo $song->id; ?>">
+                               <i class="fas fa-play"></i>
+                            </a>
                             <span><?php echo str_pad($i,2,"0",STR_PAD_LEFT);?></span>
                         </div>
                         <img src="<?php echo SITEURL;?>/thumbmaker.php?src=<?php echo SITEURL;?>/modules/muzibu/dataimages/<?php echo $song->thumb;?>&amp;h=410&amp;w=410&amp;s=1&amp;a=c&amp;q=80" alt="">
@@ -70,7 +76,7 @@
             <div class="song-card">
                 <div class="left-block">
                     <div class="play">
-                        <a href="javascript:;" class="play track-list" data-track="{{track_path}}" data-poster="{{thumb}}" data-title="{{title}}" data-singer="{{artist_name}}"><i class="fas fa-play"></i></a>
+                        <a href="javascript:;" class="play track-list" data-track="{{track_path}}" data-poster="{{thumb}}" data-title="{{title}}" data-singer="{{artist_name}}" data-id="{{song_id}}"><i class="fas fa-play"></i></a>
                         <span>{{i}}</span>
                     </div>
                     <img src="{{thumb}}" alt="">
