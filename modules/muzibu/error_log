@@ -1,1 +1,9 @@
 [08-May-2025 22:50:21 Europe/Istanbul] PHP Warning:  Use of undefined constant DEBUG - assumed 'DEBUG' (this will throw an Error in a future version of PHP) in /home/muzibu/public_html/lib/class_db.php on line 971
+[08-May-2025 23:58:50 Europe/Istanbul] PHP Warning:  Use of undefined constant DEBUG - assumed 'DEBUG' (this will throw an Error in a future version of PHP) in /home/muzibu/public_html/lib/class_db.php on line 971
+[09-May-2025 00:00:00 Europe/Istanbul] PHP Warning:  Use of undefined constant DEBUG - assumed 'DEBUG' (this will throw an Error in a future version of PHP) in /home/muzibu/public_html/lib/class_db.php on line 971
+[09-May-2025 00:01:28 Europe/Istanbul] PHP Warning:  Use of undefined constant DEBUG - assumed 'DEBUG' (this will throw an Error in a future version of PHP) in /home/muzibu/public_html/lib/class_db.php on line 971
+[09-May-2025 00:04:39 Europe/Istanbul] PHP Warning:  Use of undefined constant DEBUG - assumed 'DEBUG' (this will throw an Error in a future version of PHP) in /home/muzibu/public_html/lib/class_db.php on line 971
+[09-May-2025 00:11:12 Europe/Istanbul] PHP Warning:  require_once(admin_class.php): failed to open stream: No such file or directory in /home/muzibu/public_html/modules/muzibu/ajax_songs.php on line 20
+[09-May-2025 00:11:12 Europe/Istanbul] PHP Fatal error:  require_once(): Failed opening required 'admin_class.php' (include_path='.:/opt/cpanel/ea-php72/root/usr/share/pear') in /home/muzibu/public_html/modules/muzibu/ajax_songs.php on line 20
+[09-May-2025 00:11:12 Europe/Istanbul] PHP Warning:  require_once(admin_class.php): failed to open stream: No such file or directory in /home/muzibu/public_html/modules/muzibu/ajax_songs.php on line 20
+[09-May-2025 00:11:12 Europe/Istanbul] PHP Fatal error:  require_once(): Failed opening required 'admin_class.php' (include_path='.:/opt/cpanel/ea-php72/root/usr/share/pear') in /home/muzibu/public_html/modules/muzibu/ajax_songs.php on line 20
