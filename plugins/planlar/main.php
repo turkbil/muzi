@@ -20,7 +20,6 @@
 
             <div class="content">
                 <h1>Üyelik Planları</h1>
-                <p class="mb-24">Lorem ipsum dolor sit amet consectetur. Ultrices tellus adipiscing et risus.</p>
                 
                 <div class="membership-plans">
                     <div class="row justify-content-evenly">
