@@ -31,7 +31,10 @@
   if (isset($_POST['delete']) and $_POST['delete'] == "deleteSong"):
       $title = sanitize($_POST['title']);
       if ($file_path = getValueById("file_path", Muzibu::mTable, Filter::$id)):
-          unlink(BASEPATH . Muzibu::filepath . $file_path);
+          $filepath = BASEPATH . Muzibu::filepath . 'songs/' . $file_path;
+          if (file_exists($filepath)) {
+              @unlink($filepath);
+          }
       endif;
       $result = $db->delete(Muzibu::mTable, "id=" . Filter::$id);
       
@@ -56,7 +59,10 @@
   if (isset($_POST['delete']) and $_POST['delete'] == "deleteAlbum"):
       $title = sanitize($_POST['title']);
       if ($thumb = getValueById("thumb", Muzibu::albumTable, Filter::$id)):
-          unlink(BASEPATH . Muzibu::imagepath . $thumb);
+          $imagepath = BASEPATH . Muzibu::imagepath . $thumb;
+          if (file_exists($imagepath)) {
+              @unlink($imagepath);
+          }
       endif;
       
       // Albüme ait şarkıların album_id'sini sıfırlama
@@ -87,7 +93,10 @@
   if (isset($_POST['delete']) and $_POST['delete'] == "deleteArtist"):
       $title = sanitize($_POST['title']);
       if ($thumb = getValueById("thumb", Muzibu::artistTable, Filter::$id)):
-          unlink(BASEPATH . Muzibu::imagepath . $thumb);
+          $imagepath = BASEPATH . Muzibu::imagepath . $thumb;
+          if (file_exists($imagepath)) {
+              @unlink($imagepath);
+          }
       endif;
       
       // Sanatçıya ait albümlerin artist_id'sini sıfırlama
@@ -118,7 +127,10 @@
   if (isset($_POST['delete']) and $_POST['delete'] == "deleteGenre"):
       $title = sanitize($_POST['title']);
       if ($thumb = getValueById("thumb", Muzibu::genreTable, Filter::$id)):
-          unlink(BASEPATH . Muzibu::imagepath . $thumb);
+          $imagepath = BASEPATH . Muzibu::imagepath . $thumb;
+          if (file_exists($imagepath)) {
+              @unlink($imagepath);
+          }
       endif;
       
       // Tür ID'si ile ilişkili şarkı var mı kontrol et
@@ -153,7 +165,10 @@
   if (isset($_POST['delete']) and $_POST['delete'] == "deleteSector"):
       $title = sanitize($_POST['title']);
       if ($thumb = getValueById("thumb", "muzibu_sectors", Filter::$id)):
-          unlink(BASEPATH . Muzibu::imagepath . $thumb);
+          $imagepath = BASEPATH . Muzibu::imagepath . $thumb;
+          if (file_exists($imagepath)) {
+              @unlink($imagepath);
+          }
       endif;
       
       // İlişkili playlist-sector kayıtlarını sil
@@ -188,7 +203,10 @@
   if (isset($_POST['delete']) and $_POST['delete'] == "deletePlaylist"):
       $title = sanitize($_POST['title']);
       if ($thumb = getValueById("thumb", Muzibu::playlistTable, Filter::$id)):
-          unlink(BASEPATH . Muzibu::imagepath . $thumb);
+          $imagepath = BASEPATH . Muzibu::imagepath . $thumb;
+          if (file_exists($imagepath)) {
+              @unlink($imagepath);
+          }
       endif;
       
       // İlişkili playlist-sector kayıtlarını sil

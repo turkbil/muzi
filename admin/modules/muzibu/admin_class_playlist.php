@@ -82,7 +82,7 @@ class MuzibuPlaylist
     }
 
     /**
-     * MuzibuPlaylist::getSystemPlaylists()
+     * MuzibuPlaylist::getSystemPlaylistsHome()
      * 
      * @param int $limit
      * @return
@@ -271,7 +271,10 @@ class MuzibuPlaylist
                 $fullname = $filedir . $newName . "." . strtolower($ext);
 
                 if (Filter::$id && $file = getValueById("thumb", self::playlistTable, Filter::$id)) {
-                    @unlink($filedir . $file);
+                    $oldFile = $filedir . $file;
+                    if (file_exists($oldFile)) {
+                        @unlink($oldFile);
+                    }
                 }
 
                 if (!move_uploaded_file($_FILES['thumb']['tmp_name'], $fullname)) {
@@ -376,7 +379,10 @@ class MuzibuPlaylist
         $playlist = self::$db->first("SELECT thumb FROM " . self::playlistTable . " WHERE id = " . $id);
         if ($playlist && $playlist->thumb) {
             $filedir = BASEPATH . self::imagepath;
-            @unlink($filedir . $playlist->thumb);
+            $filepath = $filedir . $playlist->thumb;
+            if (file_exists($filepath)) {
+                @unlink($filepath);
+            }
         }
         
         // İlişkili playlist-sector kayıtlarını sil

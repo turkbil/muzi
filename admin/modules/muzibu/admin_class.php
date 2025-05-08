@@ -313,7 +313,7 @@ class Muzibu
         return ($row) ? $row : 0;
     }
 
-    /**
+/**
      * Muzibu::renderSingleAlbum()
      * 
      * @return
@@ -388,7 +388,7 @@ class Muzibu
 
             // Process Song File
             if (!empty($_FILES['song_file']['name'])) {
-                $filedir = BASEPATH . self::filepath.'songs/';
+                $filedir = BASEPATH . self::filepath . 'songs/';
                 
                 // Dizin kontrolü ve oluşturma
                 if (!file_exists($filedir)) {
@@ -400,7 +400,10 @@ class Muzibu
                 $fullname = $filedir . $newName . "." . strtolower($ext);
 
                 if (Filter::$id && $file = getValueById("file_path", self::mTable, Filter::$id)) {
-                    @unlink($filedir . $file);
+                    $oldFile = $filedir . $file;
+                    if (file_exists($oldFile)) {
+                        @unlink($oldFile);
+                    }
                 }
 
                 if (!move_uploaded_file($_FILES['song_file']['tmp_name'], $fullname)) {

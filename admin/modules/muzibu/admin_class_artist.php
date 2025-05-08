@@ -147,7 +147,10 @@ class MuzibuArtist
                 $fullname = $filedir . $newName . "." . strtolower($ext);
 
                 if (Filter::$id && $file = getValueById("thumb", self::artistTable, Filter::$id)) {
-                    @unlink($filedir . $file);
+                    $oldFile = $filedir . $file;
+                    if (file_exists($oldFile)) {
+                        @unlink($oldFile);
+                    }
                 }
 
                 if (!move_uploaded_file($_FILES['thumb']['tmp_name'], $fullname)) {
@@ -189,7 +192,10 @@ class MuzibuArtist
         $artist = self::$db->first("SELECT thumb FROM " . self::artistTable . " WHERE id = " . $id);
         if ($artist && $artist->thumb) {
             $filedir = BASEPATH . self::imagepath;
-            @unlink($filedir . $artist->thumb);
+            $filepath = $filedir . $artist->thumb;
+            if (file_exists($filepath)) {
+                @unlink($filepath);
+            }
         }
         
         // Sanatçıya ait albümlerin artist_id'si sıfırlanıyor (albümler silinmiyor)

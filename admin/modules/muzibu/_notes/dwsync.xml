@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <dwsync>
 <file name="admin.php" server="95.216.33.155/public_html/" local="133911992756832793" remote="133909953600000000" Dst="0" />
-<file name="admin_class.php" server="95.216.33.155/public_html/" local="133911992758733738" remote="133909953600000000" Dst="0" />
-<file name="admin_class_album.php" server="95.216.33.155/public_html/" local="133911992758733738" remote="133909953600000000" Dst="0" />
-<file name="admin_class_artist.php" server="95.216.33.155/public_html/" local="133911992759358660" remote="133909953600000000" Dst="0" />
-<file name="admin_class_genre.php" server="95.216.33.155/public_html/" local="133911992761113949" remote="133909953600000000" Dst="0" />
+<file name="admin_class.php" server="95.216.33.155/public_html/" local="133912089351217193" remote="133912053000000000" Dst="0" />
+<file name="admin_class_album.php" server="95.216.33.155/public_html/" local="133912086957181024" remote="133912050600000000" Dst="0" />
+<file name="admin_class_artist.php" server="95.216.33.155/public_html/" local="133912087251362421" remote="133912051200000000" Dst="0" />
+<file name="admin_class_genre.php" server="95.216.33.155/public_html/" local="133912087601241480" remote="133912051200000000" Dst="0" />
 <file name="admin_class_homepage.php" server="95.216.33.155/public_html/" local="133911992761129090" remote="133909953600000000" Dst="0" />
-<file name="admin_class_playlist.php" server="95.216.33.155/public_html/" local="133912032095236146" remote="133911996000000000" Dst="0" />
-<file name="admin_class_sector.php" server="95.216.33.155/public_html/" local="133911992763000658" remote="133909953600000000" Dst="0" />
+<file name="admin_class_playlist.php" server="95.216.33.155/public_html/" local="133912087975169723" remote="133912051800000000" Dst="0" />
+<file name="admin_class_sector.php" server="95.216.33.155/public_html/" local="133912088107961610" remote="133912051800000000" Dst="0" />
 <file name="ajax_songs.php" server="95.216.33.155/public_html/" local="133911992763650435" remote="133909953600000000" Dst="0" />
-<file name="controller.php" server="95.216.33.155/public_html/" local="133911992764880957" remote="133909953600000000" Dst="0" />
+<file name="controller.php" server="95.216.33.155/public_html/" local="133912086469541112" remote="133912050000000000" Dst="0" />
 <file name="config.ini" server="95.216.33.155/public_html/" local="133911992765920929" remote="133909953600000000" Dst="0" />
 <file name="crumbs.php" server="95.216.33.155/public_html/" local="133911992766140083" remote="133909953600000000" Dst="0" />
 <file name="lang-delete.php" server="95.216.33.155/public_html/" local="133911992768209562" remote="133909953600000000" Dst="0" />

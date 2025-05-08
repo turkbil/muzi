@@ -132,11 +132,25 @@ class MuzibuSector
             // Process Sector Thumbnail
             if (!empty($_FILES['thumb']['name'])) {
                 $thumbdir = BASEPATH . self::imagepath;
+                
+                // Dizin kontrolü ve oluşturma
+                if (!file_exists($thumbdir)) {
+                    mkdir($thumbdir, 0755, true);
+                }
+                
                 $tName = 'SECTOR_' . randomString(6, true);
                 $text = substr($_FILES['thumb']['name'], strrpos($_FILES['thumb']['name'], '.') + 1);
                 $thumbName = $tName . "-" . randomString(6, true) . "-" . randomString(6, true) . "-" . randomString(6, true) . "-" . randomString(6, true) . "-" . randomString(6, true);
                 $thumbName = $thumbName . "." . strtolower($text);
                 $thumbPath = $thumbdir . $thumbName;
+                
+                if (Filter::$id && $file = getValueById("thumb", self::sectorTable, Filter::$id)) {
+                    $oldFile = $thumbdir . $file;
+                    if (file_exists($oldFile)) {
+                        @unlink($oldFile);
+                    }
+                }
+                
                 if ($this->moveFile($_FILES['thumb']['tmp_name'], $thumbPath)) {
                     $data['thumb'] = $thumbName;
                 }
@@ -192,7 +206,10 @@ class MuzibuSector
         $sector = self::$db->first("SELECT thumb FROM " . self::sectorTable . " WHERE id = " . $id);
         if ($sector && $sector->thumb) {
             $filedir = BASEPATH . self::imagepath;
-            @unlink($filedir . $sector->thumb);
+            $filepath = $filedir . $sector->thumb;
+            if (file_exists($filepath)) {
+                @unlink($filepath);
+            }
         }
         
         // İlişkili playlist-sector kayıtlarını sil

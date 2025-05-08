@@ -199,7 +199,10 @@ class MuzibuAlbum
                 $fullname = $filedir . $newName . "." . strtolower($ext);
 
                 if (Filter::$id && $file = getValueById("thumb", self::albumTable, Filter::$id)) {
-                    @unlink($filedir . $file);
+                    $oldFile = $filedir . $file;
+                    if (file_exists($oldFile)) {
+                        @unlink($oldFile);
+                    }
                 }
 
                 if (!move_uploaded_file($_FILES['thumb']['tmp_name'], $fullname)) {
@@ -241,7 +244,10 @@ class MuzibuAlbum
         $album = self::$db->first("SELECT thumb FROM " . self::albumTable . " WHERE id = " . $id);
         if ($album && $album->thumb) {
             $filedir = BASEPATH . self::imagepath;
-            @unlink($filedir . $album->thumb);
+            $filepath = $filedir . $album->thumb;
+            if (file_exists($filepath)) {
+                @unlink($filepath);
+            }
         }
         
         // Albüme ait şarkıların albüm_id'si sıfırlanıyor (şarkılar silinmiyor)

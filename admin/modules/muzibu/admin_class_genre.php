@@ -143,7 +143,10 @@ class MuzibuGenre
                 $fullname = $filedir . $newName . "." . strtolower($ext);
 
                 if (Filter::$id && $file = getValueById("thumb", self::genreTable, Filter::$id)) {
-                    @unlink($filedir . $file);
+                    $oldFile = $filedir . $file;
+                    if (file_exists($oldFile)) {
+                        @unlink($oldFile);
+                    }
                 }
 
                 if (!move_uploaded_file($_FILES['thumb']['tmp_name'], $fullname)) {
@@ -185,7 +188,10 @@ class MuzibuGenre
         $genre = self::$db->first("SELECT thumb FROM " . self::genreTable . " WHERE id = " . $id);
         if ($genre && $genre->thumb) {
             $filedir = BASEPATH . self::imagepath;
-            @unlink($filedir . $genre->thumb);
+            $filepath = $filedir . $genre->thumb;
+            if (file_exists($filepath)) {
+                @unlink($filepath);
+            }
         }
         
         // Türe ait şarkıların genre_id'si varsayılan bir değere atanabilir, ancak SQL yapısından bu zorunlu bir alan
