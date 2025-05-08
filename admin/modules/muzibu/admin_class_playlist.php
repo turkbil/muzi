@@ -30,6 +30,8 @@ class MuzibuPlaylist
      * MuzibuPlaylist::__construct()
      * 
      * @return
+     
+     
      */
     function __construct()
     {
@@ -112,7 +114,7 @@ class MuzibuPlaylist
                 FROM " . self::playlistTable . " as p
                 LEFT JOIN " . self::usersTable . " as u ON u.id = p.user_id
                 LEFT JOIN " . self::playlistSongTable . " as ps ON ps.playlist_id = p.id
-                WHERE p.system = 1 AND p.active = 1
+                WHERE p.system = 1 AND p.active = 1 AND p.is_public = 1
                 GROUP BY p.id
                 ORDER BY p.title" . Lang::$lang;
 

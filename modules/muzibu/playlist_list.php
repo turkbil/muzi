@@ -76,13 +76,16 @@
                 </div>
                 
             </div>
+            <?php 
+            // Sistem tarafından oluşturulan çalma listelerini getir - active=1, is_public=1, system=1
+            $playlists = Registry::get('Muzibu')->playlist->getSystemPlaylists();
+            ?>
             <?php if($playlists):?>
             <div class="row row-gap-4 playlists-list">
-                <?php $playlists = Registry::get('Muzibu')->playlist->getPlaylists();?>
                 <?php foreach($playlists as $playlist):?>
                 <div class="col-lg-3 col-sm-4 col-6">
                     <a href="<?php echo Url::Muzibu("playlist-detail",$playlist->slug);?>" class="music-card" tabindex="-1" data-pjax>
-                        <img src="<?php echo SITEURL;?>/thumbmaker.php?src=<?php echo SITEURL;?>/modules/muzibu/dataimages/<?php echo $playlist->thumb != "" ? $playlist->thumb : $playlist->album_thumb ;?>&amp;h=410&amp;w=410&amp;s=1&amp;a=c&amp;q=80" alt="">
+                        <img src="<?php echo SITEURL;?>/thumbmaker.php?src=<?php echo SITEURL;?>/modules/muzibu/dataimages/<?php echo $playlist->thumb != "" ? $playlist->thumb : $playlist->album_thumb ;?>&amp;h=410&amp;w=410&amp;s=1&amp;a=c&amp;q=60" alt="">
                         <div class="content">
                             <h6><?php echo $playlist->title_tr;?></h6>
                             <p class="fs-13 color-white"><?php echo $playlist->song_count;?> Şarkı </p>
