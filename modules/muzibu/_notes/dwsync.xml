@@ -17,4 +17,6 @@
 <file name="song_detail.php" server="95.216.33.155/public_html/" local="133912071607499109" remote="133912035600000000" Dst="0" />
 <file name="song_list.php" server="95.216.33.155/public_html/" local="133912060998159614" remote="133912024800000000" Dst="0" />
 <file name="test_urls.php" server="95.216.33.155/public_html/" local="133911997069885488" remote="133909956600000000" Dst="0" />
+<file name="ajax_songplay.php" server="95.216.33.155/public_html/" local="133912078446039334" remote="133912017000000000" Dst="0" />
+<file name="error_log" server="95.216.33.155/public_html/" local="133912078447820414" remote="133912038000000000" Dst="0" />
 </dwsync>

@@ -1,0 +1,1 @@
+[08-May-2025 22:50:21 Europe/Istanbul] PHP Warning:  Use of undefined constant DEBUG - assumed 'DEBUG' (this will throw an Error in a future version of PHP) in /home/muzibu/public_html/lib/class_db.php on line 971
