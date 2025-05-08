@@ -1,0 +1,165 @@
+#articles.layout-left aside,
+#articles.layout-right aside,
+#articles.layout-top aside {
+  float: left;
+  width: 60px;
+  margin-right: 10px;
+}
+#articles.layout-left aside > div,
+#articles.layout-right aside > div,
+#articles.layout-top aside > div {
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid #E6E6E6;
+  box-shadow: 0 0 0 1px #FFFFFF inset, 0 2px 0 rgba(0, 0, 0, 0.04);
+  display: block;
+  margin: 0 10px 0 0;
+  overflow: hidden;
+  padding: .75em 0 0;
+  text-align: center;
+  width: 50px;
+  margin-top: .7em;
+}
+#articles.layout-left aside > div span.day,
+#articles.layout-right aside > div span.day,
+#articles.layout-top aside > div span.day {
+  font-size: 2.2em;
+  line-height: 40px;
+  border-bottom: 1px solid #FFFFFF;
+  display: block;
+  padding-bottom: 5px;
+}
+#articles.layout-left aside > div span.year,
+#articles.layout-right aside > div span.year,
+#articles.layout-top aside > div span.year {
+  background: rgba(255, 255, 255, 0.9);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  display: block;
+  font-size: .65em;
+  line-height: 2.5;
+}
+#articles.layout-left section,
+#articles.layout-right section,
+#articles.layout-top section {
+  overflow: hidden;
+  position: relative;
+}
+#articles.layout-left section > .header,
+#articles.layout-right section > .header,
+#articles.layout-top section > .header {
+  display: block;
+  margin-bottom: 1.6em;
+}
+#articles.layout-left section .title,
+#articles.layout-right section .title,
+#articles.layout-top section .title {
+  display: inline-block;
+  float: left;
+  width: 100%;
+}
+#articles.layout-left section h3,
+#articles.layout-right section h3,
+#articles.layout-top section h3 {
+  display: inline-block;
+  font-size: 1.8em;
+  line-height: 100%;
+  margin: .85em 0 0;
+  padding: 0 0 .85em;
+  font-weight: 500
+}
+#articles.layout-left section .divided.list,
+#articles.layout-right section .divided.list,
+#articles.layout-top section .divided.list {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 4px 0;
+  width: 100%
+}
+#articles.layout-left section .description,
+#articles.layout-right section .description,
+#articles.layout-top section .description {
+  line-height: 1.6em;
+}
+/* == Item Rating/Voting == */  
+.tubi.rating-read b,
+.tubi.rating-vote b {
+  font-family: Icons;
+  font-weight: 400;
+  font-style: normal;
+  display: inline-block;
+  font-size: 1em;
+  color: #7D7D7D;
+  cursor: pointer
+}
+.tubi.rating-read b {
+  cursor: default
+}
+.tubi.rating-read b:before,
+.tubi.rating-vote b:before {
+  content: "\f005";
+  padding-right: 4px;
+  color: #717171
+}
+.tubi.rating-read b.rated:before,
+.tubi.rating-vote b:hover:before,
+.tubi.rating-vote b.rated:before {
+  content: "\f005";
+  color: #5DCFF3;
+  transition: color .2s;
+  -o-transition: color .2s;
+  -ms-transition: color .2s;
+  -moz-transition: color .2s;
+  -webkit-transition: color .2s
+}
+.tubi.rating-vote b.rated:hover:before {
+  color: #FCC44D
+}
+.tubi.rating-read i,
+.tubi.rating-vote i {
+  padding-left: 5px;
+  font-size: 12px!important
+}
+.tubi.rating-vote {
+  display: block;
+}
+.tubi.rating-vote b,
+.tubi.rating-vote.small b {
+  font-size: 1.8em;
+  margin-right: 0.3em
+}
+.tubi.rating-vote.small b {
+  font-size: 1.2em;
+}
+.tubi.voting {
+  display: inline-block;
+  background: #404040;
+  border-radius: 4px;
+}
+.tubi.voting b {
+  font-size: 12px;
+  font-weight: normal;
+  color: #fff;
+  display: inline-block;
+  padding-left: 5px
+}
+.tubi.voting a {
+  display: inline-block;
+  padding: 7px 15px;
+}
+.tubi.voting i {
+  font-size: 1em!important;
+  color: #FCC44D
+}
+.tubi.voting a.vote-up > i {
+  color: #92CF5C
+}
+.tubi.voting a.vote-up:hover {
+  background: #92CF5C;
+  border-radius: 3px 0 0 3px
+}
+.tubi.voting a.vote-down:hover {
+  background: #FCC44D;
+  border-radius: 0 3px 3px 0
+}
+.tubi.voting a.vote-up:hover > i,
+.tubi.voting a.vote-down:hover > i {
+  color: #fff
+}

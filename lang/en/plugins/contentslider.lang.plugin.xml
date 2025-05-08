@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language>
+  <phrase data="_PLG_CS_TITLE">Manage CMS Content Slider Plugin</phrase>
+  <phrase data="_PLG_CS_CAPTION">Slide Caption</phrase>
+  <phrase data="_PLG_CS_DESC">Slide Description</phrase>
+  <phrase data="_PLG_CS_POS">Position</phrase>
+  <phrase data="_PLG_CS_NOIMG">You don't have any slides yet. Please Add</phrase>
+  <phrase data="_PLG_CS_INFO3">Here you can configure content slider plugin. To reorder items click and drag item reorder handle, position it where you want it. Position will be updated automatically.</phrase>
+  <phrase data="_PLG_CS_SUBTITLE3">Viewing All Slides</phrase>
+  <phrase data="_PLG_CS_SUBTITLE2">Editing Slide / </phrase>
+  <phrase data="_PLG_CS_TITLE2">Edit Slide</phrase>
+  <phrase data="_PLG_CS_INFO2">Here you can update your current slide.</phrase>
+  <phrase data="_PLG_CS_SUBTITLE1">Adding Slide</phrase>
+  <phrase data="_PLG_CS_TITLE1">Add Slide</phrase>
+  <phrase data="_PLG_CS_INFO1">Here you can add new slide.</phrase>
+  <phrase data="_PLG_CS_CONF">Configuration</phrase>
+  <phrase data="_PLG_CS_UPDATE">Update Slide</phrase>
+  <phrase data="_PLG_CS_SLIDE">Slide</phrase>
+  <phrase data="_PLG_CS_ADDSLIDE">Add Slide</phrase>
+  <phrase data="_PLG_CS_ADDED">Slide added successfuly.</phrase>
+  <phrase data="_PLG_CS_UPDATED">Slide updated successfuly.</phrase>
+</language>

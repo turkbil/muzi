@@ -1,0 +1,108 @@
+/*-------------------------
+  Form Styling
+-------------------------*/
+
+.form-group {
+  position: relative;
+  width: 100%;
+  input[type="date"],
+  input[type="text"],
+  input[type="email"],
+  input[type="file"],
+  input[type="number"],
+  input[type="password"],
+  input[type="search"],
+  input[type="submit"],
+  input[type="tel"],
+  textarea,
+  .cus-form-control {
+    width: 100%;
+    background: transparent;
+    padding: 0 clamp(12px, 0.83vw, 24px);
+    height: clamp(32px, 2.1vw, 48px);
+    color: $light-gray;
+    display: flex;
+    border-radius: 4px;
+    align-items: center;
+    border: 1px solid $light-gray;
+    &:focus {
+      color: $light-gray;
+      outline: none;
+      background: transparent !important;
+      border: 1px solid $light-gray;
+      border-radius: 4px;
+      box-shadow: none;
+    }
+    &:hover {
+      color: $light-gray;
+      border: 1px solid $light-gray;
+    }
+    &::placeholder {
+      color: $light-gray;
+      opacity: 1;
+    }
+  }
+  textarea {
+    height: auto !important;
+    padding-top: 16px;
+  }
+  label{
+    color: $white;
+    margin-bottom: 4px;
+  }
+}
+
+
+
+// Search Field
+.search-field {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: clamp(6px, 0.43vw, 12px);
+  padding: 0 clamp(12px, 0.83vw, 24px);
+  height: clamp(32px, 2.083vw, 64px);
+  border-radius: 4px;
+  color: $lightest-gray;
+  background-color: $accent-2;
+  .form-group {
+    input[type="date"],
+    input[type="text"],
+    input[type="email"],
+    input[type="file"],
+    input[type="number"],
+    input[type="password"],
+    input[type="search"],
+    input[type="submit"],
+    input[type="tel"],
+    textarea,
+    .cus-form-control {
+      border: none;
+      padding-right: 0;
+      background: transparent;
+      height: auto;
+      color: $lightest-gray;
+      padding: 0;
+      &:focus {
+        border: none;
+        background-color: transparent !important;
+      }
+      &:hover {
+        border: none;
+      }
+      &::placeholder {
+        color: $lightest-gray;
+        border: none;
+      }
+    }
+  }
+  .search-btn {
+    flex-shrink: 0;
+    border: 0;
+    background: transparent;
+    color: $lightest-gray;
+    i {
+      font-size: 16px;
+    }
+  }
+}

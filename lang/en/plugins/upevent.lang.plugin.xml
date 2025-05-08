@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language>
+  <phrase data="_PLG_UE_TITLE1">Manage CMS Upcoming Event Plugin</phrase>
+  <phrase data="_PLG_UE_INFO1">Here you can update your upcoming event configuration.</phrase>
+  <phrase data="_PLG_UE_SUBTITLE1">Upcoming Event Configuration</phrase>
+  <phrase data="_PLG_UE_SELECT">Select Event</phrase>
+  <phrase data="_PLG_UE_SELECT_T">Make sure you have at least one active event in Event Manager, in order to assign it as upcoming event.</phrase>
+  <phrase data="_PLG_UE_NOEVENT">--- Please create at least one event ---</phrase>
+  <phrase data="_PLG_UE_DAYS">Days</phrase>
+  <phrase data="_PLG_UE_HOURS">Hours</phrase>
+  <phrase data="_PLG_UE_MINUTES">Minutes</phrase>
+  <phrase data="_PLG_UE_SECONDS">Seconds</phrase>
+  <phrase data="_PLG_UE_TIMELEFT">Time Left For this Event</phrase>
+  <phrase data="_PLG_UE_ENDED">This Event has ended</phrase>
+  <phrase data="_PLG_UE_UPDATE">Update Settings</phrase>
+  <phrase data="_PLG_UE_UPDATED">Upcoming Event settings updated successfully!</phrase>
+  <phrase data="_PLG_UE_HELP">Upcoming Event Help</phrase>
+</language>

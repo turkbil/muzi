@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language>
+  <phrase data="_PLG_RSS_TITLE1">Manage CMS RSS Parser Plugin</phrase>
+  <phrase data="_PLG_RSS_INFO1">Here you can update your rss configuration.</phrase>
+  <phrase data="_PLG_RSS_SUBTITLE1">Edit Configuraion</phrase>
+  <phrase data="_PLG_RSS_URL">Url To Parse</phrase>
+  <phrase data="_PLG_RSS_URL_T">Enter full url starting with: http://</phrase>
+  <phrase data="_PLG_RSS_TITLETRIM">Trim Title Lenght</phrase>
+  <phrase data="_PLG_RSS_TITLETRIM_T">After how many characters to trim title lenght. Select 0 (zero) for no trim.</phrase>
+  <phrase data="_PLG_RSS_SHOW_BODY">Show Summary</phrase>
+  <phrase data="_PLG_RSS_BODYTRIM">Trim Summary Lenght</phrase>
+  <phrase data="_PLG_RSS_BODYTRIM_T">After how many characters to trim summary lenght. Select 0 (zero) for no trim.</phrase>
+  <phrase data="_PLG_RSS_SHOW_DATE">Show Date</phrase>
+  <phrase data="_PLG_RSS_DATEFORMAT">Date Format</phrase>
+  <phrase data="_PLG_RSS_DATE_T">--- Select Date Format ---</phrase>
+  <phrase data="_PLG_RSS_ITEMS">Total Items</phrase>
+  <phrase data="_PLG_RSS_ITEMS_T">Number of items displayed.</phrase>
+  <phrase data="_PLG_RSS_UPDATE">Update Settings</phrase>
+  <phrase data="_PLG_RSS_UPDATED">Rss settings updated successfully!</phrase>
+  <phrase data="_PLG_RSS_HELP">Rss Help</phrase>
+</language>

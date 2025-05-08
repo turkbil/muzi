@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language>
+  <phrase data="_MOD_CM_COMMENTS">Comments</phrase>
+  <phrase data="_MOD_CM_NOCOMMENTS">No Comments Yet...</phrase>
+  <phrase data="_MOD_CM_REPLY">Leave a Reply</phrase>
+  <phrase data="_MOD_CM_NAME">Name</phrase>
+  <phrase data="_MOD_CM_COMMENT">Your Comment</phrase>
+  <phrase data="_MOD_CM_HAS_C">Responses to </phrase>
+  <phrase data="_MOD_CM_E_NOT_V">Your email address will not be published.</phrase>
+  <phrase data="_MOD_CM_WEB">Website</phrase>
+  <phrase data="_MOD_CM_CAPTCHA_N">Captcha Code</phrase>
+  <phrase data="_MOD_CM_ADDCOMMENT">Add Comment</phrase>
+  <phrase data="_MOD_CHAR_REMAIN1">You have </phrase>
+  <phrase data="_MOD_CHAR_REMAIN2"> characters remaining.</phrase>
+  <phrase data="_MOD_CM_REPLY2">Reply</phrase>
+  <phrase data="_MOD_CM_MSGOK1">Thank you! Your comment have been submitted</phrase>
+  <phrase data="_MOD_CM_MSGOK2">Thank you! Your comment have been submitted, and pending verification.</phrase>
+  <phrase data="_MOD_CM_MSGERR3">Sory only registered and logged in users can post comments. Please sign in or register.</phrase>
+
+  <!-- Post -->
+  <phrase data="_MOD_CM_E_NAME">Please Enter Valid Name</phrase>
+  <phrase data="_MOD_CM_E_CAPTCHA">Please Enter Captcha Code</phrase>
+  <phrase data="_MOD_CM_E_CAPTCHA2">Entered Captcha Code Is Invalid</phrase>
+  <phrase data="_MOD_CM_E_EMAIL">Please Enter Your Email Address</phrase>
+  <phrase data="_MOD_CM_E_EMAIL2">Entered Email Address Is Invalid</phrase>
+  <phrase data="_MOD_CM_E_WWW">Entered Website Is Invalid. Must start with http://</phrase>
+  <phrase data="_MOD_CM_E_COMMENT">Please Enter Your Comment</phrase>
+  <phrase data="_MOD_CM_MSG_ERR">Comment could not be sent due to the following error(s):</phrase>
+  <phrase data="_MOD_CM_MSG_ADMIN">You have a new comment</phrase>
+
+  <!-- Backend -->
+  <phrase data="_MOD_CM_TITLE1">Comments Configuration</phrase>
+  <phrase data="_MOD_CM_INFO1">Here you can update your comments configuration.</phrase>
+  <phrase data="_MOD_CM_SUBTITLE1">Update Comments Configuration</phrase>
+  <phrase data="_MOD_CM_UNAME_R">Username Required</phrase>
+  <phrase data="_MOD_CM_UNAME_T">Is username required to post comment</phrase>
+  <phrase data="_MOD_CM_EMAIL_R">Email Required</phrase>
+  <phrase data="_MOD_CM_EMAIL_T">Is email required to post comment</phrase>
+  <phrase data="_MOD_CM_CAPTCHA">Show Captcha</phrase>
+  <phrase data="_MOD_CM_CAPTCHA_T">Show Captcha to prevent spam</phrase>
+  <phrase data="_MOD_CM_WWW">Show Website</phrase>
+  <phrase data="_MOD_CM_WWW_T">Show posters website</phrase>
+  <phrase data="_MOD_CM_UNAME_S">Show Username</phrase>
+  <phrase data="_MOD_CM_UNAME_ST">Show posters username</phrase>
+  <phrase data="_MOD_CM_EMAIL_S">Show Email</phrase>
+  <phrase data="_MOD_CM_EMAIL_ST">Show posters email</phrase>
+  <phrase data="_MOD_CM_REG_ONLY">Public Access</phrase>
+  <phrase data="_MOD_CM_REG_ONLY_T">If No, only registered and logged in users can post comments. Otherwize all visitors will be able to post comments freely.</phrase>
+  <phrase data="_MOD_CM_SORTING">Comments Sorting</phrase>
+  <phrase data="_MOD_CM_SORTING_T">--- Most Recent / Top ---</phrase>
+  <phrase data="_MOD_CM_SORTING_B">--- Most Recent / Bottom ---</phrase>
+  <phrase data="_MOD_CM_CHAR">Character Limit</phrase>
+  <phrase data="_MOD_CM_CHAR_T">Limit number of comment characters.</phrase>
+  <phrase data="_MOD_CM_PERPAGE">Comments Per Page</phrase>
+  <phrase data="_MOD_CM_PERPAGE_T">How many comments to show for pagination</phrase>
+  <phrase data="_MOD_CM_AA">Auto Approve</phrase>
+  <phrase data="_MOD_CM_AA_T">Automatically approve all comments</phrase>
+  <phrase data="_MOD_CM_NOTIFY">Notifications</phrase>
+  <phrase data="_MOD_CM_NOTIFY_T">Send email notification on each comment added. Will use default site email address</phrase>
+  <phrase data="_MOD_CM_DATE">Date Format</phrase>
+  <phrase data="_MOD_CM_DATE_T">Date format used for showing posting time.</phrase>
+  <phrase data="_MOD_CM_WORDS">Blacklisted Words</phrase>
+  <phrase data="_MOD_CM_WORDS_T">Enter words separated by coma. Each word will be replaced with ***</phrase>
+  <phrase data="_MOD_CM_UPDATE_B">Update Configuration</phrase>
+  <phrase data="_MOD_CM_TITLE3">Manage CMS Comments Module</phrase>
+  <phrase data="_MOD_CM_INFO3">Here you can manage your cms comments.</phrase>
+  <phrase data="_MOD_CM_SUBTITLE3">Viewing CMS Comments</phrase>
+  <phrase data="_MOD_CM_CONFIG">Comment Configuration</phrase>
+  <phrase data="_MOD_CM_SHOWFROM">From Date</phrase>
+  <phrase data="_MOD_CM_SHOWTO">To Date</phrase>
+  <phrase data="_MOD_CM_UNAME">Username</phrase>
+  <phrase data="_MOD_CM_EMAIL">Email</phrase>
+  <phrase data="_MOD_CM_CREATED">Created</phrase>
+  <phrase data="_MOD_CM_PNAME">Page Name</phrase>
+  <phrase data="_MOD_CM_VIEW_P">View Comment / </phrase>
+  <phrase data="_MOD_CM_APPROVE">Approve</phrase>
+  <phrase data="_MOD_CM_DISAPPROVE">Disapprove</phrase>
+  <phrase data="_MOD_CM_NONCOMMENTS">You don't have any comments yet!</phrase>
+  <phrase data="_MOD_CM_UPDATED">Comments Configuration updated successfully!</phrase>
+  <phrase data="_MOD_CM_NA">Please select comment(s) to process!</phrase>
+  <phrase data="_MOD_CM_APPROVED">Selected Comments have been approved.</phrase>
+  <phrase data="_MOD_CM_DISAPPROVED">Selected Comments have been Disapproved.</phrase>
+  <phrase data="_MOD_CM_DELETED">Selected Comments have been deleted.</phrase>
+  <phrase data="_MOD_CM_COMUPDATED">Comment updated successfully.</phrase>
+  <phrase data="_MOD_CM_HELP">Comments Help</phrase>
+</language>

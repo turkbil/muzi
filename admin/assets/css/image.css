@@ -1,0 +1,132 @@
+/* == Images == */
+.tubi.image {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  max-width: 100%;
+  background-color: rgba(0, 0, 0, 0.05);
+  box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 0.1);
+}
+img.tubi.image {
+  background: none;
+}
+.tubi.image .caption {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: .8em;
+  font-family: 'Open Sans Condensed';
+  text-align: center;
+  box-shadow: inset 0 1px 0 0 #fff;
+  position: relative;
+}
+.tubi.image img {
+  width: auto;
+  max-width: 100%;
+  max-height: 100%;
+  vertical-align: top;
+  border: 0
+}
+/* == State == */
+.tubi.disabled.image {
+  cursor: default;
+  opacity: 0.3;
+}
+/* == Variations == */
+.tubi.basic.image {
+  box-shadow: none;
+}
+.tubi.rounded.images .image,
+.tubi.rounded.images img,
+.tubi.rounded.image img,
+.tubi.rounded.image {
+  border-radius: 0.3125em;
+}
+.tubi.circular.images .image,
+.tubi.circular.images img,
+.tubi.circular.image img,
+.tubi.circular.image {
+  border-radius: 500rem;
+}
+.tubi.fluid.images,
+.tubi.fluid.image,
+.tubi.fluid.images img,
+.tubi.fluid.image img {
+  display: block;
+  width: 100%;
+}
+.tubi.avatar.images .image,
+.tubi.avatar.images img,
+.tubi.avatar.image img,
+.tubi.avatar.image {
+  margin-right: 0.5em;
+  display: inline-block;
+  width: 3em;
+  height: 3em;
+  border-radius: 500rem;
+}
+.tubi.floated.image,
+.tubi.floated.images {
+  float: left;
+  margin-right: 1em;
+  margin-bottom: 1em;
+}
+.tubi.right.floated.images,
+.tubi.right.floated.image {
+  float: right;
+  margin-bottom: 1em;
+  margin-left: 1em;
+}
+/* == Size == */
+.tubi.tiny.images .image,
+.tubi.tiny.images img,
+.tubi.tiny.image {
+  width: 20px;
+  font-size: 0.7rem;
+}
+.tubi.mini.images .image,
+.tubi.mini.images img,
+.tubi.mini.image {
+  width: 35px;
+  font-size: 0.8rem;
+}
+.tubi.small.images .image,
+.tubi.small.images img,
+.tubi.small.image {
+  width: 80px;
+  font-size: 0.9rem;
+}
+.tubi.normal.images .image,
+.tubi.normal.images img,
+.tubi.normal.image {
+  width: 150px;
+  font-size: 0.9rem;
+}
+.tubi.medium.images .image,
+.tubi.medium.images img,
+.tubi.medium.image {
+  width: 300px;
+  font-size: 1rem;
+}
+.tubi.large.images .image,
+.tubi.large.images img,
+.tubi.large.image {
+  width: 450px;
+  font-size: 1.1rem;
+}
+.tubi.huge.images .image,
+.tubi.huge.images img,
+.tubi.huge.image {
+  width: 600px;
+  font-size: 1.2rem;
+}
+/* == Groups == */
+.tubi.images {
+  font-size: 0em;
+  margin: 0em -0.25rem 0rem;
+}
+.tubi.images .image,
+.tubi.images img {
+  display: inline-block;
+  margin: 0em 0.25em 0.5em;
+}

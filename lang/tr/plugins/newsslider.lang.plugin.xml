@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language>
+  <phrase data="_PLG_NS_TITLE1">Banner Düzenleme</phrase>
+  <phrase data="_PLG_NS_INFO1">Burada duuyuru öğesini güncelleyebilirsiniz.</phrase>
+  <phrase data="_PLG_NS_SUBTITLE1">Banner Düzenleme /</phrase>
+  <phrase data="_PLG_NS_TITLE">Banner Başlığı</phrase>
+  <phrase data="_PLG_NS_PUB">Banner Yayında mı?</phrase>
+  <phrase data="_PLG_NS_S_DATE">Tarihi Göster</phrase>
+  <phrase data="_PLG_NS_S_TITLE">Başlığı Göster</phrase>
+  <phrase data="_PLG_NS_BODY">Banner İçerik</phrase>
+  <phrase data="_PLG_NS_UPDATE">Güncel Bannerlar</phrase>
+  <phrase data="_PLG_NS_TITLE2">Bannerlara Öğe Ekle</phrase>
+  <phrase data="_PLG_NS_INFO2">Burada Banner öğesi ekleyebilirsiniz.</phrase>
+  <phrase data="_PLG_NS_SUBTITLE2">Banner Ekleniyor</phrase>
+  <phrase data="_PLG_NS_ADD">Banner Ekle</phrase>
+  <phrase data="_PLG_NS_TITLE3">Banner Eklentisi Yönetimi</phrase>
+  <phrase data="_PLG_NS_INFO3">Burada Banner eklentinizi yapılandırabilirsiniz. Yeniden düzenlemek için öğeleri tıklayın ve istediğiniz öğeyi önündeki ikondan sürükleyerek sıralamasını değiştirin. Sıralama otomatik olarak güncellenecektir.</phrase>
+  <phrase data="_PLG_NS_SUBTITLE3">Tüm Bannerlar listeleniyor.</phrase>
+  <phrase data="_PLG_NS_POS">Sıra</phrase>
+  <phrase data="_PLG_NS_ITEM">Banner</phrase>
+  <phrase data="_PLG_NS_NONEWS">Henüz herhangi bir Banner eklenmemiş!</phrase>
+  <phrase data="_PLG_NS_UPDATED">Banner başarıyla güncellendi!</phrase>
+  <phrase data="_PLG_NS_ADDED">Banner başarıyla eklendi!</phrase>
+</language>

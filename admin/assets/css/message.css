@@ -1,0 +1,383 @@
+/* == Messge == */
+.tubi.message {
+  position: relative;
+  min-height: 18px;
+  margin: 1em 0;
+  height: auto;
+  background-color: #E9E9E1;
+  padding: 1em;
+  line-height: 1.33;
+  color: rgba(0,0,0,0.6);
+  box-shadow: inset 0 -2px 0 0 rgba(0,0,0,0.15);
+  -webkit-transition: opacity .1s ease, color .1s ease, background .1s ease, 0 .1s ease;
+  transition: opacity .1s ease, color .1s ease, background .1s ease, box-shadow .1s ease;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  border-radius: .325em;
+  text-shadow: 0 1px 0 #F7F6F2
+}
+/* == Notes == */
+.tubi.note {
+  position: relative;
+  padding: 1em;
+  background-color: #E9E9E1;
+  box-shadow: inset 8px 0 0 0 rgba(0,0,0,0.15);
+  -webkit-transition: opacity .1s ease, color .1s ease, background .1s ease, 0 .1s ease;
+  transition: opacity .1s ease, color .1s ease, background .1s ease, box-shadow .1s ease;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  border-radius: .325em;
+  margin-bottom:.5em;
+  padding-left:3em;
+}
+.tubi.note:last-child {
+  margin-bottom:0;
+}
+.tubi.note a.note-close {
+  opacity:0;
+}
+.tubi.note:hover a.note-close{
+  opacity: 1;
+}
+.tubi.note i.icon.close {
+  position: absolute;
+  left: 1em;
+  top: .5em;
+  color: rgba(0,0,0,0.8)
+}
+.tubi.note > .header{
+  font-weight: 700;  
+}
+.tubi.note > .aside{
+  float: right;
+  text-align: right;
+  font-size:.85em;
+}
+.tubi.note.success {
+  background-color: #d4e7b8;
+  color:#74993a;
+}
+.tubi.note.info {
+  background-color: #d8e5f3;
+  color: #417dbe
+}
+.tubi.note.warning {
+  background-color: #fef0cd;
+  color: #f7b208
+}
+.tubi.note.danger {
+  background-color: #ebc7cc;
+  color:#a5414f
+}
+.tubi.note.purple {
+  background-color: #e1d7f4;
+  color: #6b3ac5
+}
+.tubi.note.teal {
+  background-color: #77dbdc;
+  color:#1e6868
+}
+/* == Notices == */
+#tubi-overlay {
+  position: fixed;
+  top: 45%;
+  right: 10px;
+  max-width: 350px;
+  z-index: 9999;
+}
+.tubi.message.notice {
+  border-radius: .225em;
+  box-shadow: 6px 6px 0 0 rgba(0,0,0,0.08),  inset 5px 0 0 0 rgba(0,0,0,0.3),  inset 6px 0 0 0 rgba(255,255,255,0.15);
+  margin-top: 1px;
+  margin-bottom: 0;
+  cursor: pointer; 
+}
+.tubi.message.notice span {
+  font-weight: 600;
+  font-family: 'Open Sans Condensed';
+}
+.tubi.message.notice p {
+  margin-top: 0;
+}
+.tubi.message.notice a.notice-close {
+  opacity:0;
+}
+.tubi.message.notice:hover a.notice-close{
+  opacity: 1;
+}
+.tubi.message.notice i.icon.close {
+  position: absolute;
+  right: 1em;
+  top: .5em;
+  color: rgba(255,255,255,0.8)
+}
+.tubi.message.notice.success {
+  background-color: #444;
+  color: #B2D280;
+}
+.tubi.message.notice.info {
+  background-color: #444;
+  color: #BED3EA
+}
+.tubi.message.notice.warning {
+  background-color: #444;
+  color: #FEDD8C
+}
+.tubi.message.notice.error {
+  background-color: #444;
+  color: #d6909a
+}
+.tubi.message:first-child {
+  margin-top: 0
+}
+.tubi.message:last-child {
+  margin-bottom: 0
+}
+.tubi.message.basic.notice {
+  box-shadow:inset 5px 0 0 0 rgba(0,0,0,0.3);
+}
+
+/* == Content == */
+.tubi.message .header {
+  margin: 0;
+  font-size: 1.35em;
+  font-weight: 700;
+  font-family: 'Open Sans Condensed'
+}
+.tubi.message p {
+  margin: 1em 0
+}
+.tubi.message p:first-child {
+  margin-top: 0
+}
+.tubi.message p:last-child {
+  margin-bottom: 0
+}
+.tubi.message .header + p {
+  margin-top: .3em
+}
+.tubi.message > :first-child {
+  margin-top: 0
+}
+.tubi.message > :last-child {
+  margin-bottom: 0
+}
+.tubi.message ul.list {
+  list-style-position: inside;
+  margin: .2em 0;
+  padding: 0
+}
+.tubi.message ul.list li:first-child{
+  margin-top:.5em
+}
+.tubi.message ul.list li {
+  position: relative;
+  list-style-type: none;
+  margin: 0 0 .3em 1em;
+  padding: 0;
+  font-weight: 600;
+  font-family: 'Open Sans Condensed'
+}
+.tubi.message ul.list li:before {
+  position: absolute;
+  content: '\2022';
+  top: -.05em;
+  left: -.8em;
+  height: 100%;
+  vertical-align: baseline;
+  opacity: 0.5
+}
+/* == Dismissable == */
+.tubi.message > .close.icon {
+  cursor: pointer;
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  opacity: 0.7;
+  -webkit-transition: opacity .1s linear;
+  transition: opacity .1s linear
+}
+.tubi.message > .close.icon:hover {
+  opacity: 1
+}
+/* == Variations == */
+.tubi.compact.message {
+  display: inline-block
+}
+.tubi.attached.message {
+  margin-left: -1px;
+  margin-right: -1px;
+  margin-bottom: -1px;
+  border-radius: .325em .325em 0 0;
+  -webkit-box-shadow: 0 0 0 1px rgba(0,0,0,0.1) inset;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.1) inset
+}
+.tubi.attached + .tubi.attached.message:not(.top):not(.bottom) {
+  margin-top: -1px;
+  border-radius: 0
+}
+.tubi.bottom.attached.message {
+  margin-top: -1px;
+  border-radius: 0 0 .325em .325em
+}
+.tubi.bottom.attached.message:not(:last-child) {
+  margin-bottom: 1em
+}
+.tubi.attached.icon.message {
+  display: block;
+  width: auto
+}
+.tubi.icon.message {
+  display: table;
+  width: 100%
+}
+.tubi.icon.heading.message {
+  margin: 0;
+  box-shadow: none;
+  background-color: #F7F6F2;
+  border-bottom: 1px solid #CCCBBF;
+  text-shadow:0 1px 0 #fff;
+  border-radius:0
+}
+.tubi.icon.heading.message.red {
+  box-shadow:inset 0 6px 0 0 #DD6160;
+}
+.tubi.icon.heading.message.green {
+  box-shadow:inset 0 6px 0 0 #6EC586;
+}
+.tubi.icon.heading.message.purple {
+  box-shadow:inset 0 6px 0 0 #9F5ED6;
+}
+.tubi.icon.heading.message.orange {
+  box-shadow:inset 0 6px 0 0 #DBA766;
+}
+.tubi.icon.heading.message.dust {
+  box-shadow:inset 0 6px 0 0 #71716F;
+}
+.tubi.icon.heading.message.blue {
+  box-shadow:inset 0 6px 0 0 #676BD9;
+}
+.tubi.icon.heading.message.sky {
+  box-shadow:inset 0 6px 0 0 #62A8DB;
+}
+.tubi.icon.heading.message.coral {
+  box-shadow:inset 0 6px 0 0 #A46E70;
+}
+.tubi.icon.heading.message.teal {
+  box-shadow:inset 0 6px 0 0 #70A49B;
+}
+.tubi.icon.heading.message.mortar {
+  box-shadow:inset 0 6px 0 0 #4F3F50;
+}
+.tubi.icon.heading.message:before, .tubi.icon.heading.message:after {
+	content: "";
+	position: absolute;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	top: 100%;
+	left: 50px;
+	margin-left: -10px;
+}
+.tubi.icon.heading.message:before {
+	border-top: 10px solid #CCCBBF;
+	border-top: 10px solid #CCCBBF;
+	margin-top:0px;
+}
+
+.tubi.icon.heading.message:after{
+	border-top: 10px solid #F7F6F2;
+	margin-top: -1px;
+	z-index: 1;
+}
+.tubi.icon.heading.message > .icon:not(.close) {
+  font-size:2em;
+  opacity: 0.75;
+  vertical-align: top;
+}
+.tubi.icon.message > .icon:not(.close) {
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 4em;
+  opacity: 0.75
+}
+.tubi.icon.message a.helper{
+  font-size:2em;
+  line-height:1
+}
+.tubi.icon.message > .icon + .content {
+  padding-left: 1em
+}
+.tubi.icon.message > .content {
+  display: table-cell;
+  vertical-align: middle;
+  width: 100%;
+}
+.tubi.inverted.message {
+  background-color: rgba(255,255,255,0.05);
+  color: rgba(255,255,255,0.95)
+}
+.tubi.floating.message {
+  -webkit-box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.05) inset;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.05) inset
+}
+/* == Colors == */
+.tubi.black.message,
+.tubi.inverted.message {
+  background-color: #5C6166;
+  color: rgba(255,255,255,0.95);
+  text-shadow:none
+}
+.tubi.info.message {
+  background-color: #bed3ea;
+  color: #3a6da2;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+.tubi.warning.message {
+  background-color: #fedd8c;
+  color: #ba8505;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+.tubi.success.message,
+.tubi.positive.message {
+  background-color: #a9d5be;
+  color: #3e7558;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+.tubi.error.message,
+.tubi.negative.message {
+  background-color: #d6909a;
+  color: #6d2d36;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+.tubi.inverted.message .header,
+.tubi.black.message .header {
+  text-shadow: none
+}
+.tubi.info.message .header,
+.tubi.warning.message .header,
+.tubi.success.message .header,
+.tubi.positive.message .header,
+.tubi.error.message .header,
+.tubi.negative.message .header {
+  text-shadow: 0 1px 0 rgba(255,255,255,0.3)
+}
+/* == Size == */
+.tubi.small.message {
+  font-size: .875em
+}
+.tubi.message {
+  font-size: 1em
+}
+.tubi.large.message {
+  font-size: 1.125em
+}
+.tubi.huge.message {
+  font-size: 1.5em
+}
+.tubi.massive.message {
+  font-size: 2em
+}

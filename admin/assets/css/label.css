@@ -1,0 +1,681 @@
+/* == Label == */
+.tubi.label {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+  background-color: #EEEDE6;
+  border-color: #EEEDE6;
+  padding: .3em .5em;
+  color: inherit;
+  font-family: 'Open Sans Condensed';
+  font-weight: 700;
+  border-radius: .325em;
+  white-space: nowrap;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: background .1s linear;
+  transition: background .1s linear
+}
+.tubi.label:first-child {
+  margin-left: 0
+}
+.tubi.label:last-child {
+  margin-right: 0
+}
+a.tubi.label {
+  cursor: pointer
+}
+.tubi.label a {
+  cursor: pointer;
+  color: inherit;
+  opacity: 0.8;
+  -webkit-transition: .2s opacity ease;
+  transition: .2s opacity ease
+}
+.tubi.label a:hover {
+  opacity: 1
+}
+.tubi.label .detail {
+  display: inline-block;
+  margin-left: .5em;
+  font-weight: 700;
+  opacity: 0.8
+}
+.tubi.label .icon {
+  width: auto;
+  font-size:1em;
+}
+/* == Removable label == */
+.tubi.label .delete.icon {
+  cursor: pointer;
+  margin: 0 0 0 .5em;
+  opacity: 0.7;
+  -webkit-transition: background .1s linear;
+  transition: background .1s linear
+}
+.tubi.label .delete.icon:hover {
+  opacity: 0.99
+}
+/* == Coupling == */
+.tubi.segment > .attached.label:first-child + * {
+  margin-top: 2.5em
+}
+.tubi.segment > .bottom.attached.label:first-child ~ :last-child {
+  margin-top: 0;
+  margin-bottom: 2.5em
+}
+/* == Types == */
+.tubi.image.label {
+  width: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: .4em;
+  padding-bottom: .4em;
+  line-height: 1.5em;
+  vertical-align: baseline;
+  text-transform: none;
+  -webkit-box-shadow: 0 0 0 1px rgba(0,0,0,0.1) inset;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.1) inset
+}
+.tubi.image.label img {
+  display: inline-block;
+  height: 2.25em;
+  margin: -.4em .8em -.4em -.8em;
+  vertical-align: top;
+  border-radius: .325em 0 0 .325em
+}
+/* == States == */
+.tubi.label.disabled {
+  opacity: 0.5
+}
+a.tubi.labels .label:hover,
+a.tubi.label:hover {
+  background-color: #E4E4DA;
+  border-color: #E4E4DA;
+  color: rgba(0,0,0,0.7)
+}
+.tubi.labels a.label:hover:before,
+a.tubi.label:hover:before {
+  background-color: #E4E4DA;
+  color: rgba(0,0,0,0.7)
+}
+/* == Variations == */
+.tubi.tag.labels .label,
+.tubi.tag.label {
+  margin-left: 1em;
+  position: relative;
+  padding: .33em 1.3em .33em 1.4em;
+  border-radius: 0 3px 3px 0
+}
+.tubi.tag.labels .label:before,
+.tubi.tag.label:before {
+  position: absolute;
+  top: .3em;
+  left: .3em;
+  content: '';
+  margin-left: -1em;
+  background-image: none;
+  width: 1.5em;
+  height: 1.5em;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-transition: background .1s linear;
+  transition: background .1s linear
+}
+.tubi.tag.labels .label:after,
+.tubi.tag.label:after {
+  position: absolute;
+  content: '';
+  top: 50%;
+  left: -.25em;
+  margin-top: -.3em;
+  background-color: #FFF;
+  width: .55em;
+  height: .55em;
+  -webkit-box-shadow: 0 -1px 1px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 -1px 1px 0 rgba(0,0,0,0.3);
+  border-radius: 100px 100px 100px 100px
+}
+/* == Ribbon == */
+.tubi.ribbon.label {
+  position: relative;
+  margin: 0 .2em;
+  left: -2rem;
+  padding-left: 2rem;
+  border-radius: 0 4px 4px 0;
+  border-color: rgba(0,0,0,0.15)
+}
+.tubi.ribbon.label:after {
+  position: absolute;
+  content: "";
+  top: 100%;
+  left: 0;
+  border-top: 0 solid transparent;
+  border-right-width: 1em;
+  border-right-color: inherit;
+  border-right-style: solid;
+  border-bottom: 1em solid transparent;
+  border-left: 0 solid transparent;
+  width: 0;
+  height: 0
+}
+/* == Attached == */
+.tubi.top.attached.label,
+.tubi.attached.label {
+  width: 100%;
+  position: absolute;
+  margin: 0;
+  top: 0;
+  left: 0;
+  padding: .75em 1em;
+  border-radius: .325em .325em 0 0
+}
+.tubi.bottom.attached.label {
+  top: auto;
+  bottom: 0;
+  border-radius: 0 0 .325em .325em
+}
+.tubi.top.left.attached.label {
+  width: auto;
+  margin-top: 0;
+  border-radius: .325em 0 .325em 0
+}
+.tubi.top.right.attached.label {
+  width: auto;
+  left: auto;
+  right: 0;
+  border-radius: 0 .325em 0 .325em
+}
+.tubi.bottom.left.attached.label {
+  width: auto;
+  top: auto;
+  bottom: 0;
+  border-radius: 0 .325em 0 .325em
+}
+.tubi.bottom.right.attached.label {
+  top: auto;
+  bottom: 0;
+  left: auto;
+  right: 0;
+  width: auto;
+  border-radius: .325em 0 .325em 0
+}
+.tubi.bottom.right.attached.special.label {
+  box-shadow:inset 2px 2px 0 0 rgba(0,0,0,0.15);
+ 
+}
+/* == Corner == */
+.tubi.corner.label {
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  margin: 0;
+  width: 2.5em;
+  height: 2.5em;
+  padding: 0;
+  text-align: center;
+  -webkit-transition: color .2s ease;
+  transition: color .2s ease
+}
+.tubi.corner.label:after {
+  position: absolute;
+  content: "";
+  right: 0;
+  top: 0;
+  z-index: -1;
+  width: 0;
+  height: 0;
+  border-top: 0 solid transparent;
+  border-right: 2.5em solid transparent;
+  border-bottom: 2.5em solid transparent;
+  border-left: 0 solid transparent;
+  border-right-color: inherit;
+  -webkit-transition: border-color .2s ease;
+  transition: border-color .2s ease
+}
+.tubi.corner.label .icon {
+  font-size: .875em;
+  margin: .5em 0 0 1.25em
+}
+.tubi.corner.label .text {
+  display: inline-block;
+  font-weight: 700;
+  margin: .5em 0 0 1em;
+  width: 2.5em;
+  font-size: .875em;
+  text-align: center;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg)
+}
+/* == Coupling == */
+.tubi.rounded.image > .tubi.corner.label,
+.tubi.input > .tubi.corner.label,
+.tubi.segment > .tubi.corner.label {
+  overflow: hidden
+}
+.tubi.segment > .tubi.corner.label {
+  top: 0;
+  right: 0
+}
+.tubi.segment > .tubi.left.corner.label {
+  right: auto;
+  left: -1px
+}
+.tubi.input > .tubi.corner.label {
+  top: 1px;
+  right: 1px
+}
+.tubi.input > .tubi.right.corner.label {
+  right: auto;
+  left: 1px
+}
+.tubi.left.corner.label,
+.tubi.left.corner.label:after {
+  right: auto;
+  left: 0
+}
+.tubi.left.corner.label:after {
+  border-top: 3em solid transparent;
+  border-right: 3em solid transparent;
+  border-bottom: 0 solid transparent;
+  border-left: 0 solid transparent;
+  border-top-color: inherit
+}
+.tubi.left.corner.label .icon {
+  margin: .5em 0 0 -1em
+}
+.tubi.left.corner.label .text {
+  margin: .5em 0 0 -1em;
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg)
+}
+.tubi.corner.label:hover {
+  background-color: transparent
+}
+/* == Fluid == */
+.tubi.label.fluid,
+.tubi.fluid.labels > .label {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box
+}
+/* == Colors == */
+.tubi.black.labels .label,
+.tubi.black.label,
+.tubi.inverted.labels .label,
+.tubi.inverted.label,
+.tubi.ribbon .ribbon.inverted,
+.tubi.ribbon .ribbon.black {
+  background-color: #5C6166;
+  border-color: #5C6166;
+  color: rgba(255,255,255,0.80)
+}
+.tubi.labels .black.label:before,
+.tubi.black.labels .label:before,
+.tubi.black.label:before {
+  background-color: #5C6166
+}
+a.tubi.black.labels .label:hover,
+a.tubi.black.label:hover {
+  background-color: #333;
+  border-color: #333;
+  color: rgba(255,255,255,1)
+}
+.tubi.labels a.black.label:hover:before,
+.tubi.black.labels a.label:hover:before,
+a.tubi.black.label:hover:before {
+  background-color: #333
+}
+.tubi.black.corner.label,
+.tubi.black.corner.label:hover {
+  background-color: transparent
+}
+.tubi.black.ribbon.label {
+  border-color: #333
+}
+.tubi.positive.labels .label,
+.tubi.positive.label,
+.tubi.ribbon .ribbon.positive {
+  background-color: #B2D280;
+  border-color: #B2D280;
+  color: rgba(255,255,255,0.80)
+}
+.tubi.labels .positive.label:before,
+.tubi.positive.labels .label:before,
+.tubi.positive.label:before {
+  background-color: #B2D280
+}
+a.tubi.positive.labels .label:hover,
+a.tubi.positive.label:hover {
+  background-color: #A6CB6E;
+  border-color: #A6CB6E;
+  color: rgba(255,255,255,1)
+}
+.tubi.labels a.positive.label:hover:before,
+.tubi.positive.labels a.label:hover:before,
+a.tubi.positive.label:hover:before {
+  background-color: #A6CB6E
+}
+.tubi.positive.corner.label,
+.tubi.positive.corner.label:hover {
+  background-color: transparent
+}
+.tubi.positive.ribbon.label {
+  border-color: #A6CB6E
+}
+.tubi.negative.labels .label,
+.tubi.negative.label,
+.tubi.ribbon .ribbon.negative {
+  background-color: #FA5C4E;
+  border-color: #FA5C4E;
+  color: rgba(255,255,255,0.80)
+}
+.tubi.labels .negative.label:before,
+.tubi.negative.labels .label:before,
+.tubi.negative.label:before {
+  background-color: #FA5C4E
+}
+.tubi.negative.corner.label,
+.tubi.negative.corner.label:hover {
+  background-color: transparent
+}
+a.tubi.negative.labels .label:hover,
+a.tubi.negative.label:hover {
+  background-color: #FB4434;
+  border-color: #FB4434;
+  color: rgba(255,255,255,1)
+}
+.tubi.labels a.negative.label:hover:before,
+.tubi.negative.labels a.label:hover:before,
+a.tubi.negative.label:hover:before {
+  background-color: #FB4434
+}
+.tubi.negative.ribbon.label {
+  border-color: #FB4434
+}
+.tubi.info.labels .label,
+.tubi.info.label,
+.tubi.ribbon .ribbon.info {
+  background-color: #79C0D8;
+  border-color: #79C0D8;
+  color: rgba(255,255,255,0.80)
+}
+.tubi.labels .info.label:before,
+.tubi.info.labels .label:before,
+.tubi.info.label:before {
+  background-color: #79C0D8
+}
+a.tubi.info.labels .label:hover,
+.tubi.info.labels a.label:hover,
+a.tubi.info.label:hover {
+  background-color: #66B7D2;
+  border-color: #66B7D2;
+  color: rgba(255,255,255,1)
+}
+.tubi.labels a.info.label:hover:before,
+.tubi.info.labels a.label:hover:before,
+a.tubi.info.label:hover:before {
+  background-color: #66B7D2
+}
+.tubi.info.corner.label,
+.tubi.info.corner.label:hover {
+  background-color: transparent
+}
+.tubi.info.ribbon.label {
+  border-color: #66B7D2
+}
+.tubi.purple.labels .label,
+.tubi.purple.label,
+.tubi.ribbon .ribbon.purple {
+  background-color: #8A3ECA;
+  border-color: #8A3ECA;
+  color: rgba(255,255,255,0.80)
+}
+.tubi.labels .purple.label:before,
+.tubi.purple.labels .label:before,
+.tubi.purple.label:before {
+  background-color: #8A3ECA
+}
+a.tubi.purple.labels .label:hover,
+.tubi.purple.labels a.label:hover,
+a.tubi.purple.label:hover {
+  background-color: #7D34BA;
+  border-color: #7D34BA;
+  color: rgba(255,255,255,1)
+}
+.tubi.labels a.purple.label:hover:before,
+.tubi.purple.labels a.label:hover:before,
+a.tubi.purple.label:hover:before {
+  background-color: #7D34BA
+}
+.tubi.purple.corner.label,
+.tubi.purple.corner.label:hover {
+  background-color: transparent
+}
+.tubi.purple.ribbon.label {
+  border-color: #7D34BA
+}
+.tubi.warning.labels .label,
+.tubi.warning.label,
+.tubi.ribbon .ribbon.warning {
+  background-color: #F0B174;
+  border-color: #F0B174;
+  color: rgba(255,255,255,0.80)
+}
+.tubi.labels .warning.label:before,
+.tubi.warning.labels .label:before,
+.tubi.warning.label:before {
+  background-color: #F0B174
+}
+a.tubi.warning.labels .label:hover,
+.tubi.warning.labels a.label:hover,
+a.tubi.warning.label:hover {
+  background-color: #EEA45D;
+  border-color: #EEA45D;
+  color: rgba(255,255,255,1)
+}
+.tubi.labels a.warning.label:hover:before,
+.tubi.warning.labels a.label:hover:before,
+a.tubi.warning.label:hover:before {
+  background-color: #EEA45D
+}
+.tubi.warning.corner.label,
+.tubi.warning.corner.label:hover {
+  background-color: transparent
+}
+.tubi.warning.ribbon.label {
+  border-color: #EEA45D
+}
+.tubi.teal.labels .label,
+.tubi.teal.label,
+.tubi.ribbon .ribbon.teal {
+  background-color: #3CC9CA;
+  border-color: #3CC9CA;
+  color: rgba(255,255,255,0.80)
+}
+.tubi.labels .teal.label:before,
+.tubi.teal.labels .label:before,
+.tubi.teal.label:before {
+  background-color: #3CC9CA
+}
+a.tubi.teal.labels .label:hover,
+.tubi.teal.labels a.label:hover,
+a.tubi.teal.label:hover {
+  background-color: #2EA5A5;
+  border-color: #2EA5A5;
+  color: rgba(255,255,255,1)
+}
+.tubi.labels a.teal.label:hover:before,
+.tubi.teal.labels a.label:hover:before,
+a.tubi.teal.label:hover:before {
+  background-color: #2EA5A5
+}
+.tubi.teal.corner.label,
+.tubi.teal.corner.label:hover {
+  background-color: transparent
+}
+.tubi.teal.ribbon.label {
+  border-color: #2EA5A5
+}
+/* == Horizontal == */
+.tubi.horizontal.labels .label,
+.tubi.horizontal.label {
+  margin: -.125em .5em -.125em 0;
+  padding: .35em 1em;
+  min-width: 6em;
+  text-align: center
+}
+/* == Circular == */
+.tubi.circular.labels .label,
+.tubi.circular.label {
+  min-height: 1em;
+  max-height: 2em;
+  padding: .5em;
+  line-height: 1em;
+  text-align: center;
+  border-radius: 500rem
+}
+/* == Pointing == */
+.tubi.pointing.label {
+  position: relative
+}
+.tubi.attached.pointing.label {
+  position: absolute
+}
+.tubi.pointing.label:before {
+  position: absolute;
+  content: "";
+  width: .6em;
+  height: .6em;
+  background-image: none;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  z-index: 2;
+  -webkit-transition: background .1s linear;
+  transition: background .1s linear
+}
+.tubi.pointing.label:before {
+  background-color: #E8E8E8
+}
+.tubi.pointing.label,
+.tubi.pointing.above.label {
+  margin-top: 1em
+}
+.tubi.pointing.label:before,
+.tubi.pointing.above.label:before {
+  margin-left: -.3em;
+  top: -.3em;
+  left: 50%
+}
+.tubi.pointing.below.label {
+  margin-top: 0;
+  margin-bottom: 1em
+}
+.tubi.pointing.below.label:before {
+  margin-left: -.3em;
+  top: auto;
+  right: auto;
+  bottom: -.3em;
+  left: 50%
+}
+.tubi.pointing.left.label {
+  margin-top: 0;
+  margin-left: 1em
+}
+.tubi.pointing.left.label:before {
+  margin-top: -.3em;
+  bottom: auto;
+  right: auto;
+  top: 50%;
+  left: 0
+}
+.tubi.pointing.right.label {
+  margin-top: 0;
+  margin-right: 1em
+}
+.tubi.pointing.right.label:before {
+  margin-top: -.3em;
+  right: -.3em;
+  top: 50%;
+  bottom: auto;
+  left: auto
+}
+/* == Floating == */
+.tubi.floating.label {
+  position: absolute;
+  z-index: 100;
+  top: -1em;
+  left: 100%;
+  margin: 0 0 0 -1.5em
+}
+/* == Ribbons == */
+.tubi.ribbon {
+  height: 88px;
+  overflow: hidden;
+  position: absolute;
+  right: -3px;
+  top: -3px;
+  width: 85px;
+}
+.tubi.ribbon .ribbon:before {
+  bottom: -1px;
+  left: 0;
+}
+.tubi.ribbon .ribbon:after {
+  right: 0;
+}
+.tubi.ribbon .ribbon:before, 
+.tubi.ribbon .ribbon:after {
+  border-left: 2px solid rgba(0, 0, 0, 0);
+  border-right: 2px solid rgba(0, 0, 0, 0);
+  border-top: 2px solid #797979;
+  bottom: -2px;
+  content: "";
+  position: absolute;
+}
+.tubi.ribbon .ribbon {
+  background-color: #797979;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+  color: #FFFFFF;
+  display: block;
+  font-size:.95em;
+  font-weight: 600;
+  left: -5px;
+  line-height: 20px;
+  padding: 7px 0;
+  position: relative;
+  text-align: center;
+  top: 15px;
+  transform: rotate(45deg);
+  width: 120px;
+}
+/* == Sizes == */
+.tubi.small.labels .label,
+.tubi.small.label {
+  font-size:.75rem;
+  line-height:.75rem
+}
+.tubi.label {
+  font-size:.95rem;
+  line-height:.95rem
+}
+.tubi.large.labels .label,
+.tubi.large.label {
+  font-size:1rem;
+  line-height:1rem
+}
+.tubi.huge.labels .label,
+.tubi.huge.label {
+  font-size: 1.1rem;
+  line-height:1.1rem
+}

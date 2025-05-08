@@ -1,0 +1,48 @@
+/* == Breadcrumb == */
+.tubi.breadcrumb {
+  display: inline-block;
+  vertical-align: middle;
+  font-family: 'Open Sans Condensed';
+  font-weight: 600;
+  margin: .25em 0 0;
+}
+.tubi.breadcrumb:first-child {
+  margin-top: 0;
+  white-space: nowrap;
+}
+.tubi.breadcrumb:last-child {
+  margin-bottom: 0;
+}
+/* == Content == */
+.tubi.breadcrumb .divider {
+  display: inline-block;
+  opacity: 0.5;
+  margin: 0 .15em;
+  font-size: 1em;
+  color: rgba(0,0,0,0.3);
+}
+.tubi.breadcrumb a.section {
+  cursor: pointer;
+}
+.tubi.breadcrumb .section {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+.tubi.breadcrumb.segment {
+  display: inline-block;
+  padding: .5em 1em;
+}
+.tubi.breadcrumb .active.section {
+  font-weight: 700;
+}
+/* == Variations == */
+.tubi.small.breadcrumb {
+  font-size: .75em;
+}
+.tubi.large.breadcrumb {
+  font-size: 1.1em;
+}
+.tubi.huge.breadcrumb {
+  font-size: 1.3em;
+}

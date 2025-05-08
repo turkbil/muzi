@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language>
+  <phrase data="_PLG_DP_TITLE1">Donate Configuration</phrase>
+  <phrase data="_PLG_DP_INFO1">Here you can update your donations configuration.</phrase>
+  <phrase data="_PLG_DP_SUBTITLE1">Edit Configuration</phrase>
+  <phrase data="_PLG_DP_TARGET">Enter Target</phrase>
+  <phrase data="_PLG_DP_TARGET_T">Targeted amount for this donation campaign.</phrase>
+  <phrase data="_PLG_DP_PAYPAL">PayPal Email Address</phrase>
+  <phrase data="_PLG_DP_PAYPAL_T">Your PayPal email address. Make sure it's valid and case sensitive.</phrase>
+  <phrase data="_PLG_DP_THANKYOU">Thank You Page</phrase>
+  <phrase data="_PLG_DP_THANKYOU_T">Default page where user will re redirected once, donation process is completed.</phrase>
+  <phrase data="_PLG_DP_UPDATE">Update Settings</phrase>
+  <phrase data="_PLG_DP_UPDATED">Donate settings updated successfully!</phrase>
+  <phrase data="_PLG_DP_TITLE2">Manage CMS Donation Plugin</phrase>
+  <phrase data="_PLG_DP_INFO2">Here you can view all of your donations. Reset Donation will empty all transaction records, and start the counter from zero. Export Donations will export donations data into .xls format.</phrase>
+  <phrase data="_PLG_DP_SUBTITLE2">Viewing All Donations</phrase>
+  <phrase data="_PLG_DP_RESET">Reset Donation</phrase>
+  <phrase data="_PLG_DP_EXPORT">Export Donations</phrase>
+  <phrase data="_PLG_DP_NODONATIONS">You don't have any donations yet!</phrase>
+  <phrase data="_PLG_DP_TARGET1">Target</phrase>
+  <phrase data="_PLG_DP_DONATE">Donate Now!</phrase>
+  <phrase data="_PLG_DP_NAME">Full Name</phrase>
+  <phrase data="_PLG_DP_EMAIL">Email Address</phrase>
+  <phrase data="_PLG_DP_AMOUNT">Amount</phrase>
+  <phrase data="_PLG_DP_CREATED">Created</phrase>
+  <phrase data="_PLG_DP_CONFIG">Configuration</phrase>
+  <phrase data="_PLG_DP_REPORT">Donation Report</phrase>
+  <phrase data="_PLG_DP_ADD">Add Patment Record</phrase>
+  <phrase data="_PLG_DP_ADDED">Donation record added successfully</phrase>
+  <phrase data="_PLG_DP_ADDEDERR">Please complete all required fields</phrase>
+  <phrase data="_PLG_DP_HELP">Donation Help</phrase>
+</language>

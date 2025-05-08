@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language>
+  <phrase data="_PLG_UE_TITLE1">Yaklaşan Etkinlik Eklentisi Yönetimi</phrase>
+  <phrase data="_PLG_UE_INFO1">Burada etkinlik yapılandırmasını güncelleyebilirsiniz.</phrase>
+  <phrase data="_PLG_UE_SUBTITLE1">Yaklaşan Etkinlik Yapılandırması</phrase>
+  <phrase data="_PLG_UE_SELECT">Etkinliği Seçiniz</phrase>
+  <phrase data="_PLG_UE_SELECT_T">Bir olayı yaklaşan bir etkinlik olarak atamak için Takvim / Etkinlikler Modülü'nden en az bir etkinlik eklemelisiniz.</phrase>
+  <phrase data="_PLG_UE_NOEVENT">--- Lütfen en az bir adet etkinlik oluşturun ---</phrase>
+  <phrase data="_PLG_UE_DAYS">Gün</phrase>
+  <phrase data="_PLG_UE_HOURS">Saat</phrase>
+  <phrase data="_PLG_UE_MINUTES">Dakika</phrase>
+  <phrase data="_PLG_UE_SECONDS">Saniye</phrase>
+  <phrase data="_PLG_UE_TIMELEFT">Etkinlik İçin Kalan Süre</phrase>
+  <phrase data="_PLG_UE_ENDED">Bu olay sona erdi.</phrase>
+  <phrase data="_PLG_UE_UPDATE">Ayarları Güncelle</phrase>
+  <phrase data="_PLG_UE_UPDATED">Yaklaşan etkinlik ayarları başarıyla güncellendi!</phrase>
+  <phrase data="_PLG_UE_HELP">Yaklaşan Etkinlik Yardım</phrase>
+</language>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language>
+  <phrase data="_PLG_JT_TITLE1">Sekme Düzenle</phrase>
+  <phrase data="_PLG_JT_INFO1">Burada sekme öğelenizi güncelleyebilirsiniz.</phrase>
+  <phrase data="_PLG_JT_SUBTITLE1">Sekme Düzenleniyor/</phrase>
+  <phrase data="_PLG_JT_TITLE">Sekme Başlığı</phrase>
+  <phrase data="_PLG_JT_PUB">Sekme Yayında mı?</phrase>
+  <phrase data="_PLG_JT_BODY">Sekme İçeriği</phrase>
+  <phrase data="_PLG_JT_UPDATE">Sekme Güncelleme</phrase>
+  <phrase data="_PLG_JT_TITLE2">Sekme Ekle</phrase>
+  <phrase data="_PLG_JT_INFO2">Burada sekmelere öğe ekleyebilirsiniz.</phrase>
+  <phrase data="_PLG_JT_SUBTITLE2">Sekme İçeriği Ekleme</phrase>
+  <phrase data="_PLG_JT_ADD">Sekme Ekle</phrase>
+  <phrase data="_PLG_JT_TITLE3">Sekme (Tab Menü) Eklentisi Yönetimi</phrase>
+  <phrase data="_PLG_JT_INFO3">Burada sekme eklentinizi yapılandırabilirsiniz. Yeniden düzenlemek için öğeleri tıklayın ve istediğiniz öğeyi önündeki ikondan sürükleyerek sıralamasını değiştirin. Sıralama otomatik olarak güncellenecektir.</phrase>
+  <phrase data="_PLG_JT_SUBTITLE3">Tüm Sekmeler Listeleniyor</phrase>
+  <phrase data="_PLG_JT_POS">Pozisyon</phrase>
+  <phrase data="_PLG_JT_TAB">Sekme</phrase>
+  <phrase data="_PLG_JT_NOTABS">Henüz herhangi bir sekme yok. Lütfen ekleyin!</phrase>
+  <phrase data="_PLG_JT_UPDATED">Sekme öğesi başarıyla güncellendi!</phrase>
+  <phrase data="_PLG_JT_ADDED">Sekme öğesi başarıyla eklendi!</phrase>
+</language>

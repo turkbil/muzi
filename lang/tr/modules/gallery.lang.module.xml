@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language>
+  <phrase data="_MOD_GA_TITLE1">Galeri Düzenle</phrase>
+  <phrase data="_MOD_GA_INFO1">Burada galeri yapılandırmasını güncelleyebilirsiniz.</phrase>
+  <phrase data="_MOD_GA_SUBTITLE1">Galeri Düzenleniyor / </phrase>
+  <phrase data="_MOD_GA_NAME">Galeri Başlığı</phrase>
+  <phrase data="_MOD_GA_NAME_T">Standart Galeri Adı</phrase>
+  <phrase data="_MOD_GA_COLS">Sütun Sayısı</phrase>
+  <phrase data="_MOD_GA_COLS_T">Bir satırda gösterilen görüntü resim sayısı</phrase>
+  <phrase data="_MOD_GA_LIKE">Beğeni Butonunu Göster</phrase>
+  <phrase data="_MOD_GA_LIKE_T">Evet seçilirse kullanıcıların beğenme oranları gösterilecek</phrase>
+  <phrase data="_MOD_GA_WATERMARK">Filigran</phrase>
+  <phrase data="_MOD_GA_WATERMARK_T">Filigran özelliğini etkinleştirmek için evet deyin, etkin olduğu takdirde Dosya Yöneticisi kullanarak /upload/ dizinine watermark.png dosyanızı yükleyin.</phrase> 
+  <phrase data="_MOD_GA_UPDATE">Galeriyi Güncelle</phrase>
+  <phrase data="_MOD_GA_TITLE2">Galeri Ekle</phrase>
+  <phrase data="_MOD_GA_INFO2">Burada yeni galeri ekleyebilirsiniz.</phrase>
+  <phrase data="_MOD_GA_SUBTITLE2">Yeni Galeri Ekleme</phrase>
+  <phrase data="_MOD_GA_SELECT">Galeri Seçin</phrase>
+  <phrase data="_MOD_GA_FOLDER">Galeri Klasör Adı</phrase>
+  <phrase data="_MOD_GA_FOLDER_T">Bu tüm görüntülerin saklanacağı klasörün adıdır. Her galeri benzersiz dizini adı olmalıdır. Sadece ingilizce karakterler ve rakamlar kullanın, boşluk kullanmayın.</phrase>
+  <phrase data="_MOD_GA_ADDMOD_GALLERY">Galeri Ekle</phrase>
+  <phrase data="_MOD_GA_TITLE3">Görselleri Yönet</phrase> 
+  <phrase data="_MOD_GA_INFO3">Burada galerinizin görsellerini yönetebilirsiniz. Sürükle ve bırak sistemi Firefox, Chrome IE10 + ve Safari tarayıcıda mevcuttur.</phrase>
+  <phrase data="_MOD_GA_SUBTITLE3">Galeri Görselleri Görüntüleniyor / </phrase> 
+  <phrase data="_MOD_GA_ADD_IMG">Resim Ekle</phrase>
+  <phrase data="_MOD_GA_NOIMG">Bu galeriye henüz bir görsel eklenmemiş</phrase>
+  <phrase data="_MOD_GA_UPDATED">Galeri yapılandırma başarıyla güncellendi!</phrase>
+  <phrase data="_MOD_GA_ADDED">Galeri başarıyla eklendi!</phrase>
+  <phrase data="_MOD_GA_TITLE4">Görsel Galeri Modülü Yönetimi</phrase>
+  <phrase data="_MOD_GA_INFO4">Burada galerileri yönetebilirsiniz. Not:. Galeriyi silerseniz aynı galerinin altındaki tüm görsellerde silinecektir.</phrase>
+  <phrase data="_MOD_GA_ADDNEW">Yeni Galeri Ekle</phrase>
+  <phrase data="_MOD_GA_SUBTITLE4">Görsel Galeriler Listeleniyor</phrase>
+  <phrase data="_MOD_GA_NOMOD_GAL">Henüz hiç galeri eklenmemiş.</phrase>
+  <phrase data="_MOD_GA_TOTAL_IMG">Toplam Görsel</phrase>
+  <phrase data="_MOD_GA_IMG_TITLE">Resim Başlığı</phrase>
+  <phrase data="_MOD_GA_IMG_DESC">Resim Açıklaması</phrase>
+  <phrase data="_MOD_GA_SORT">Görselleri Sırala</phrase>
+  <phrase data="_MOD_GA_TITLE5">Görselleri Sırala</phrase>
+  <phrase data="_MOD_GA_INFO5">Burada görselleri sıralayabilirsiniz. İstediğiniz görseli tutup, sürükleyerek yeni yerine götürünüz. Sıralama otomatik olarak kayıt olacaktır.</phrase>
+  <phrase data="_MOD_GA_DIRERROR">Geçersiz dizin tespit edildi.</phrase>
+  <phrase data="_MOD_GA_HELP">Galeri Yardımu</phrase>
+  <phrase data="_MOD_GA_EDIT">Resim Başlık / Açıklaması</phrase>
+  <phrase data="_MOD_GA_EDIT_T">Görüntü başlığı veya açıklamasını düzenlemek için üzerine tıklayın. Değişiklikler anında kaydedilir.</phrase>
+  <phrase data="_MOD_GA_UPL">Resim Yükleme</phrase>
+  <phrase data="_MOD_GA_UPL_T">Sadece (jpg, jpeg ve png) uzantıları kullanılabilir ve tek seferde 5 görüntü yükleyebilirsiniz. Her resim maksimum 6MB olabilir.</phrase>
+</language>

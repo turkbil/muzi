@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="Account.php" server="95.216.33.155/public_html/" local="133911996486934343" remote="133909955400000000" Dst="0" />
+<file name="ApiConnectionError.php" server="95.216.33.155/public_html/" local="133911996488609939" remote="133909955400000000" Dst="0" />
+<file name="ApiError.php" server="95.216.33.155/public_html/" local="133911996488706114" remote="133909955400000000" Dst="0" />
+<file name="ApiRequestor.php" server="95.216.33.155/public_html/" local="133911996490418350" remote="133909955400000000" Dst="0" />
+<file name="ApiResource.php" server="95.216.33.155/public_html/" local="133911996490702964" remote="133909955400000000" Dst="0" />
+<file name="AuthenticationError.php" server="95.216.33.155/public_html/" local="133911996492211822" remote="133909955400000000" Dst="0" />
+<file name="CardError.php" server="95.216.33.155/public_html/" local="133911996492575695" remote="133909955400000000" Dst="0" />
+<file name="Charge.php" server="95.216.33.155/public_html/" local="133911996494099651" remote="133909955400000000" Dst="0" />
+<file name="Coupon.php" server="95.216.33.155/public_html/" local="133911996494300051" remote="133909955400000000" Dst="0" />
+<file name="Error.php" server="95.216.33.155/public_html/" local="133911996496055532" remote="133909955400000000" Dst="0" />
+<file name="Event.php" server="95.216.33.155/public_html/" local="133911996496162375" remote="133909955400000000" Dst="0" />
+<file name="Customer.php" server="95.216.33.155/public_html/" local="133911996496305628" remote="133909955400000000" Dst="0" />
+<file name="InvalidRequestError.php" server="95.216.33.155/public_html/" local="133911996497921960" remote="133909955400000000" Dst="0" />
+<file name="Invoice.php" server="95.216.33.155/public_html/" local="133911996498061959" remote="133909955400000000" Dst="0" />
+<file name="InvoiceItem.php" server="95.216.33.155/public_html/" local="133911996498534487" remote="133909955400000000" Dst="0" />
+<file name="List.php" server="95.216.33.155/public_html/" local="133911996499917763" remote="133909955400000000" Dst="0" />
+<file name="Object.php" server="95.216.33.155/public_html/" local="133911996500508241" remote="133909955400000000" Dst="0" />
+<file name="Plan.php" server="95.216.33.155/public_html/" local="133911996500886283" remote="133909955400000000" Dst="0" />
+<file name="SingletonApiResource.php" server="95.216.33.155/public_html/" local="133911996502266732" remote="133909955400000000" Dst="0" />
+<file name="Stripe.php" server="95.216.33.155/public_html/" local="133911996502858345" remote="133909955400000000" Dst="0" />
+<file name="Token.php" server="95.216.33.155/public_html/" local="133911996503465511" remote="133909955400000000" Dst="0" />
+<file name="Transfer.php" server="95.216.33.155/public_html/" local="133911996504631311" remote="133909955400000000" Dst="0" />
+<file name="Util.php" server="95.216.33.155/public_html/" local="133911996505985897" remote="133909955400000000" Dst="0" />
+</dwsync>

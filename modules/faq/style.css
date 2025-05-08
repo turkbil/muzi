@@ -1,0 +1,43 @@
+#faq a.expand_all {
+  margin-bottom: 2em;
+  float: right
+}
+#faq section {
+  box-shadow:inset 0 3px 0 0 rgba(0,0,0,0.1);
+}
+#faq section:last-child {
+  box-shadow: 0 3px 0 0 rgba(0,0,0,0.1),inset 0 3px 0 0 rgba(0,0,0,0.1);
+}
+#faq section.active {
+  box-shadow:inset 0 3px 0 0 #E14D43;
+}
+#faq section > h4 {
+  font-size: 1.2em;
+  font-weight: 500;
+  color: #333;
+  padding: .65em;
+  margin: 0;
+  padding-left: 0;
+  cursor: pointer;
+}
+#faq section > h4 > i.icon {
+  color: #E14D43;
+  margin-right: 1em;
+}
+#faq section > h4 span {
+  background: #E14D43;
+  position: relative;
+  color: #fff;
+  font-size: .65em;
+  font-weight: 400;
+  display: inline-block;
+  padding-top: .5em;
+  padding-right: 0.75em;
+  padding-bottom: .5em;
+  padding-left: 0.75em;
+  margin-right: 1em;
+}
+#faq section .answer {
+  padding: 1em 0;
+  display: none
+}

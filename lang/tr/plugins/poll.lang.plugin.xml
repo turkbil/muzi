@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language>
+  <phrase data="_PLG_PL_TITLE1">Anket Sorusunu Düzenle</phrase>
+  <phrase data="_PLG_PL_INFO1">Burada anket sorusunu düzenleyebilirsiniz..</phrase>
+  <phrase data="_PLG_PL_SUBTITLE1">Anket Sorusu Düzenleniyor / </phrase>
+  <phrase data="_PLG_PL_QUESTION">Anket Sorusu</phrase>
+  <phrase data="_PLG_PL_QUESTION_T">Varsayılan Anket Sorusu</phrase>
+  <phrase data="_PLG_PL_OPTIONS">Anket Seçenekleri</phrase>
+  <phrase data="_PLG_PL_OPTIONS_T">Burada anket seçenekleri ekleyebilirsiniz. Not: Aktif anketin yanıt seçeneklerini düzenlendiğinizde aktif anketin verileri sıfırlanacaktır.</phrase>
+  <phrase data="_PLG_PL_ACTIVE">Anketi Aktif Yap</phrase>
+  <phrase data="_PLG_PL_ADD_Q">Anket Yanıtı Ekle</phrase>
+  <phrase data="_PLG_PL_DEL_Q">Anket Yanıtını Sil</phrase>
+  <phrase data="_PLG_PL_UPDATE">Anketi Güncelle</phrase>
+  <phrase data="_PLG_PL_TITLE2">Yeni Anket Ekle</phrase>
+  <phrase data="_PLG_PL_INFO2">Burada yeni anket ekleyebilirsiniz.</phrase>
+  <phrase data="_PLG_PL_SUBTITLE2">Anket Ekleniyor</phrase>
+  <phrase data="_PLG_PL_ADD">Anket Ekle</phrase>
+  <phrase data="_PLG_PL_TITLE3">Anket Yönetimi</phrase>
+  <phrase data="_PLG_PL_INFO3">burada anket eklentinizle ilgili ayarları düzenleyebilirsiniz.</phrase>
+  <phrase data="_PLG_PL_SUBTITLE3">Tüm Anketler Listesi</phrase>
+  <phrase data="_PLG_PL_ADD1">Yeni Anket Ekle</phrase>
+  <phrase data="_PLG_PL_VIEW">Görüntüleme</phrase>
+  <phrase data="_PLG_PL_POLL">Anket</phrase>
+  <phrase data="_PLG_PL_NOPOLL">Henüz hiç anket eklememişsiniz!</phrase>
+  <phrase data="_PLG_PL_UPDATED">Anket Yanıtı başaıyla güncellendir!</phrase>
+  <phrase data="_PLG_PL_ADDED">Anket yanıtı başarıyla eklendi.</phrase>
+  <phrase data="_PLG_PL_TOTAL">Toplam Oy:</phrase>
+  <phrase data="_PLG_PL_VOTES">Oy</phrase>
+  <phrase data="_PLG_PL_NOW">Hemen Oyla</phrase>
+  <phrase data="_PLG_PL_RESULT">Sonuçları Görüntüle</phrase>
+  <phrase data="_PLG_PL_THANKS">Oy verdiğiniz için teşekkürler!</phrase>
+  <phrase data="_PLG_PL_HELP">Ankt Yardımı</phrase>
+</language>

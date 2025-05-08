@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language>
+  <phrase data="_PLG_ES_ADDED">Image added successfully.</phrase>
+  <phrase data="_PLG_ES_ADDSLIDE">Add Slide</phrase>
+  <phrase data="_PLG_ES_ANITYPE">Animation Type</phrase>
+  <phrase data="_PLG_ES_ANITYPE_C">Center</phrase>
+  <phrase data="_PLG_ES_ANITYPE_S">Sides</phrase>
+  <phrase data="_PLG_ES_ANITYPE_T">Sides: new slides will slide in from left / right. Center: new slides will appear in the center.</phrase>
+  <phrase data="_PLG_ES_AUTOPLAY">Auto play</phrase>
+  <phrase data="_PLG_ES_AUTOPLAY_T">If Yes the slider will automatically slide, and it will only stop if the user clicks on a thumb.</phrase>
+  <phrase data="_PLG_ES_BUT_CONF_U">Update Configuration</phrase>
+  <phrase data="_PLG_ES_CAPTION">Image Caption</phrase>
+  <phrase data="_PLG_ES_CAPTION_R">Please Enter Image Caption</phrase>
+  <phrase data="_PLG_ES_CONF">Configuration</phrase>
+  <phrase data="_PLG_ES_CONF_UPDATED">Configuration updated successfully!</phrase>
+  <phrase data="_PLG_ES_DESC">Image Description</phrase>
+  <phrase data="_PLG_ES_FILE_ERR">File could not be moved from temporary upload folder to image folder.</phrase>
+  <phrase data="_PLG_ES_HEIGHT">Image Height</phrase>
+  <phrase data="_PLG_ES_HEIGHT_T">Maximum height for the images in pixels</phrase>
+  <phrase data="_PLG_ES_HELP">Elastic Slider Help.</phrase>
+  <phrase data="_PLG_ES_IMG_SEL">Select Image</phrase>
+  <phrase data="_PLG_ES_IMGPR">Image Preview</phrase>
+  <phrase data="_PLG_ES_IMG_SEL_R">Selected file is not valid image. Only jpg and pang</phrase>
+  <phrase data="_PLG_ES_IMGFILE">Image File</phrase>
+  <phrase data="_PLG_ES_INFO1">Here you can add new slide.</phrase>
+  <phrase data="_PLG_ES_INFO2">Here you can update your current slide.</phrase>
+  <phrase data="_PLG_ES_INFO3">Here you can configure image slider plugin. To reorder items click and drag item reorder handle, position it where you want it. Position will be updated automatically.</phrase>
+  <phrase data="_PLG_ES_INFO4">Here you can update your slider configuration.</phrase>
+  <phrase data="_PLG_ES_INTERVAL">Interval</phrase>
+  <phrase data="_PLG_ES_INTERVAL_T">Interval for the slideshow in Milliseconds. 1 second = 1000 milliseconds.</phrase>
+  <phrase data="_PLG_ES_NOIMG">You don't have any slides yet. Please upload</phrase>
+  <phrase data="_PLG_ES_POS">Position</phrase>
+  <phrase data="_PLG_ES_SLIDE">Slide Image</phrase>
+  <phrase data="_PLG_ES_SPEED">Speed</phrase>
+  <phrase data="_PLG_ES_SPEED_T">Speed for the sliding animation in Milliseconds. 1 second = 1000 milliseconds</phrase>
+  <phrase data="_PLG_ES_SUBTITLE1">Adding Slide</phrase>
+  <phrase data="_PLG_ES_SUBTITLE2">Editing Slide / </phrase>
+  <phrase data="_PLG_ES_SUBTITLE3">Viewing All Slides</phrase>
+  <phrase data="_PLG_ES_SUBTITLE4">Slider Configuration</phrase>
+  <phrase data="_PLG_ES_SUPDATED">Slide Order updated successfully!</phrase>
+  <phrase data="_PLG_ES_THUMB">Thumbnail Width</phrase>
+  <phrase data="_PLG_ES_THUMB_T">Maximum width for the thumbs in pixels</phrase>
+  <phrase data="_PLG_ES_TITLE">Manage CMS Elastic Slider Plugin</phrase>
+  <phrase data="_PLG_ES_TITLE1">Add Slide</phrase>
+  <phrase data="_PLG_ES_TITLE2">Edit Slide</phrase>
+  <phrase data="_PLG_ES_TITLESPEED">Title Speed</phrase>
+  <phrase data="_PLG_ES_TITLESPEED_T">Titles animation speed in Milliseconds.1 second = 1000 milliseconds</phrase>
+  <phrase data="_PLG_ES_UPDATE">Update Slide</phrase>
+  <phrase data="_PLG_ES_UPDATED">Slide updated successfully.</phrase>
+</language>

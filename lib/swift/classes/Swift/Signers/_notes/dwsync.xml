@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="BodySigner.php" server="95.216.33.155/public_html/" local="133911996961158944" remote="133909956600000000" Dst="0" />
+<file name="DKIMSigner.php" server="95.216.33.155/public_html/" local="133911996962355815" remote="133909956600000000" Dst="0" />
+<file name="HeaderSigner.php" server="95.216.33.155/public_html/" local="133911996962959706" remote="133909956600000000" Dst="0" />
+<file name="DomainKeySigner.php" server="95.216.33.155/public_html/" local="133911996962991939" remote="133909956600000000" Dst="0" />
+<file name="SMimeSigner.php" server="95.216.33.155/public_html/" local="133911996974797552" remote="133909956600000000" Dst="0" />
+<file name="OpenDKIMSigner.php" server="95.216.33.155/public_html/" local="133911996974860027" remote="133909956600000000" Dst="0" />
+</dwsync>

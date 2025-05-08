@@ -1,0 +1,126 @@
+@media (max-width: 991px) {
+  	.mejs__container{
+		min-width: unset !important; 
+		height: 75px !important;
+  	}
+  	.mejs__controls{
+  		position: relative !important; 
+		height: 75px !important;
+  	}
+    .audio-bar .mejs__playpause-button{
+        margin-left:0px !important;
+    }
+  	.mejs__time-rail {
+		height: 2px !important; 
+		position: absolute;
+		top: 0px;
+    	width: calc(100% - 20px) !important;
+		margin: 0px;
+	}
+	.mejs__time-rail .mejs__time-total{
+		margin:0;
+	}
+	.mejs__currenttime-container{
+		padding: 0 !important;
+		height: 12px;
+		position: absolute;
+		top: 15px;
+		font-weight: 500;
+	}
+	.mejs__duration-container{
+		padding: 0 !important;
+		height: 12px;
+		position: absolute;
+		top: 15px;
+		right: 10px;
+		font-weight: 500;
+	}
+	.mejs__layers{
+		display: flex;
+    	justify-content: flex-start;
+		align-items: center;
+		position: absolute;
+		top: -80px;
+		left: 0px;
+		padding: 15px;
+		width: 100%;
+		background: #0d1d2fd1;
+	}
+	.mejs-track-artwork{
+		width:auto !important;
+		height:auto !important;
+	}
+	.mejs-track-artwork img{
+		margin:0;
+	}
+	.mejs__layers .mejs-track-details{
+		position:relative;
+		top:unset;
+		left:unset;
+		padding: 0;
+	}
+	
+	.mejs__playpause-button{
+		float: unset;
+		position: absolute;
+		width: 40px;
+		height: 40px;
+		top: 25px;
+		left: calc(50% - 20px);
+	}
+	.mejs__playpause-button button{
+		width: 40px;
+    	height: 40px;
+    	background: none !important;
+    	padding: 0;
+    	margin: 0;
+	}
+	.mejs__playpause-button button:after{
+		font-family: "Font Awesome 6 Pro";
+		-webkit-font-smoothing: antialiased;
+		display: var(--fa-display,inline-block);
+		font-style: normal;
+		font-variant: normal;
+		line-height: 1;
+		text-rendering: auto;
+		font-size:40px;
+		line-height:40px;
+		    color: #f91f56;
+			font-weight:900;
+	}
+	.mejs__playpause-button.mejs__play button:after{
+		content:'\f04b';
+	}
+	.mejs__playpause-button.mejs__pause button:after{
+		content:'\f04c';
+	}
+	.mejs__volume-button{
+		display:none;
+	}
+	.mejs__prev-button{
+		position: absolute;
+    	left: calc(50% - 75px);
+    	top: 26px;
+	}
+	.mejs__next-button{
+		position: absolute;
+    	right: calc(50% - 72px);
+    	top: 26px;
+	}
+	.mejs__shuffle-button{
+		position: absolute;
+    	right: calc(50% - 120px);
+    	top: 26px;
+	}
+	
+	.mejs__loop-button{
+		position: absolute;
+    	left: calc(50% - 120px);
+    	top: 26px;
+	}
+}
+@media (max-width: 575px) {
+    .payment .content .form-block .form-inner{
+        padding: 16px;
+    }
+}

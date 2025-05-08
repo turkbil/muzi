@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="admin.php" server="95.216.33.155/public_html/" local="133911992756832793" remote="133909953600000000" Dst="0" />
+<file name="admin_class.php" server="95.216.33.155/public_html/" local="133911992758733738" remote="133909953600000000" Dst="0" />
+<file name="admin_class_album.php" server="95.216.33.155/public_html/" local="133911992758733738" remote="133909953600000000" Dst="0" />
+<file name="admin_class_artist.php" server="95.216.33.155/public_html/" local="133911992759358660" remote="133909953600000000" Dst="0" />
+<file name="admin_class_genre.php" server="95.216.33.155/public_html/" local="133911992761113949" remote="133909953600000000" Dst="0" />
+<file name="admin_class_homepage.php" server="95.216.33.155/public_html/" local="133911992761129090" remote="133909953600000000" Dst="0" />
+<file name="admin_class_playlist.php" server="95.216.33.155/public_html/" local="133911992762424727" remote="133909953600000000" Dst="0" />
+<file name="admin_class_sector.php" server="95.216.33.155/public_html/" local="133911992763000658" remote="133909953600000000" Dst="0" />
+<file name="ajax_songs.php" server="95.216.33.155/public_html/" local="133911992763650435" remote="133909953600000000" Dst="0" />
+<file name="controller.php" server="95.216.33.155/public_html/" local="133911992764880957" remote="133909953600000000" Dst="0" />
+<file name="config.ini" server="95.216.33.155/public_html/" local="133911992765920929" remote="133909953600000000" Dst="0" />
+<file name="crumbs.php" server="95.216.33.155/public_html/" local="133911992766140083" remote="133909953600000000" Dst="0" />
+<file name="error_log" server="95.216.33.155/public_html/" local="133911992768158245" remote="133911725400000000" Dst="0" />
+<file name="lang-delete.php" server="95.216.33.155/public_html/" local="133911992768209562" remote="133909953600000000" Dst="0" />
+<file name="lang-add.php" server="95.216.33.155/public_html/" local="133911992768491090" remote="133909953600000000" Dst="0" />
+<file name="section-album.php" server="95.216.33.155/public_html/" local="133911992770278635" remote="133909953600000000" Dst="0" />
+<file name="meta.php" server="95.216.33.155/public_html/" local="133911992770507316" remote="133909953600000000" Dst="0" />
+<file name="section-artist.php" server="95.216.33.155/public_html/" local="133911992770539824" remote="133909953600000000" Dst="0" />
+<file name="section-config.php" server="95.216.33.155/public_html/" local="133911992770502188" remote="133909953600000000" Dst="0" />
+<file name="section-genre.php" server="95.216.33.155/public_html/" local="133911992772530847" remote="133909953600000000" Dst="0" />
+<file name="section-playlist-songs.php" server="95.216.33.155/public_html/" local="133911992773732949" remote="133909953600000000" Dst="0" />
+<file name="section-playlist.php" server="95.216.33.155/public_html/" local="133911992774852222" remote="133909953600000000" Dst="0" />
+<file name="section-sector.php" server="95.216.33.155/public_html/" local="133911992774975317" remote="133909953600000000" Dst="0" />
+<file name="section-song.php" server="95.216.33.155/public_html/" local="133911992776600315" remote="133909953600000000" Dst="0" />
+</dwsync>

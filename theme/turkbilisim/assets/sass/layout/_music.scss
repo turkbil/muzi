@@ -1,0 +1,239 @@
+.songs-list {
+    .song-card {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-top: 0.5px solid $light-gray;
+        padding: 8px clamp(8px, 0.63vw, 16px);
+        &:first-child {
+            border: none;
+        }
+        &:last-child {
+            padding-bottom: 0;
+        }
+        .duration,
+        .listens {
+            @include media-query(575px) {
+                display: none;
+            }
+        }
+        .left-block {
+            display: flex;
+            align-items: center;
+            gap: clamp(12px, 1.25vw, 32px);
+            img {
+                border-radius: 4px;
+                width: clamp(48px, 3.333vw, 80px);
+            }
+            div {
+                a {
+                    font-size: clamp(9px, 0.573vw, 13px);
+                    @include media-query(991px) {
+                        font-size: 9px;
+                    }
+                    @include media-query(767px) {
+                        font-size: 8.5px;
+                    }
+                }
+            }
+            .play {
+                position: relative;
+                a {
+                    opacity: 0;
+                    visibility: hidden;
+                    transition: $transition;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    i {
+                        font-size: clamp(16px, 1.25vw, 30px);
+                        color: $accent;
+                    }
+                }
+                span {
+                    font-size: clamp(16px, 1.25vw, 30px);
+                    opacity: 1;
+                    visibility: visible;
+                    transition: $transition;
+                }
+            }
+        }
+        .right-block {
+            display: flex;
+            align-items: center;
+            gap: clamp(12px, 1.25vw, 32px);
+            a {
+                position: relative;
+                i {
+                    font-size: clamp(16px, 1.25vw, 30px);
+                }
+                svg {
+                    width: clamp(16px, 1.25vw, 30px);
+                    height: clamp(16px, 1.25vw, 30px);
+                    path {
+                        fill: $light-gray;
+                        transition: $transition;
+                    }
+                }
+                /*-- Tooltip Icons --*/
+                .tooltip-pop {
+                    background: $accent-2;
+                    display: block;
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    padding: 0.5rem 0.4rem;
+                    border-radius: 5px;
+                    font-size: 0.8rem;
+                    width: max-content;
+                    font-weight: 600;
+                    opacity: 0;
+                    pointer-events: none;
+                    transform: translate(-50%, -90%);
+                    transition: all 0.2s ease;
+                    z-index: 1;
+                    color: $white;
+                    &:after {
+                        content: " ";
+                        position: absolute;
+                        bottom: 1px;
+                        left: 50%;
+                        border: solid;
+                        border-width: 10px 10px 0 10px;
+                        border-color: transparent;
+                        transform: translate(-50%, 100%);
+                        border-top-color: $accent-2;
+                    }
+                }
+                &:hover {
+                    svg {
+                        path {
+                            fill: $accent;
+                            transition: $transition;
+                        }
+                    }
+                    .tooltip-pop {
+                        opacity: 1;
+                        transform: translate(-50%, -106%);
+                    }
+                }
+            }
+        }
+        &:hover {
+            .left-block {
+                .play {
+                    a {
+                        opacity: 1;
+                        visibility: visible;
+                        transition: $transition;
+                    }
+                    span {
+                        opacity: 0;
+                        visibility: hidden;
+                        transition: $transition;
+                    }
+                }
+            }
+        }
+        &.play-active {
+            .left-block {
+                .play {
+                    a {
+                        opacity: 1;
+                        visibility: visible;
+                        transition: $transition;
+                    }
+                    span {
+                        opacity: 0;
+                        visibility: hidden;
+                        transition: $transition;
+                    }
+                }
+            }
+        }
+    }
+    .accordion-collapse {
+        .song-card {
+            &:first-child {
+                border-top: 0.5px solid $light-gray !important;
+            }
+        }
+    }
+}
+.music-card {
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+    img {
+        -webkit-transition: all 0.6s linear 0s;
+        transition: all 0.6s linear 0s;
+    }
+    &:hover {
+        img {
+            -webkit-transform: scale(1.03);
+            transform: scale(1.03);
+            -webkit-transition: all 0.6s linear 0s;
+            transition: all 0.6s linear 0s;
+        }
+    }
+    .content {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        padding: 8px;
+        p {
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            line-clamp: 1;
+            -webkit-box-orient: vertical;
+        }
+    }
+}
+.music-slider {
+    .slide-item {
+        width: clamp(180px, 12.708vw, 320px);
+    }
+}
+.artist-card {
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+    img {
+        -webkit-transition: all 0.6s linear 0s;
+        transition: all 0.6s linear 0s;
+    }
+    &:hover {
+        img {
+            -webkit-transform: scale(1.03);
+            transform: scale(1.03);
+            -webkit-transition: all 0.6s linear 0s;
+            transition: all 0.6s linear 0s;
+        }
+    }
+    h5 {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        padding: 8px;
+    }
+}
+
+.more {
+    margin: 0 auto;
+    width: fit-content;
+    color: $white;
+    .collapsed {
+        color: $white;
+        i {
+            transform: rotate(0);
+            transition: $transition;
+        }
+    }
+    i {
+        transform: rotate(-180deg);
+        transition: $transition;
+    }
+}

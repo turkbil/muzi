@@ -1,0 +1,95 @@
+/*---------------------------------------------"
+// Template Name: Realtor
+// Description:  Realtor Html Template
+// Version: 1.0.0
+
+===============================================   
+STYLE SHEET INDEXING
+|
+|___ Fonts
+|___ Variables
+|___ Responsive
+|___ Reset Styles
+|___ Spacing
+|___ Helper Classes
+|___ Buttons
+|___ Headings
+|___ Layout Styles
+|___ END STYLE SHEET INDEXING
+
+--------------------------------------------*/
+
+/*-------------------------
+    Fonts
+-------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+@font-face {
+  font-family: "Filson Pro";
+  src: url('./fonts/filson-pro/FilsonProMedium.otf') format('truetype');
+  font-weight: 400;
+}
+/*-------------------------
+    Variables
+-------------------------*/
+
+/* Fonts */
+$font-primary: "Noto Sans", sans-serif;
+$font-sec: "Filson Pro", sans-serif;
+$font-awesome: "Font Awesome 6 Pro";
+
+/* Colors */
+$accent: #FF1F56;
+$accent-2: #0D1D2F;
+$accent-3: #0B1828;
+$white: #FAFAFA;
+$lightest-gray: #EAEAEC;
+$light-gray: #92949F;
+$dark-gray: #45474F;
+$black: #0C0C0D;
+$light-black: #141516;
+
+/* Transitions */
+$transition: all .5s ease-in;
+
+/*-------------------------
+ Responsive Styles
+-------------------------*/
+@import "helpers/mixin";
+
+/*-------------------------
+    Reset Styles
+-------------------------*/
+@import "basic/basic";
+
+/*-------------------------
+Helpers
+-------------------------*/
+@import "helpers/classes";
+
+@import "helpers/spacing";
+
+/*-------------------------
+Elements
+-------------------------*/
+
+@import "elements/buttons";
+
+@import "elements/form";
+
+@import "elements/preloader";
+
+/*-------------------------
+  layouts
+-------------------------*/
+@import "layout/header";
+
+@import "layout/coming-soon"; 
+
+@import "layout/banner"; 
+
+@import "layout/music";
+
+@import "layout/account";
+
+@import "layout/footer";

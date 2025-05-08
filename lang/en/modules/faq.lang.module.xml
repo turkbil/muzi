@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<language>
+  <phrase data="_MOD_FAQ_A">A:</phrase>
+  <phrase data="_MOD_FAQ_ADD">Add Question</phrase>
+  <phrase data="_MOD_FAQ_ADDED">Question added successfully!</phrase>
+  <phrase data="_MOD_FAQ_COL">Collapse All</phrase>
+  <phrase data="_MOD_FAQ_DELETE">Delete Question</phrase>
+  <phrase data="_MOD_FAQ_DELETE_OK">Question [FAQNAME] deleted successfully!</phrase>
+  <phrase data="_MOD_FAQ_DESC">Answer</phrase>
+  <phrase data="_MOD_FAQ_EXP">Expand All</phrase>
+  <phrase data="_MOD_FAQ_FAQ">F.A.Q.</phrase>
+  <phrase data="_MOD_FAQ_INFO">Here you can add new question.</phrase>
+  <phrase data="_MOD_FAQ_INFO1">Here you can update your existing question.</phrase>
+  <phrase data="_MOD_FAQ_INFO3">Here you can configure f.a.q. module. To reorder items click and drag item reorder handle, position it where you want it. Position will be updated automatically.</phrase>
+  <phrase data="_MOD_FAQ_NAME">Author Name</phrase>
+  <phrase data="_MOD_FAQ_NOFAQS">You don't have any question yet. Please add.</phrase>
+  <phrase data="_MOD_FAQ_POS">Position</phrase>
+  <phrase data="_MOD_FAQ_SUBTITLE">Adding New Question</phrase>
+  <phrase data="_MOD_FAQ_SUBTITLE1">Editing Question / </phrase>
+  <phrase data="_MOD_FAQ_SUBTITLE3">Viewing All Questions</phrase>
+  <phrase data="_MOD_FAQ_SUPDATED">F.A.Q. Order updated successfully!</phrase>
+  <phrase data="_MOD_FAQ_TITLE1">Edit Question</phrase>
+  <phrase data="_MOD_FAQ_TITLE2">Add Question</phrase>
+  <phrase data="_MOD_FAQ_TITLE3">Manage CMS F.A.Q. Module</phrase>
+  <phrase data="_MOD_FAQ_TITLE">Question</phrase>
+  <phrase data="_MOD_FAQ_UPDATE">Update Question</phrase>
+  <phrase data="_MOD_FAQ_UPDATED">Question updated successfully!</phrase>
+  <phrase data="_MOD_FAQ_Q">Q:</phrase>
+</language>

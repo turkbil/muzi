@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language>
+  <phrase data="_MOD_GA_TITLE1">Edit Gallery</phrase>
+  <phrase data="_MOD_GA_INFO1">Here you can update your gallery configuration.</phrase>
+  <phrase data="_MOD_GA_SUBTITLE1">Editing Gallery /</phrase>
+  <phrase data="_MOD_GA_NAME">Gallery Title</phrase>
+  <phrase data="_MOD_GA_NAME_T">Default gallery name</phrase>
+  <phrase data="_MOD_GA_COLS">Number Of Columns</phrase>
+  <phrase data="_MOD_GA_COLS_T">Number of images displayed in one row</phrase>
+  <phrase data="_MOD_GA_LIKE">Show Like</phrase>
+  <phrase data="_MOD_GA_LIKE_T">If Yes users will be able to rate images</phrase>
+  <phrase data="_MOD_GA_WATERMARK">Enable Watermark</phrase>
+  <phrase data="_MOD_GA_WATERMARK_T">Yes to enable watermark feature, upload your watermark.png file in /upload/ directory using File Manager</phrase>
+  <phrase data="_MOD_GA_UPDATE">Update Gallery</phrase>
+  <phrase data="_MOD_GA_TITLE2">Add Gallery</phrase>
+  <phrase data="_MOD_GA_INFO2">Here you can add new CMS Gallery.</phrase>
+  <phrase data="_MOD_GA_SUBTITLE2">Adding New Gallery</phrase>
+  <phrase data="_MOD_GA_SELECT">Select Gallery</phrase>
+  <phrase data="_MOD_GA_FOLDER">Gallery Folder Name</phrase>
+  <phrase data="_MOD_GA_FOLDER_T">This is the name of the folder where all the images will be stored. Each gallery can have it's own unique directory. Use only Alpha-Numeric characters and no spaces</phrase>
+  <phrase data="_MOD_GA_ADDMOD_GALLERY">Add Gallery</phrase>
+  <phrase data="_MOD_GA_TITLE3">Manage Media</phrase>
+  <phrase data="_MOD_GA_INFO3">Here you can manage your Gallery media. Drag and drop upload is available in Firefox, Chrome IE10+ and Safari browser.</phrase>
+  <phrase data="_MOD_GA_SUBTITLE3">Viewing Media For /</phrase>
+  <phrase data="_MOD_GA_ADD_IMG">Add Images</phrase>
+  <phrase data="_MOD_GA_NOIMG">You don't have any media assigned under this gallery yet...</phrase>
+  <phrase data="_MOD_GA_UPDATED">Gallery configuration updated successfully!</phrase>
+  <phrase data="_MOD_GA_ADDED">Gallery added successfully!</phrase>
+  <phrase data="_MOD_GA_TITLE4">Manage CMS Gallery Module</phrase>
+  <phrase data="_MOD_GA_INFO4">Here you can manage your galleries. Note: Deleting gallery will also delete all images under the same gallery.</phrase>
+  <phrase data="_MOD_GA_ADDNEW">Add New Gallery</phrase>
+  <phrase data="_MOD_GA_SUBTITLE4">Viewing CMS Galleries</phrase>
+  <phrase data="_MOD_GA_NOMOD_GAL">You don't have any galleries yet...</phrase>
+  <phrase data="_MOD_GA_TOTAL_IMG">Total Images</phrase>
+  <phrase data="_MOD_GA_IMG_TITLE">Image Title</phrase>
+  <phrase data="_MOD_GA_IMG_DESC">Image Description</phrase>
+  <phrase data="_MOD_GA_SORT">Sort Images</phrase>
+  <phrase data="_MOD_GA_TITLE5">Sort Media</phrase>
+  <phrase data="_MOD_GA_INFO5">Here you can sort your gallery images. Drag image, position where you want it, and sorting order will be saved.</phrase>
+  <phrase data="_MOD_GA_DIRERROR">Invalid directory detected</phrase>
+  <phrase data="_MOD_GA_HELP">Gallery Help</phrase>
+  <phrase data="_MOD_GA_EDIT">Image Title/Description</phrase>
+  <phrase data="_MOD_GA_EDIT_T">Click on image title or description to edit. Changes will be saved instantly.</phrase>
+  <phrase data="_MOD_GA_UPL">Image Upload</phrase>
+  <phrase data="_MOD_GA_UPL_T">You can upload up to 5 images at once, maximum 6MB in size each, with following extensions (jpg, jpeg and png)</phrase>
+</language>

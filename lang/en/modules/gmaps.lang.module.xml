@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language>
+  <phrase data="_MOD_GM_TITLE1">Edit Google Map</phrase>
+  <phrase data="_MOD_GM_INFO1">Here you can update your project information.</phrase>
+  <phrase data="_MOD_GM_SUBTITLE1">Editing Google Map / </phrase>
+  <phrase data="_MOD_GM_TITLE2">Add Google Map</phrase>
+  <phrase data="_MOD_GM_INFO2">Here you can add new Google Map.</phrase>
+  <phrase data="_MOD_GM_SUBTITLE2">Adding Google Maps</phrase>
+  <phrase data="_MOD_GM_NOGMAPS">The are no existing Google Maps yet.</phrase>
+  <phrase data="_MOD_GM_GMAP">Google Map</phrase>
+  <phrase data="_MOD_GM_NAME_EXISTS">Google Maps Name Exists</phrase>
+  <phrase data="_MOD_GM_MAPINFO">Location Search</phrase>
+  <phrase data="_MOD_GM_MAPINFO_T">Enter your address and press search button. Drag marker to adjust your location. You can also zoom in/out to set zoom level.</phrase>
+  <phrase data="_MOD_GM_SUBTITLE3">Viewing Google Maps</phrase>
+  <phrase data="_MOD_GM_NAME">Google Map Name</phrase>
+  <phrase data="_MOD_GM_NAME2">Google Map Name must contain only letters and numbers.</phrase>
+  <phrase data="_MOD_GM_LLERR">Please click or drag marker to set Latitude and Longitude</phrase>
+  <phrase data="_MOD_GM_LAT">Latitude</phrase>
+  <phrase data="_MOD_GM_LAT_R">Latitude must be valid number.</phrase>
+  <phrase data="_MOD_GM_LNG">Longitude</phrase>
+  <phrase data="_MOD_GM_LNG_R">Longitude must be valid number.</phrase>
+  <phrase data="_MOD_GM_GUPDATED"> Map updated successfully!</phrase>
+  <phrase data="_MOD_GM_GADDED">Map added successfully!</phrase>
+  <phrase data="_MOD_GM_TITLE4">Manage CMS Google Maps Module</phrase>
+  <phrase data="_MOD_GM_INFO4">Here you can manage your Google Maps.</phrase>
+  <phrase data="_MOD_GM_LOCATION">Location</phrase>
+  <phrase data="_MOD_GM_ZOOM_LEVEL">Zoom Level</phrase>
+  <phrase data="_MOD_GM_ZOOM_LEVEL_R">Zoom Level must be positive integer between 1 and 18</phrase>
+  <phrase data="_MOD_GM_ADD">Add Google Map</phrase>
+  <phrase data="_MOD_GM_EDIT">Update Google Map</phrase>
+  <phrase data="_MOD_GM_HELP">Google Map Help</phrase>
+</language>

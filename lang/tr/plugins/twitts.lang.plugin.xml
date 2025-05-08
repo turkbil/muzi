@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language>
+  <phrase data="_PLG_TW_TITLE1">Eş Zamanlı Tweet Eklentisi</phrase>
+  <phrase data="_PLG_TW_INFO1">Burada Twitter eklentinizin yapılandırmasını güncelleyebilirsiniz.</phrase>
+  <phrase data="_PLG_TW_SUBTITLE1">Yapılandırma Düzenleme</phrase>
+  <phrase data="_PLG_TW_USER">Kullanıcı adınız</phrase>
+  <phrase data="_PLG_TW_USER_T">Sizin twitter kullanıcı adınız</phrase>
+  <phrase data="_PLG_TW_KEY">Consumer Key</phrase>
+  <phrase data="_PLG_TW_KEY_T">Consumer Key, Consumer Secret, Access Token ve Access Token Secret, Twitter app ayarlarında bulunur.</phrase>
+  <phrase data="_PLG_TW_SECRET">Consumer Secret</phrase>
+  <phrase data="_PLG_TW_TOKEN">Access Token</phrase>
+  <phrase data="_PLG_TW_TSECRET">(Access Token) Erişim Simgesi Gizli</phrase>
+  <phrase data="_PLG_TW_COUNT">Tweet Sayısı</phrase>
+  <phrase data="_PLG_TW_COUNT_T">Yayımlanan tweet sayısını göster</phrase>
+  <phrase data="_PLG_TW_TRANS">Geçiş Hızı</phrase>
+  <phrase data="_PLG_TW_TRANS_T">Tweetler arası geçiş hızıdır. 1 Saniye = 1000 milisaniye olarak geçer.</phrase>
+  <phrase data="_PLG_TW_SHOW_IMG">Avatarı Göster</phrase>
+  <phrase data="_PLG_TW_SHOW_IMG_T">Avatar olsun veya olmasın.</phrase>
+  <phrase data="_PLG_TW_TRANS_T">Geçiş Geri Sayım Süresi</phrase>
+  <phrase data="_PLG_TW_TRANS_TT">Gerisayım süresidir. 1 Saniye = 1000 milisaniye olarak geçer.</phrase>
+  <phrase data="_PLG_TW_UPDATE">Ayarları Güncelleme</phrase>
+  <phrase data="_PLG_TW_UPDATED">Twitter ayarları başarıyla güncellendi!</phrase>
+  <phrase data="_PLG_TW_HELP">Twitter Yardım</phrase>
+</language>

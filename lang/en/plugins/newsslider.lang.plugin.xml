@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language>
+  <phrase data="_PLG_NS_TITLE1">Edit News Item</phrase>
+  <phrase data="_PLG_NS_INFO1">Here you can update your news item.</phrase>
+  <phrase data="_PLG_NS_SUBTITLE1">Editing News Item / </phrase>
+  <phrase data="_PLG_NS_TITLE">News Title</phrase>
+  <phrase data="_PLG_NS_PUB">News Published</phrase>
+  <phrase data="_PLG_NS_S_DATE">Show Date</phrase>
+  <phrase data="_PLG_NS_S_TITLE">Show Title</phrase>
+  <phrase data="_PLG_NS_BODY">News Content</phrase>
+  <phrase data="_PLG_NS_UPDATE">Update News</phrase>
+  <phrase data="_PLG_NS_TITLE2">Add News Item</phrase>
+  <phrase data="_PLG_NS_INFO2">Here you can add your news item.</phrase>
+  <phrase data="_PLG_NS_SUBTITLE2">Adding News Item</phrase>
+  <phrase data="_PLG_NS_ADD">Add News</phrase>
+  <phrase data="_PLG_NS_TITLE3">Manage CMS News Slider Plugin</phrase>
+  <phrase data="_PLG_NS_INFO3">Here you can configure news slider plugin. To reorder items click and drag item reorder handle, position it where you want it. Position will be updated automatically.</phrase>
+  <phrase data="_PLG_NS_SUBTITLE3">Viewing All News Items</phrase>
+  <phrase data="_PLG_NS_POS">Position</phrase>
+  <phrase data="_PLG_NS_ITEM">News Item</phrase>
+  <phrase data="_PLG_NS_NONEWS">You don't have any news items yet. Please add!</phrase>
+  <phrase data="_PLG_NS_UPDATED">News Item updated successfully!</phrase>
+  <phrase data="_PLG_NS_ADDED">News Item added successfully!</phrase>
+</language>

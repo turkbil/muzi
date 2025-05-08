@@ -1,0 +1,771 @@
+html,
+body {
+  font-size: 14px;
+}
+* {
+  box-sizing: content-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: content-box;
+}
+body {
+  font-family: "Open Sans", sans-serif;
+  padding: 10px;
+  background-color: #E9E9E1;
+  overflow-x: hidden;
+  color: #787878;
+  font-weight: 400;
+  margin: 0
+}
+video,
+audio {
+  margin: 3em;
+}
+#uploader {
+  display: block;
+  text-align: right;
+  height: auto;
+  min-height: 30px;
+  overflow: hidden;
+}
+#uploader h1 {
+  font-family: 'Open Sans Condensed';
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+  display: block;
+  float: left;
+  margin-left: 1em;
+  line-height: 1.9em;
+  font-size: 1.2em;
+  word-break: break-all;
+}
+button#home {
+  float: left;
+}
+#uploadresponse {
+  display: none;
+}
+#filetree {
+  overflow: auto;
+  min-width: 100px;	/* optional */
+  border: 1px solid #C6C6BF;/* no margin or border allowed */
+  background-color: #F7F6F2;
+}
+#filetree > ul {
+  padding: 4px;
+}
+#fileinfo {
+  min-width: 100px;
+  overflow: auto;
+  border: 1px solid #C6C6BF;
+  background-color: #F7F6F2;
+}
+#fileinfo {
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+#fileinfo *:not(."CodeMirror") {
+  color: #787878;
+}
+#preview {
+  width: 100%;
+}
+#preview > img {
+  margin: 25px;
+  max-width: 80%;
+  max-height: 200px;
+}
+#fileinfo h1 {
+  font-size: 18px;
+  margin: 10px auto;
+  font-family: 'Open Sans Condensed';
+  font-weight: 600;
+}
+#preview dl {
+  display: block;
+  width: 400px;
+  margin: 10px auto;
+  overflow: auto;
+}
+#preview dl dt,
+#preview dl dd {
+  display: block;
+  float: left;
+  width: 190px;
+  padding: 4px;
+  text-align: left;
+  border-bottom: 1px dotted #ccc;
+  overflow: hidden;
+  margin: 0;
+}
+#preview dl dd {
+  float: right;
+}
+#preview dt {
+  clear: both;
+}
+#preview dd {
+  font-weight: bold;
+}
+#toolbar {
+  display: block;
+  clear: left;
+  margin: 50px auto;
+}
+button {
+  cursor: pointer;
+  background-color: #E9E9E1;
+  border-radius: 3px;
+  border: 1px solid #C6C6BF;
+  display: inline-block;
+  color: #777777;
+  padding: 0.1em 0.3em;
+  text-decoration: none;
+  margin: 0 0.2em 0.5em 0.2em;
+  line-height: 1.7em;
+  font-size: 14px;
+}
+button:hover {
+  background-color: #C6C6BF;
+}
+button span {
+  display: block;
+  white-space: nowrap;
+}
+button:active,
+button:focus {
+  color: #000;
+  outline-color: transparent;
+  outline-style: none;
+  outline-width: 0;
+}
+button.edition {
+  color: black;
+}
+/** Input file Replacement */
+
+
+input,
+button {
+  vertical-align: text-top;
+}
+#file-input-container {
+  display: inline;
+  margin: 0;
+  position: relative;
+  top: 0;
+  width: 255px;
+  height: 32px;
+  overflow: hidden;
+}
+#newfile {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 32px;
+  opacity: 0;
+  cursor: pointer;
+}
+.hidden-file-input {
+  display: inline-block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 1px;
+  z-index: -1;
+}
+#alt-fileinput {
+  display: inline;
+  wrap: no-wrap;
+}
+#filepath {
+  background-color: #F7F6F2;
+  border: 1px solid #C6C6BF;
+  margin: 0;
+  padding: 0.1em 0.3em;
+  line-height: 1.7em;
+  height: 31px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+ @-moz-document url-prefix() {
+ #filepath {
+ padding:0.2em 0.3em;
+}
+}
+button#browse {
+  margin-left: 0;
+  -webkit-border-top-left-radius: 0px;
+  -webkit-border-bottom-left-radius: 0px;
+  -moz-border-radius-topleft: 0px;
+  -moz-border-radius-bottomleft: 0px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  min-height: 16px;
+  min-width: 40px;
+  margin-left: -4px
+}
+button#browse span {
+  margin: 0;
+  padding: 0;
+  display: block;
+  text-shadow: none;
+}
+/** Input file Replacement - end */
+
+#q {
+  background-color: #F2F2F2;
+  border: 1px solid #dcdcdc;
+  margin: 0.5em 0 0;
+  padding: 0.1em 0.3em;
+  line-height: 1.7em;
+  width: 200px;
+}
+#search span.q-inactive {
+  color: #a1a1a1;
+  font-style: italic;
+  font-size: 0.85em;
+  position: relative;
+  left: -200px;
+  top: 8px;
+}
+#search a.q-reset {
+  display: inline-table;
+  width: 20px;
+  height: 20px;
+  background: url(../images/reset.png) no-repeat center center;
+  position: relative;
+  opacity: 0.5;
+  left: -30px;
+  top: 13px;
+  z-index: 24;
+}
+
+/** Opera hack */
+x:-o-prefocus, #search a.q-reset {
+top:-14px;
+}
+#contents.grid {
+  padding: 15px;
+  text-align: left;
+}
+#contents.grid li {
+  display: inline-block;
+  width: 142px;
+  min-height: 142px;
+  text-align: center;
+  overflow: hidden;
+  margin: 10px;
+  border: 1px solid #C6C6BF;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+#contents.grid li:hover {
+  border: 1px solid #C6C6BF;
+  background-color: #E9E9E1;
+  cursor: pointer;
+}
+div.clip {
+  width: 64px;
+  height: 64px;
+  margin: 10px auto;
+  overflow: hidden;
+}
+#contents.grid li img {
+}
+#contents.grid p {
+  display: block;
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 0.85em;
+  font-family: 'Open Sans Condensed';
+  font-weight: 600;
+}
+#contents.list {
+  width: 100%;
+}
+#contents.list th,
+#contents.list td {
+  text-align: left;
+  padding: 6px;
+  white-space: nowrap;
+}
+#contents.list thead {
+  background: rgb(244,241,237); /* Old browsers */
+  background: -moz-linear-gradient(top, rgba(244,241,237,1) 0%, rgba(214,212,209,1) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(244,241,237,1)), color-stop(100%, rgba(214,212,209,1))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, rgba(244,241,237,1) 0%, rgba(214,212,209,1) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, rgba(244,241,237,1) 0%, rgba(214,212,209,1) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, rgba(244,241,237,1) 0%, rgba(214,212,209,1) 100%); /* IE10+ */
+  background: linear-gradient(to bottom, rgba(244,241,237,1) 0%, rgba(214,212,209,1) 100%); /* W3C */
+  border-bottom: 1px solid #ccc;
+}
+#contents.list th {
+  font-weight: bold;
+  cursor: pointer;
+}
+#contents.list th.tablesorter-headerAsc,
+#contents.list th.tablesorter-headerDesc {
+  background: rgb(214,212,209); /* Old browsers */
+  background: -moz-linear-gradient(top, rgba(214,212,209,1) 0%, rgba(244,241,237,1) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(214,212,209,1)), color-stop(100%, rgba(244,241,237,1))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, rgba(214,212,209,1) 0%, rgba(244,241,237,1) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, rgba(214,212,209,1) 0%, rgba(244,241,237,1) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, rgba(214,212,209,1) 0%, rgba(244,241,237,1) 100%); /* IE10+ */
+  background: linear-gradient(to bottom, rgba(214,212,209,1) 0%, rgba(244,241,237,1) 100%); /* W3C */
+}
+#contents.list th.tablesorter-headerAsc span {
+  display: block;
+  width: 100%;
+  padding-right: 20px;
+  background-image: url(../images/bullet_arrow_up.png);
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+#contents.list th.tablesorter-headerDesc span {
+  display: block;
+  width: 100%;
+  padding-right: 20px;
+  background-image: url(../images/bullet_arrow_down.png);
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+#contents.list td {
+  border-bottom: 1px dotted #ccc;
+}
+#contents.list td:first-child {
+  width: 100%;
+  padding-left: 22px;
+  background-repeat: no-repeat;
+  background-position: 3px center;
+}
+#contents.list tbody tr:hover {
+  background-color: #eee;
+  cursor: pointer;
+}
+.meta {
+  display: none;
+}
+#activity {
+  margin: 100px auto;
+}
+/* Contex Menu*/
+.contextMenu {
+  position: absolute;
+  width: 150px;
+  z-index: 99999;
+  border: 2px solid #C6C6BF;
+  padding: 0px;
+  margin: 0px;
+  display: none;
+  background-color: #E9E9E1;
+  box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2);
+}
+.contextMenu li {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+.contextMenu a {
+  color: #787878;
+  font-family: "Open Sans", sans-serif;
+  text-decoration: none;
+  display: block;
+  line-height: 20px;
+  height: 20px;
+  outline: none;
+  padding: 1px 5px;
+  padding-left: 10px;
+}
+.contextMenu li.hover a {
+  color: #FFF;
+  background-color: #B2D280;
+}
+.contextMenu li.disabled a {
+  color: #AAA;
+  cursor: default;
+}
+.contextMenu li.hover.disabled a {
+  background-color: transparent;
+}
+.contextMenu li.separator {
+  border-top: solid 1px #C6C6BF;
+}
+/* these apply to the contextual menus as well as the buttons */
+.contextMenu li.select a:before,
+.contextMenu li.download a:before,
+.contextMenu li.rename a:before,
+.contextMenu li.move a:before,
+.contextMenu li.replace a:before,
+.contextMenu li.delete a:before {
+  font-family: 'Icons';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 14px;
+  padding-right: 7px;
+  content: "\f00c"
+}
+.contextMenu li.download a:before {
+  content: "\f019"
+}
+.contextMenu li.rename a:before {
+  content: "\f02b"
+}
+.contextMenu li.move a:before {
+  content: "\f047"
+}
+.contextMenu li.replace a:before {
+  content: "\f0ec"
+}
+.contextMenu li.delete a:before {
+  content: "\f014"
+}
+/* Page Splitter */
+
+#splitter {
+  background-color: #fff;
+  height: 400px;/* no padding allowed */
+}
+#splitter .vsplitbar {
+  width: 6px;
+  background: #F4F1ED url(../scripts/jquery.splitter/vgrabber.gif) no-repeat center;
+}
+#filetree {
+  overflow: auto;
+  width: 30%;
+  min-width: 100px;
+}
+#filetree>ul {
+  padding: 4px;
+}
+#fileinfo {
+  padding: 4px;
+  min-width: 100px;
+  overflow: auto;/* No margin or border allowed */
+}
+#upload span.loading {
+  background-image: url(../images/ajax-loader.gif);
+  color: #555555;
+  font-size: 0.9em;
+}
+#parentfolder span:before {
+}
+#newfolder span {
+}
+#upload span {
+}
+#grid span {
+}
+#list span {
+}
+a#edit-file span {
+  display: none
+}
+a#edit-file {
+  display: inline-block;
+  background-image: url(../images/pencil.png);
+  width: 16px;
+  height: 16px
+}
+div.jqi {
+  position: absolute;
+  min-width: 300px;
+  padding: 1em;
+  font-family: 'Open Sans Condensed';
+  font-weight: 600;
+  background-color: #2E2F2F;
+  border: 3px solid rgba(255,255,255,0.2);
+  color: #fff;
+  border-radius: 4px;
+}
+.jqiclose {
+  font-size: 0
+}
+.jqiclose:before {
+  font-family: 'Icons';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 14px;
+  margin-right: 7px;
+  content: "\f00d";
+  float: right;
+  cursor: pointer;
+}
+div.jqi button {
+  background-color: #B2D280;
+  margin-top: 1em;
+  margin-right: 0.5em;
+  float: right;
+  color: #fff;
+  border: 1px solid #B2D280;
+}
+div#jqistates {
+  padding: 1em;
+}
+div.jqimessage p {
+  padding: 0.3em;
+  color: #555;
+}
+div.jqifade {
+  background-color: #000000;
+}
+#grid span,
+#list span {
+  width: 20px;
+}
+button.ON {
+  background-color: #B2D280;
+  color: #fff;
+  border: 1px solid #B2D280;
+}
+#list {
+  margin-left: 0;
+}
+#progressbar {
+  background: transparent url(../images/ajax-loader.gif) no-repeat 0 0;
+  display: inline-table;
+  width: 30px;
+  height: 30px;
+}
+#close-btn {
+  margin-top: 5px;
+  display: block;
+  width: 100%;
+  font-variant: small-caps;
+  padding: 0.5em;
+}
+div.CodeMirror {
+  text-align: left;
+  width: 70%;
+  border: 1px solid #eee;
+  height: auto;
+  margin: 2em auto;
+}
+/* IE10-11 styles */
+html[data-useragent*='MSIE 10.0'] #uploader button,
+html[data-useragent*='MSIE 11.0'] #uploader button {
+  vertical-align: top;
+}
+html[data-useragent*='MSIE 10.0'] #file-input-container,
+html[data-useragent*='MSIE 11.0'] #file-input-container {
+  width: 220px;
+  height: 32px;
+  overflow: hidden;
+}
+html[data-useragent*='MSIE 10.0'] #filepath,
+html[data-useragent*='MSIE 11.0'] #filepath {
+  height: 22px;
+}
+html[data-useragent*='MSIE 10.0'] #newfile,
+html[data-useragent*='MSIE 11.0'] #newfile {
+  height: 23px;
+}
+ul.jqueryFileTree {
+  font-family: Verdana, sans-serif;
+  font-size: 11px;
+  line-height: 18px;
+  padding: 0px;
+  margin: 0px;
+}
+ul.jqueryFileTree li ul {
+  margin-left: 10px
+}
+ul.jqueryFileTree li {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+  white-space: nowrap;
+}
+ul.jqueryFileTree a {
+  text-decoration: none;
+  display: block;
+  padding: 0px 5px;
+  color: #787878;
+}
+ul.jqueryFileTree a:hover {
+  background: #B2D280;
+  color: #fff;
+}
+/* Core Styles */
+.jqueryFileTree li a:before {
+  font-family: 'Icons';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 14px;
+  padding-right: 7px;
+}
+.jqueryFileTree li.directory a:before {
+  content: "\f07b"
+}
+.jqueryFileTree li.expanded a:before {
+  content: "\f07c"
+}
+.jqueryFileTree li.wait {
+  background: url(../images/filetree/spinner.gif) left top no-repeat;
+}
+/* File Extensions*/
+
+.jqueryFileTree li.ext_afpa {
+}
+.jqueryFileTree li.ext_asp {
+}
+.jqueryFileTree li.ext_aspx {
+}
+.jqueryFileTree li.ext_bat {
+}
+.jqueryFileTree li.ext_c {
+}
+.jqueryFileTree li.ext_cfm {
+}
+.jqueryFileTree li.ext_cgi {
+}
+.jqueryFileTree li.ext_com {
+}
+.jqueryFileTree li.ext_cpp {
+}
+.jqueryFileTree li.ext_exe {
+}
+.jqueryFileTree li.ext_h {
+}
+.jqueryFileTree li.ext_sql {
+}
+.jqueryFileTree li.ext_swf {
+}
+.jqueryFileTree li.ext_vb {
+}
+.jqueryFileTree li.expanded li.ext_jpg a:before,
+.jqueryFileTree li.expanded li.ext_jpe a:before,
+.jqueryFileTree li.expanded li.ext_bmp a:before,
+.jqueryFileTree li.expanded li.ext_pcx a:before,
+.jqueryFileTree li.expanded li.ext_png a:before,
+.jqueryFileTree li.expanded li.ext_tif a:before,
+.jqueryFileTree li.expanded li.ext_gif a:before,
+.jqueryFileTree li.expanded li.ext_tiff a:before,
+.jqueryFileTree li.expanded li.ext_psd a:before,
+.jqueryFileTree li.file.ext_jpg a:before,
+.jqueryFileTree li.file.ext_jpe a:before,
+.jqueryFileTree li.file.ext_bmp a:before,
+.jqueryFileTree li.file.ext_pcx a:before,
+.jqueryFileTree li.file.ext_png a:before,
+.jqueryFileTree li.file.ext_tif a:before,
+.jqueryFileTree li.file.ext_gif a:before,
+.jqueryFileTree li.file.ext_tiff a:before,
+.jqueryFileTree li.file.ext_psd a:before {
+  content: "\f03e"
+}
+.jqueryFileTree li.expanded li.ext_wav a:before,
+.jqueryFileTree li.expanded li.ext_m4p a:before,
+.jqueryFileTree li.expanded li.ext_mp3 a:before,
+.jqueryFileTree li.expanded li.ext_ogg a:before,
+.jqueryFileTree li.file.ext_wav a:before,
+.jqueryFileTree li.file.ext_m4p a:before,
+.jqueryFileTree li.file.ext_mp3 a:before,
+.jqueryFileTree li.file.ext_ogg a:before {
+  content: "\f1c7";
+}
+.jqueryFileTree li.expanded li.ext_ogv a:before,
+.jqueryFileTree li.expanded li.ext_webm a:before,
+.jqueryFileTree li.expanded li.ext_mov a:before,
+.jqueryFileTree li.expanded li.ext_mp4 a:before,
+.jqueryFileTree li.expanded li.ext_mpg a:before,
+.jqueryFileTree li.expanded li.ext_mpeg a:before,
+.jqueryFileTree li.expanded li.ext_wmv a:before,
+.jqueryFileTree li.expanded li.ext_3gp a:before,
+.jqueryFileTree li.expanded li.ext_avi a:before,
+.jqueryFileTree li.expanded li.ext_fla a:before,
+.jqueryFileTree li.file.ext_ogv a:before,
+.jqueryFileTree li.file.ext_webm a:before,
+.jqueryFileTree li.file.ext_mov a:before,
+.jqueryFileTree li.file.ext_mp4 a:before,
+.jqueryFileTree li.file.ext_mpg a:before,
+.jqueryFileTree li.file.ext_mpeg a:before,
+.jqueryFileTree li.file.ext_wmv a:before,
+.jqueryFileTree li.file.ext_3gp a:before,
+.jqueryFileTree li.file.ext_avi a:before,
+.jqueryFileTree li.file.ext_fla a:before {
+  content: "\f1c8";
+}
+.jqueryFileTree li.expanded li.ext_pdf a:before,
+.jqueryFileTree li.file.ext_pdf a:before {
+  content: "\f1c1";
+}
+.jqueryFileTree li.expanded li.ext_doc a:before,
+.jqueryFileTree li.file.ext_doc a:before {
+  content: "\f1c2";
+}
+.jqueryFileTree li.expanded li.ext_xls a:before,
+.jqueryFileTree li.file.ext_xls a:before {
+  content: "\f1c3";
+}
+.jqueryFileTree li.expanded li.ext_ppt a:before,
+.jqueryFileTree li.file.ext_ppt a:before {
+  content: "\f1c4";
+}
+.jqueryFileTree li.expanded li.ext_txt a:before,
+.jqueryFileTree li.file.ext_txt a:before,
+.jqueryFileTree li.expanded li.ext_sql a:before,
+.jqueryFileTree li.file.ext_sql a:before,
+.jqueryFileTree li.expanded li.ext_htm a:before,
+.jqueryFileTree li.file.ext_htm a:before,
+.jqueryFileTree li.expanded li.ext_html a:before,
+.jqueryFileTree li.file.ext_html a:before,
+.jqueryFileTree li.expanded li.ext_log a:before,
+.jqueryFileTree li.file.ext_log a:before {
+  content: "\f0f6";
+}
+.jqueryFileTree li.expanded li.ext_jar a:before,
+.jqueryFileTree li.file.ext_jar a:before,
+.jqueryFileTree li.expanded li.ext_zip a:before,
+.jqueryFileTree li.file.ext_zip a:before {
+  content: "\f1c6";
+}
+.jqueryFileTree li.expanded li.ext_js a:before,
+.jqueryFileTree li.file.ext_js a:before,
+.jqueryFileTree li.expanded li.ext_lasso a:before,
+.jqueryFileTree li.file.ext_lasso a:before,
+.jqueryFileTree li.expanded li.ext_php a:before,
+.jqueryFileTree li.file.ext_php a:before,
+.jqueryFileTree li.expanded li.ext_pl a:before,
+.jqueryFileTree li.file.ext_pl a:before,
+.jqueryFileTree li.expanded li.ext_py a:before,
+.jqueryFileTree li.file.ext_py a:before,
+.jqueryFileTree li.expanded li.ext_rb a:before,
+.jqueryFileTree li.file.ext_rb a:before,
+.jqueryFileTree li.expanded li.ext_rbx a:before,
+.jqueryFileTree li.file.ext_rbx a:before,
+.jqueryFileTree li.expanded li.ext_rhtml a:before,
+.jqueryFileTree li.file.ext_rhtml a:before,
+.jqueryFileTree li.expanded li.ext_rpm a:before,
+.jqueryFileTree li.file.ext_rpm a:before,
+.jqueryFileTree li.expanded li.ext_ruby a:before,
+.jqueryFileTree li.file.ext_ruby a:before,
+.jqueryFileTree li.expanded li.ext_rpm a:before,
+.jqueryFileTree li.file.ext_rpm a:before,
+.jqueryFileTree li.expanded li.ext_afp a:before,
+.jqueryFileTree li.file.ext_afp a:before,
+.jqueryFileTree li.expanded li.ext_xml a:before,
+.jqueryFileTree li.file.ext_xml a:before,
+.jqueryFileTree li.expanded li.ext_css a:before,
+.jqueryFileTree li.file.ext_css a:before {
+  content: "\f1c9";
+}

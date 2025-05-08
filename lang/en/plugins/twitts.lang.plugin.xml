@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language>
+  <phrase data="_PLG_TW_TITLE1">Manage CMS Latest Twitts Plugin</phrase>
+  <phrase data="_PLG_TW_INFO1">Here you can update your twitter configuration.</phrase>
+  <phrase data="_PLG_TW_SUBTITLE1">Editing Configuration</phrase>
+  <phrase data="_PLG_TW_USER">Your Username</phrase>
+  <phrase data="_PLG_TW_USER_T">Your twitter username</phrase>
+  <phrase data="_PLG_TW_KEY">Consumer Key</phrase>
+  <phrase data="_PLG_TW_KEY_T">Consumer Key, Consumer Secret, Access Token and Access Token Secret, could be found under your Twitter app settings</phrase>
+  <phrase data="_PLG_TW_SECRET">Consumer Secret</phrase>
+  <phrase data="_PLG_TW_TOKEN">Access Token</phrase>
+  <phrase data="_PLG_TW_TSECRET">Access Token Secret</phrase>
+  <phrase data="_PLG_TW_COUNT">Twitter Counter</phrase>
+  <phrase data="_PLG_TW_COUNT_T">Number of twitts to show</phrase>
+  <phrase data="_PLG_TW_TRANS">Transition Speed</phrase>
+  <phrase data="_PLG_TW_TRANS_T">Speed of the transition. Enter number in Milliseconds 1000 Milliseconds = 1 Second</phrase>
+  <phrase data="_PLG_TW_SHOW_IMG">Show Avatar</phrase>
+  <phrase data="_PLG_TW_SHOW_IMG_T">Whether or not to show/hide avatar</phrase>
+  <phrase data="_PLG_TW_TRANS_T">Transition Timeout</phrase>
+  <phrase data="_PLG_TW_TRANS_TT">Speed of the transition timeout. Enter number in Milliseconds 1000 Milliseconds = 1 Second</phrase>
+  <phrase data="_PLG_TW_UPDATE">Update Settings</phrase>
+  <phrase data="_PLG_TW_UPDATED">Twitter settings updated successfully!</phrase>
+  <phrase data="_PLG_TW_HELP">Twitter Help</phrase>
+</language>

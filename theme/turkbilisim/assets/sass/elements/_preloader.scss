@@ -1,0 +1,53 @@
+/*----------------------------------------*/
+/*  Preloader CSS START
+/*----------------------------------------*/
+
+#preloader {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  background: $accent-2;
+  z-index: 9999999;
+  .music-loader {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: end;
+    gap: 20px;
+    justify-content: center;
+    .line {
+      width: 10px;
+      // position: absolute;
+      border-radius: 5px;
+      // bottom: 0;
+      background: linear-gradient(to bottom, purple, $accent);
+      &.line1 {
+        // left: 0;
+        animation: dance 0.5s ease alternate infinite;
+      }
+
+      &.line2 {
+        // left: 20px;
+        animation: dance 0.5s 0.2s ease alternate infinite;
+      }
+
+      &.line3 {
+        // left: 40px;
+        animation: dance 0.5s 0.4s ease alternate infinite;
+      }
+    }
+  }
+}
+@keyframes dance {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 80%;
+  }
+}

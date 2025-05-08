@@ -1,0 +1,18 @@
+footer {
+    @include media-query(492px) {
+        padding-bottom: 75px;
+    }
+    .footer-main{
+        border-bottom: 1px solid $light-gray;
+        padding-bottom: clamp(16px, 1.25vw, 32px);
+        margin-bottom: clamp(16px, 1.25vw, 32px);
+        .footer-widget{
+            ul{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: clamp(12px, 0.83vw, 20px);
+            }
+        }
+    }
+}

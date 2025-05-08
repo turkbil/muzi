@@ -1,0 +1,960 @@
+/* == Buttons == */
+.tubi.button {
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+  min-height: 1em;
+  outline: none;
+  border: none;
+  background-color: #F6F6F6;
+  color: inherit;
+  font-family: 'Open Sans Condensed';
+  margin: 0em;
+  padding: 0.8em 1.5em;
+  font-size: 1em;
+  line-height: 1;
+  font-weight: 600;
+  font-style: normal;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 0.35em;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-transition: opacity 0.25s ease, background-color 0.25s ease, color 0.25s ease, background 0.25s ease, -webkit-box-shadow 0.25s ease;
+  transition: opacity 0.25s ease, background-color 0.25s ease, color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  white-space: nowrap;
+}
+/* == Active == */
+.tubi.buttons .active.button,
+.tubi.active.button {
+  background-color: #b0b5b5;
+}
+/* == Hover == */
+.tubi.button:hover {
+  background-color: #E4E4DA;
+  outline: none;
+  text-decoration: none;
+}
+.tubi.button.active:hover {
+
+}
+.tubi.button:hover .icon,
+.tubi.button.hover .icon {
+  opacity: 0.85;
+}
+/* == Down == */
+.tubi.button:active,
+.tubi.active.button:active {
+  background-color: #b0b5b5;
+  color: rgba(0, 0, 0, 0.7);
+}
+/* == Loading == */
+.tubi.loading.button,
+.tubi.loading.button.positive,
+.tubi.loading.button.success,
+.tubi.loading.button.black,
+.tubi.loading.button.warning,
+.tubi.loading.button.negative,
+.tubi.loading.button.danger {
+  position: relative;
+  cursor: default;
+  color: transparent;
+  -webkit-transition: all 0s linear;
+  transition: all 0s linear;
+  box-shadow:none;
+}
+.tubi.loading.button:after,
+.tubi.loading.button.positive:after,
+.tubi.loading.button.success:after,
+.tubi.loading.button.black:after,
+.tubi.loading.button.warning:after,
+.tubi.loading.button.negative:after,
+.tubi.loading.button.danger:after  {
+  position: absolute;
+  top: 0em;
+  left: 0em;
+  width: 100%;
+  height: 100%;
+  content: '';
+  background-image: url(../images/loader-mini.gif);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+.tubi.loading.button.danger:after  {
+  background-color: #BF5A67;
+  background: transparent url(../images/loader-mini-danger.gif) no-repeat 50% 50%;
+}
+.tubi.labeled.icon.loading.button .icon {
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+/* == Disabled == */
+.tubi.disabled.button,
+.tubi.disabled.button:hover,
+.tubi.disabled.button.active {
+  background-color: #DDDDDD;
+  cursor: default;
+  color: rgba(0, 0, 0, 0.5);
+  opacity: 0.3;
+  background-image: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+/* == Animated == */
+.tubi.animated.button {
+  position: relative;
+  overflow: hidden;
+}
+.tubi.animated.button .visible.content {
+  position: relative;
+}
+.tubi.animated.button .hidden.content {
+  position: absolute;
+  width: 100%;
+}
+.tubi.animated.button .visible.content,
+.tubi.animated.button .hidden.content {
+  -webkit-transition: right 0.3s ease 0s;
+  transition: right 0.3s ease 0s;
+}
+.tubi.animated.button .visible.content {
+  left: auto;
+  right: 0%;
+}
+.tubi.animated.button .hidden.content {
+  top: 50%;
+  left: auto;
+  right: -100%;
+  margin-top: -0.55em;
+}
+.tubi.animated.button:hover .visible.content {
+  left: auto;
+  right: 200%;
+}
+.tubi.animated.button:hover .hidden.content {
+  left: auto;
+  right: 0%;
+}
+.tubi.vertical.animated.button .visible.content,
+.tubi.vertical.animated.button .hidden.content {
+  -webkit-transition: top 0.3s ease 0s, -webkit-transform 0.3s ease 0s;
+  transition: top 0.3s ease 0s, transform 0.3s ease 0s;
+}
+.tubi.vertical.animated.button .visible.content {
+  -webkit-transform: translateY(0%);
+  -ms-transform: translateY(0%);
+  transform: translateY(0%);
+  right: auto;
+}
+.tubi.vertical.animated.button .hidden.content {
+  top: -100%;
+  left: 0%;
+  right: auto;
+}
+.tubi.vertical.animated.button:hover .visible.content {
+  -webkit-transform: translateY(200%);
+  -ms-transform: translateY(200%);
+  transform: translateY(200%);
+  right: auto;
+}
+.tubi.vertical.animated.button:hover .hidden.content {
+  top: 50%;
+  right: auto;
+}
+.tubi.fade.animated.button .visible.content,
+.tubi.fade.animated.button .hidden.content {
+  -webkit-transition: opacity 0.3s ease 0s, -webkit-transform 0.3s ease 0s;
+  transition: opacity 0.3s ease 0s, transform 0.3s ease 0s;
+}
+.tubi.fade.animated.button .visible.content {
+  left: auto;
+  right: auto;
+  opacity: 1;
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+.tubi.fade.animated.button .hidden.content {
+  opacity: 0;
+  left: 0%;
+  right: auto;
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+}
+.tubi.fade.animated.button:hover .visible.content {
+  left: auto;
+  right: auto;
+  opacity: 0;
+  -webkit-transform: scale(0.7);
+  -ms-transform: scale(0.7);
+  transform: scale(0.7);
+}
+.tubi.fade.animated.button:hover .hidden.content {
+  left: 0%;
+  right: auto;
+  opacity: 1;
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+/* == Primary == */
+.tubi.primary.buttons .button,
+.tubi.primary.button {
+  background-color: #D95C5C;
+  color: #FFFFFF;
+}
+.tubi.primary.buttons .button:hover,
+.tubi.primary.button:hover,
+.tubi.primary.buttons .active.button,
+.tubi.primary.button.active {
+  background-color: #E75859;
+  color: #FFFFFF;
+}
+.tubi.primary.buttons .button:active,
+.tubi.primary.button:active {
+  background-color: #D24B4C;
+  color: #FFFFFF;
+}
+/* == Secondary == */
+.tubi.secondary.buttons .button,
+.tubi.secondary.button {
+  background-color: #3CC9CA;
+  color: #FFFFFF;
+}
+.tubi.secondary.buttons .button:hover,
+.tubi.secondary.button:hover,
+.tubi.secondary.buttons .active.button,
+.tubi.secondary.button.active {
+  background-color: #2EA5A5;
+  color: #FFFFFF;
+}
+.tubi.secondary.buttons .button:active,
+.tubi.secondary.button:active {
+  background-color: #00847E;
+  color: #FFFFFF;
+}
+/* == Social == */
+.tubi.facebook.button {
+  background-color: #3B579D;
+  color: #FFFFFF;
+}
+.tubi.facebook.button:hover {
+  background-color: #3A59A9;
+  color: #FFFFFF;
+}
+.tubi.facebook.button:active {
+  background-color: #334F95;
+  color: #FFFFFF;
+}
+.tubi.twitter.button {
+  background-color: #4092CC;
+  color: #FFFFFF;
+}
+.tubi.twitter.button:hover {
+  background-color: #399ADE;
+  color: #FFFFFF;
+}
+.tubi.twitter.button:active {
+  background-color: #3283BC;
+  color: #FFFFFF;
+}
+.tubi.google.plus.button {
+  background-color: #D34836;
+  color: #FFFFFF;
+}
+.tubi.google.plus.button:hover {
+  background-color: #E3432E;
+  color: #FFFFFF;
+}
+.tubi.google.plus.button:active {
+  background-color: #CA3A27;
+  color: #FFFFFF;
+}
+.tubi.linkedin.button {
+  background-color: #1F88BE;
+  color: #FFFFFF;
+}
+.tubi.linkedin.button:hover {
+  background-color: #1394D6;
+  color: #FFFFFF;
+}
+.tubi.linkedin.button:active {
+  background-color: #1179AE;
+  color: #FFFFFF;
+}
+.tubi.youtube.button {
+  background-color: #CC181E;
+  color: #FFFFFF;
+}
+.tubi.youtube.button:hover {
+  background-color: #DF0209;
+  color: #FFFFFF;
+}
+.tubi.youtube.button:active {
+  background-color: #A50006;
+  color: #FFFFFF;
+}
+.tubi.instagram.button {
+  background-color: #49769C;
+  color: #FFFFFF;
+}
+.tubi.instagram.button:hover {
+  background-color: #4781B1;
+  color: #FFFFFF;
+}
+.tubi.instagram.button:active {
+  background-color: #38658A;
+  color: #FFFFFF;
+}
+.tubi.pinterest.button {
+  background-color: #00ACED;
+  color: #FFFFFF;
+}
+.tubi.pinterest.button:hover {
+  background-color: #00B9FF;
+  color: #FFFFFF;
+}
+.tubi.pinterest.button:active {
+  background-color: #009EDA;
+  color: #FFFFFF;
+}
+.tubi.vk.button {
+  background-color: #4D7198;
+  color: #FFFFFF;
+}
+.tubi.vk.button:hover {
+  background-color: #537AA5;
+  color: #FFFFFF;
+}
+.tubi.vk.button:active {
+  background-color: #405E7E;
+  color: #FFFFFF;
+}
+/* == Floated == */
+.tubi.left.floated.buttons,
+.tubi.left.floated.button {
+  float: left;
+  margin-right: 0.25em;
+}
+.tubi.right.floated.buttons,
+.tubi.right.floated.button {
+  float: right;
+  margin-left: 0.25em;
+}
+/* == Size == */
+.tubi.buttons .button,
+.tubi.button {
+  font-size:inherit;
+}
+.tubi.mini.buttons .button,
+.tubi.mini.buttons .or,
+.tubi.mini.button {
+  font-size: 0.8rem;
+}
+.tubi.mini.buttons .button,
+.tubi.mini.button {
+  padding: 0.3em 0.5em;
+  box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.3) inset;
+}
+.tubi.mini.icon.buttons .button,
+.tubi.mini.buttons .icon.button {
+  padding: 0.3em 0.5em;
+}
+.tubi.tiny.buttons .button,
+.tubi.tiny.buttons .or,
+.tubi.tiny.button {
+  font-size: 0.875em;
+}
+.tubi.tiny.buttons .button,
+.tubi.tiny.button {
+  padding: 0.4em 0.6em;
+  box-shadow: 0 -2px 0 rgba(255, 255, 255, 0.3) inset;
+}
+.tubi.tiny.icon.buttons .button,
+.tubi.tiny.buttons .icon.button {
+  padding: 0.4em 0.6em;
+}
+.tubi.small.buttons .button,
+.tubi.small.buttons .or,
+.tubi.small.button {
+  font-size: 0.975rem;
+  padding: 0.6em 1em;
+}
+.tubi.large.buttons .button,
+.tubi.large.buttons .or,
+.tubi.large.button {
+  font-size: 1.125rem;
+}
+.tubi.big.buttons .button,
+.tubi.big.buttons .or,
+.tubi.big.button {
+  font-size: 1.25rem;
+}
+.tubi.huge.buttons .button,
+.tubi.huge.buttons .or,
+.tubi.huge.button {
+  font-size: 1.375rem;
+}
+.tubi.massive.buttons .button,
+.tubi.massive.buttons .or,
+.tubi.massive.button {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.tubi.tiny.buttons .or:before,
+.tubi.mini.buttons .or:before {
+  width: 1.45em;
+  height: 1.55em;
+  line-height: 1.4;
+  margin-left: -0.725em;
+  margin-top: -0.25em;
+}
+.tubi.tiny.buttons .or:after,
+.tubi.mini.buttons .or:after {
+  height: 1.45em;
+}
+/* == Loading == */
+.tubi.huge.loading.button:after {
+  background-image: url(../images/loader-small.gif);
+}
+.tubi.massive.buttons .loading.button:after,
+.tubi.gigantic.buttons .loading.button:after,
+.tubi.massive.loading.button:after,
+.tubi.gigantic.loading.button:after {
+  background-image: url(../images/loader-medium.gif);
+}
+.tubi.huge.loading.button:after,
+.tubi.huge.loading.button.active:after {
+  background-image: url(../images/loader-small.gif);
+}
+.tubi.massive.buttons .loading.button:after,
+.tubi.gigantic.buttons .loading.button:after,
+.tubi.massive.loading.button:after,
+.tubi.gigantic.loading.button:after,
+.tubi.massive.buttons .loading.button.active:after,
+.tubi.gigantic.buttons .loading.button.active:after,
+.tubi.massive.loading.button.active:after,
+.tubi.gigantic.loading.button.active:after {
+  background-image: url(../images/loader-medium.gif);
+}
+/* == Icon Only == */
+.tubi.button > .icon {
+  margin-right: 0.6em;
+  line-height: 1;
+  -webkit-transition: opacity 0.1s ease;
+  transition: opacity 0.1s ease;
+}
+.tubi.icon.buttons .button,
+.tubi.icon.button {
+  padding: 0.8em;
+}
+.tubi.icon.buttons .button > .icon,
+.tubi.icon.button > .icon {
+  opacity: 0.9;
+  margin: 0em;
+  vertical-align: middle;
+}
+/* == Basic == */
+.tubi.basic.buttons .button,
+.tubi.basic.button {
+  background-color: transparent;
+  background-image: none;
+  color: #808080;
+  text-transform: none;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+}
+.tubi.basic.buttons {
+  border-radius: 0.25em;
+}
+.tubi.basic.buttons .button:hover,
+.tubi.basic.button:hover {
+  color: #7F7F7F;
+  background-color: rgba(0, 0, 0, 0.02);
+
+}
+.tubi.basic.buttons .button:active,
+.tubi.basic.button:active {
+  background-color: rgba(0, 0, 0, 0.04);
+  color: #7F7F7F;
+}
+.tubi.basic.buttons .button.active,
+.tubi.basic.button.active {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #7F7F7F;
+}
+.tubi.basic.buttons .button.active:hover,
+.tubi.basic.button.active:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+/* == Inverted == */
+.tubi.basic.inverted.buttons .button,
+.tubi.basic.inverted.button {
+  color: #FAFAFA;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.3) inset;
+  box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.3) inset;
+}
+.tubi.basic.inverted.buttons .button:hover,
+.tubi.basic.inverted.button:hover {
+  background-image: none;
+  color: #FFFFFF;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.5) inset;
+  box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.5) inset;
+}
+.tubi.basic.inverted.buttons .button:active,
+.tubi.basic.inverted.button:active {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #FFFFFF;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.8) inset;
+  box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.8) inset;
+}
+.tubi.basic.inverted.buttons .button.active,
+.tubi.basic.inverted.button.active {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #FFFFFF;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.tubi.basic.inverted.buttons .button.active:hover,
+.tubi.basic.inverted.button.active:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.tubi.basic.buttons .button {
+  box-shadow: -1px 0 0 0 rgba(0, 0, 0, 0.1);
+}
+.tubi.basic.buttons .button:hover,
+.tubi.basic.buttons .button:active {
+
+}
+.tubi.basic.buttons .button.active,
+.tubi.basic.buttons .button.active:hover {
+
+}
+/* == Labeled Icon == */
+.tubi.labeled.icon.buttons .button,
+.tubi.labeled.icon.button {
+  position: relative;
+  padding-left: 4em;
+  padding-right: 1.4em;
+}
+.tubi.labeled.icon.buttons > .button > .icon,
+.tubi.labeled.icon.button > .icon {
+  position: absolute;
+  top: 0em;
+  left: 0em;
+  right:0;
+  height:100%;
+  line-height:100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 2.75em;
+  padding: .8em 0;
+  background-color: rgba(0, 0, 0, 0.05);
+  text-align: center;
+  border-radius: 0.25em 0px 0px 0.25em;
+  line-height: 1;
+  -webkit-box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.05) inset;
+  box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.05) inset;
+}
+.tubi.labeled.icon.buttons .button > .icon {
+  border-radius: 0em;
+}
+.tubi.labeled.icon.buttons .button:first-child > .icon {
+  border-top-left-radius: 0.25em;
+  border-bottom-left-radius: 0.25em;
+}
+.tubi.labeled.icon.buttons .button:last-child > .icon {
+  border-top-right-radius: 0.25em;
+  border-bottom-right-radius: 0.25em;
+}
+.tubi.vertical.labeled.icon.buttons .button:first-child > .icon {
+  border-radius: 0em;
+  border-top-left-radius: 0.25em;
+}
+.tubi.vertical.labeled.icon.buttons .button:last-child > .icon {
+  border-radius: 0em;
+  border-bottom-left-radius: 0.25em;
+}
+.tubi.right.labeled.icon.button {
+  padding-left: 1.4em;
+  padding-right: 4em;
+}
+.tubi.left.fluid.labeled.icon.button,
+.tubi.right.fluid.labeled.icon.button {
+  padding-left: 1.4em;
+  padding-right: 1.4em;
+}
+.tubi.right.labeled.icon.button .icon {
+  left: auto;
+  right: 0em;
+  border-radius: 0em 0.25em 0.25em 0em;
+  -webkit-box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.05) inset;
+  box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.05) inset;
+}
+/* == Toggle == */
+.tubi.toggle.buttons .active.button,
+.tubi.buttons .button.toggle.active,
+.tubi.button.toggle.active {
+  background-color: #B2D280;
+  color: rgba(255, 255, 255, 0.8);
+}
+.tubi.button.toggle.active:hover {
+  background-color: #A6CB6E;
+  color: rgba(255, 255, 255,1);
+}
+/* == Circular == */
+.tubi.circular.button {
+  border-radius: 10em;
+}
+/* == OR Buttons == */
+.tubi.buttons .or {
+  position: relative;
+  float: left;
+  width: 0.3em;
+  height: 1.1em;
+  z-index: 3;
+}
+.tubi.buttons .or:before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  content: 'or';
+  background-color: #FFFFFF;
+  margin-top: -0.1em;
+  margin-left: -0.9em;
+  width: 1.8em;
+  height: 1.8em;
+  line-height: 1.55;
+  color: #AAAAAA;
+  font-style: normal;
+  font-weight: normal;
+  text-align: center;
+  border-radius: 500px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.tubi.buttons .or[data-text]:before {
+  content: attr(data-text);
+}
+.tubi.buttons .or:after {
+  position: absolute;
+  top: 0em;
+  left: 0em;
+  content: ' ';
+  width: 0.3em;
+  height: 1.7em;
+  background-color: transparent;
+  border-top: 0.5em solid #FFFFFF;
+  border-bottom: 0.5em solid #FFFFFF;
+}
+.tubi.fluid.buttons .or {
+  width: 0em;
+}
+.tubi.fluid.buttons .or:after {
+  display: none;
+}
+/* == Fluid == */
+.tubi.fluid.buttons,
+.tubi.button.fluid,
+.tubi.fluid.buttons > .button {
+  display: block;
+  width: 100%;
+}
+.tubi.\32.buttons > .button,
+.tubi.two.buttons > .button {
+  width: 50%;
+}
+.tubi.\33.buttons > .button,
+.tubi.three.buttons > .button {
+  width: 33.333%;
+}
+.tubi.\34.buttons > .button,
+.tubi.four.buttons > .button {
+  width: 25%;
+}
+.tubi.\35.buttons > .button,
+.tubi.five.buttons > .button {
+  width: 20%;
+}
+.tubi.\36.buttons > .button,
+.tubi.six.buttons > .button {
+  width: 16.666%;
+}
+.tubi.\37.buttons > .button,
+.tubi.seven.buttons > .button {
+  width: 14.285%;
+}
+.tubi.\38.buttons > .button,
+.tubi.eight.buttons > .button {
+  width: 12.500%;
+}
+.tubi.\39.buttons > .button,
+.tubi.nine.buttons > .button {
+  width: 11.11%;
+}
+.tubi.\31\30.buttons > .button,
+.tubi.ten.buttons > .button {
+  width: 10%;
+}
+.tubi.\31\31.buttons > .button,
+.tubi.eleven.buttons > .button {
+  width: 9.09%;
+}
+.tubi.\31\32.buttons > .button,
+.tubi.twelve.buttons > .button {
+  width: 8.3333%;
+}
+.tubi.fluid.vertical.buttons,
+.tubi.fluid.vertical.buttons > .button {
+  display: block;
+  width: auto;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.tubi.\32.vertical.buttons > .button,
+.tubi.two.vertical.buttons > .button {
+  height: 50%;
+}
+.tubi.\33.vertical.buttons > .button,
+.tubi.three.vertical.buttons > .button {
+  height: 33.333%;
+}
+.tubi.\34.vertical.buttons > .button,
+.tubi.four.vertical.buttons > .button {
+  height: 25%;
+}
+.tubi.\35.vertical.buttons > .button,
+.tubi.five.vertical.buttons > .button {
+  height: 20%;
+}
+.tubi.\36.vertical.buttons > .button,
+.tubi.six.vertical.buttons > .button {
+  height: 16.666%;
+}
+.tubi.\37.vertical.buttons > .button,
+.tubi.seven.vertical.buttons > .button {
+  height: 14.285%;
+}
+.tubi.\38.vertical.buttons > .button,
+.tubi.eight.vertical.buttons > .button {
+  height: 12.500%;
+}
+.tubi.\39.vertical.buttons > .button,
+.tubi.nine.vertical.buttons > .button {
+  height: 11.11%;
+}
+.tubi.\31\30.vertical.buttons > .button,
+.tubi.ten.vertical.buttons > .button {
+  height: 10%;
+}
+.tubi.\31\31.vertical.buttons > .button,
+.tubi.eleven.vertical.buttons > .button {
+  height: 9.09%;
+}
+.tubi.\31\32.vertical.buttons > .button,
+.tubi.twelve.vertical.buttons > .button {
+  height: 8.3333%;
+}
+/* == Colors == */
+.tubi.black.buttons .button,
+.tubi.black.button {
+  background-color: #5C6166;
+  color:#fff
+}
+.tubi.black.buttons .button:hover,
+.tubi.black.button:hover,
+.tubi.black.buttons .active.button,
+.tubi.black.button.active {
+  background-color: #4C4C4C;
+}
+.tubi.black.buttons .button:active,
+.tubi.black.button:active {
+  background-color: #333333;
+}
+.tubi.warning.buttons,
+.tubi.warning.buttons .button,
+.tubi.warning.button {
+  background-color: #F0B174;
+  color:#fff
+}
+.tubi.warning.buttons .button:hover,
+.tubi.warning.button:hover,
+.tubi.warning.buttons .active.button,
+.tubi.warning.button.active {
+  background-color: #EEA45D;
+}
+.tubi.warning.buttons .button:active,
+.tubi.warning.button:active {
+  background-color: #EA9747;
+  color: rgba(255, 255, 255,1);
+}
+.tubi.info.buttons,
+.tubi.info.buttons .button,
+.tubi.info.button {
+  background-color: #79C0D8;
+  color:#fff
+}
+.tubi.info.buttons .button:hover,
+.tubi.info.button:hover,
+.tubi.info.buttons .active.button,
+.tubi.info.button.active {
+  background-color: #66B7D2;
+}
+.tubi.info.buttons .button:active,
+.tubi.info.button:active {
+  background-color: #53ADCC;
+  color: rgba(255, 255, 255,1);
+}
+.tubi.purple.buttons .button,
+.tubi.purple.button {
+  background-color: #8A3ECA;
+  color:#fff
+}
+.tubi.purple.buttons .button:hover,
+.tubi.purple.button:hover,
+.tubi.purple.buttons .active.button,
+.tubi.purple.button.active {
+  background-color: #7D34BA;
+}
+.tubi.purple.buttons .button:active,
+.tubi.purple.button:active {
+  background-color: #702FA6;
+  color: rgba(255, 255, 255,1);
+}
+.tubi.teal.buttons .button,
+.tubi.teal.button {
+  background-color: #3CC9CA;
+  color:#fff
+}
+.tubi.teal.buttons .button:hover,
+.tubi.teal.button:hover,
+.tubi.teal.buttons .active.button,
+.tubi.teal.button.active {
+  background-color: #2EA5A5;
+}
+.tubi.teal.buttons .button:active,
+.tubi.teal.button:active {
+  background-color: #00847E;
+  color: rgba(255, 255, 255,1);
+}
+.tubi.positive.buttons,
+.tubi.positive.buttons .button,
+.tubi.positive.button {
+  background-color: #B2D280;
+  color:#fff
+}
+.tubi.positive.buttons .button:hover,
+.tubi.positive.button:hover,
+.tubi.positive.buttons .active.button,
+.tubi.positive.button.active {
+  background-color: #A6CB6E;
+}
+.tubi.positive.buttons .button:active,
+.tubi.positive.button:active {
+  background-color: #9AC45C;
+  color: rgba(255, 255, 255,1);
+}
+.tubi.negative.buttons,
+.tubi.negative.buttons .button,
+.tubi.negative.button,
+.tubi.danger.buttons,
+.tubi.danger.buttons .button,
+.tubi.danger.button  {
+  background-color: #FA5C4E;
+  color:#fff
+}
+.tubi.negative.buttons .button:hover,
+.tubi.negative.button:hover,
+.tubi.negative.buttons .active.button,
+.tubi.negative.button.active,
+.tubi.danger.buttons .button:hover,
+.tubi.danger.button:hover,
+.tubi.danger.buttons .active.button,
+.tubi.danger.button.active  {
+  background-color: #FB4434;
+  
+}
+.tubi.negative.buttons .button:active,
+.tubi.negative.button:active,
+.tubi.danger.buttons .button:active,
+.tubi.danger.button:active {
+  background-color: #F7301E;
+  color: rgba(255, 255, 255,1);
+}
+
+/* == Groups == */
+.tubi.buttons {
+  display: inline-block;
+  vertical-align: middle;
+  /*border: 1px solid rgba(0, 0, 0, 0.1);*/
+  border-radius: 0.25em;
+}
+.tubi.buttons:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.tubi.buttons .button:first-child {
+
+}
+.tubi.buttons .button {
+  float: left;
+  border-radius: 0em;
+  border:none;
+  box-shadow: -1px 0 0 0 rgba(0, 0, 0, 0.1),inset 1px 0 0 0 rgba(255, 255, 255, 0.2);
+}
+.tubi.buttons .button:first-child {
+  margin-left: 0em;
+  border-top-left-radius: 0.25em;
+  border-bottom-left-radius: 0.25em;
+  box-shadow:none;
+}
+.tubi.buttons .button:last-child {
+  border-top-right-radius: 0.25em;
+  border-bottom-right-radius: 0.25em;
+
+}
+.tubi.vertical.buttons {
+  display: inline-block;
+}
+.tubi.vertical.buttons .button {
+  display: block;
+  float: none;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+}
+.tubi.vertical.buttons .button:first-child,
+.tubi.vertical.buttons .mini.button:first-child,
+.tubi.vertical.buttons .tiny.button:first-child,
+.tubi.vertical.buttons .small.button:first-child,
+.tubi.vertical.buttons .massive.button:first-child,
+.tubi.vertical.buttons .huge.button:first-child {
+  margin-top: 0px;
+  border-radius: 0.25em 0.25em 0px 0px;
+}
+.tubi.vertical.buttons .button:last-child,
+.tubi.vertical.buttons .mini.button:last-child,
+.tubi.vertical.buttons .tiny.button:last-child,
+.tubi.vertical.buttons .small.button:last-child,
+.tubi.vertical.buttons .massive.button:last-child,
+.tubi.vertical.buttons .huge.button:last-child,
+.tubi.vertical.buttons .gigantic.button:last-child {
+  border-radius: 0px 0px 0.25em 0.25em;
+}

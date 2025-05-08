@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language>
+  <phrase data="_PLG_ES_ADDED">Resim başarıyla eklendi..</phrase>
+  <phrase data="_PLG_ES_ADDSLIDE">Slayt Ekle</phrase>
+  <phrase data="_PLG_ES_ANITYPE">Animasyon Türü</phrase>
+  <phrase data="_PLG_ES_ANITYPE_C">Orta</phrase>
+  <phrase data="_PLG_ES_ANITYPE_S">Yaslama</phrase>
+  <phrase data="_PLG_ES_ANITYPE_T">Yaslama: Yeni slaytlar sol ya da sağ taraftan gelirler. Orta: Yeni slaytlar ortadan çıkacaktır.</phrase>
+  <phrase data="_PLG_ES_AUTOPLAY">Auto play</phrase>
+  <phrase data="_PLG_ES_AUTOPLAY_T">Eğer eveti seçerseniz slayt otomatik olarak ilerleyecektir ve sadece bir pul resmine tıklanırsa duracaktır.</phrase>
+  <phrase data="_PLG_ES_BUT_CONF_U">Yapılandırmayı Güncelle</phrase>
+  <phrase data="_PLG_ES_CAPTION">Resim Yazısı </phrase>
+  <phrase data="_PLG_ES_CAPTION_R">Lütfen resim yazısını girin</phrase>
+  <phrase data="_PLG_ES_CONF">Yapılandırma</phrase>
+  <phrase data="_PLG_ES_CONF_UPDATED">Yapılandırma başarıyla güncellendi!</phrase>
+  <phrase data="_PLG_ES_DESC">Resim Açıklaması</phrase>
+  <phrase data="_PLG_ES_FILE_ERR">Dosya yükleme klasöründen resim klasörüne taşınamadı..</phrase>
+  <phrase data="_PLG_ES_HEIGHT">Resim Yüksekliği</phrase>
+  <phrase data="_PLG_ES_HEIGHT_T">Maksimum yükseklik piksel cinsinden</phrase>
+  <phrase data="_PLG_ES_HELP">Elastik Slayt Yardımı</phrase>
+  <phrase data="_PLG_ES_IMG_SEL">Resim Seçin</phrase>
+  <phrase data="_PLG_ES_IMGPR">Resim önizlemesi</phrase>
+  <phrase data="_PLG_ES_IMG_SEL_R">Seçilen dosya geçerli bir resim dosyası değil. Sadece jpg ya da png yüklemelisiniz.</phrase>
+  <phrase data="_PLG_ES_IMGFILE">Resim Dosyası</phrase>
+  <phrase data="_PLG_ES_INFO1">Burada yeni slayt ekleyebilirsiniz.</phrase>
+  <phrase data="_PLG_ES_INFO2">Burada mevcut slaytınızı düzenlleyebilirsiniz.</phrase>
+  <phrase data="_PLG_ES_INFO3">Burada slaytınızın ayarlarını yapılandırabilirsiniz. Yeniden düzenlemek için öğeleri tıklayın ve istediğiniz öğeyi önündeki simgeden sürükleyerek sırasını belirleyin. Pozisyon otomatik olarak güncellenecektir.</phrase>
+  <phrase data="_PLG_ES_INFO4">Burada slayt yapılandırmasını güncelleyebilirsiniz.</phrase>
+  <phrase data="_PLG_ES_INTERVAL">Aralık</phrase>
+  <phrase data="_PLG_ES_INTERVAL_T">Aralık milisaniye cinsindendir. 1 saniye = 1000 milisaniyedir.</phrase>
+  <phrase data="_PLG_ES_NOIMG">Henüz ekli hiç slayt yok. </phrase>
+  <phrase data="_PLG_ES_POS">Sıralama</phrase>
+  <phrase data="_PLG_ES_SLIDE">Resim Kaydırma</phrase>
+  <phrase data="_PLG_ES_SPEED">Hız</phrase>
+  <phrase data="_PLG_ES_SPEED_T">Speed for the sliding animation in Milliseconds. 1 second = 1000 milliseconds</phrase>
+  <phrase data="_PLG_ES_SUBTITLE1">Slayt Ekleniyor</phrase>
+  <phrase data="_PLG_ES_SUBTITLE2">Slayt Düzenleniyor / </phrase>
+  <phrase data="_PLG_ES_SUBTITLE3">Tüm Slaytların Listesi</phrase>
+  <phrase data="_PLG_ES_SUBTITLE4">Slayt Yapılandırması</phrase>
+  <phrase data="_PLG_ES_SUPDATED">Slayt sıralaması başarıyla güncellendi!</phrase>
+  <phrase data="_PLG_ES_THUMB">Küçük görsel genişliği</phrase>
+  <phrase data="_PLG_ES_THUMB_T">Maximum width for the thumbs in pixels</phrase>
+  <phrase data="_PLG_ES_TITLE">Elastik Slayt Eklentisi Yönetimi</phrase>
+  <phrase data="_PLG_ES_TITLE1">Slayt Ekle</phrase>
+  <phrase data="_PLG_ES_TITLE2">Slayt Güncelle</phrase>
+  <phrase data="_PLG_ES_TITLESPEED">Başlık Hızı</phrase>
+  <phrase data="_PLG_ES_TITLESPEED_T">Başlık animasyon hızı milisaniye hesabındandır. 1 saniye = 1000 milisaniye</phrase>
+  <phrase data="_PLG_ES_UPDATE">Slaytı Güncelle</phrase>
+  <phrase data="_PLG_ES_UPDATED">Slayt başarıyla güncellendir.</phrase>
+</language>

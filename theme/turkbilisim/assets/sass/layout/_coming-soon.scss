@@ -1,0 +1,52 @@
+.coming-soon-banner {
+    background: url(../media/bg/banner-bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    .content {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(40px, 5vw, 140px);
+        text-align: center;
+        align-items: center;
+        img{
+            width: clamp(150px, 12.396vw, 320px);
+        }
+        .countdown {
+            display: flex;
+            gap: clamp(16px, 1.25vw, 24px);
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            background: linear-gradient(96deg, rgba(255, 255, 255, 0.28) -38.27%, rgba(255, 255, 255, 0) 132.26%);
+            backdrop-filter: blur(10px);
+            padding: 8px 16px;
+            li {
+                text-align: center;
+                position: relative;
+                display: flex;
+                gap: clamp(16px, 1.25vw, 24px);
+                align-items: center;
+                h5 {
+                    color: $lightest-gray;
+                }
+                h6 {
+                    color: $light-gray;
+                }
+
+                &::after {
+                    display: inline-block;
+                    content: "";
+                    width: 2px;
+                    height: 24px;
+                    background: $white;
+                }
+                &:last-child{
+                    &::after {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,524 @@
+/* == List == */
+ul.tubi.list, ol.tubi.list, .tubi.list {
+	list-style-type: none;
+	margin: 1em 0;
+	padding: 0
+}
+ul.tubi.list ul, ol.tubi.list ol, .tubi.list .list {
+	margin: 0;
+	padding: .5em 0 .5em 1em
+}
+ul.tubi.list:first-child, ol.tubi.list:first-child, .tubi.list:first-child {
+	margin-top: 0
+}
+ul.tubi.list:last-child, ol.tubi.list:last-child, .tubi.list:last-child {
+	margin-bottom: 0
+}
+/* == Content == */
+ul.tubi.list li, ol.tubi.list li, .tubi.list .item {
+	display: list-item;
+	list-style-type: none;
+	list-style-position: inside;
+	padding: .3em 0;
+	line-height: 1.2
+}
+.tubi.list .item:after {
+	content: '';
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden
+}
+.tubi.list .list {
+	clear: both
+}
+/* == Icon == */
+.tubi.list .item > .icon {
+	display: block;
+	float: left;
+	margin: 0 1em 0 0;
+	padding: .1em 0 0
+}
+.tubi.list .item > .icon:only-child {
+	display: inline-block
+}
+.tubi.horizontal.list .item > .icon {
+	margin: 0;
+	padding: 0 .25em 0 0
+}
+.tubi.horizontal.list .item > .icon, .tubi.horizontal.list .item > .icon + .content {
+	float: none;
+	display: inline-block
+}
+/* == Image == */
+.tubi.list .item > img {
+	display: block;
+	float: left;
+	margin-right: 1em;
+	vertical-align: middle
+}
+.tubi.list .item > .content {
+	display: inline-block;
+	vertical-align: middle;
+	line-height: 1.2
+}
+.tubi.list .item > .icon + .content {
+	display: table-cell;
+	vertical-align: top
+}
+.tubi.list a {
+	cursor: pointer
+}
+.tubi.list a .icon {
+	color: rgba(0,0,0,0.6);
+	-webkit-transition: color .2s ease;
+	transition: color .2s ease
+}
+.tubi.list .header {
+	font-weight: 700
+}
+.tubi.list .description {
+	color: rgba(0,0,0,0.5)
+}
+.tubi.list .item > .left.floated {
+	margin-right: 1em;
+	float: left
+}
+.tubi.list .item > .right.floated {
+	margin-left: 1em;
+	float: right
+}
+/* == Types == */
+.tubi.horizontal.list {
+	display: inline-block;
+	font-size: 0
+}
+.tubi.horizontal.list > .item {
+	display: inline-block;
+	margin-left: 1em;
+	font-size: 1rem
+}
+.tubi.horizontal.list > .item:first-child {
+	margin-left: 0
+}
+.tubi.horizontal.list .list {
+	padding-left: 0;
+	padding-bottom: 0
+}
+.tubi.list a:hover .icon {
+	color: rgba(0,0,0,0.8)
+}
+/* == Link == */
+.tubi.link.list .item {
+	color: rgba(0,0,0,0.3)
+}
+.tubi.link.list a.item, .tubi.link.list .item a {
+	color: rgba(0,0,0,0.5)
+}
+.tubi.link.list a.item:hover, .tubi.link.list .item a:hover {
+	color: rgba(0,0,0,0.8)
+}
+.tubi.link.list a.item:active, .tubi.link.list .item a:active {
+	color: rgba(0,0,0,0.8)
+}
+.tubi.link.list a.active.item, .tubi.link.list .active.item a {
+	color: rgba(0,0,0,0.8)
+}
+/* == Selection == */
+.tubi.selection.list .item {
+	cursor: pointer;
+	color: rgba(0,0,0,0.4);
+	padding: .5em;
+	-webkit-transition: .2s color ease, .2s padding-left ease, .2s background-color ease;
+	transition: .2s color ease, .2s padding-left ease, .2s background-color ease
+}
+.tubi.selection.list .item:hover {
+	background-color: rgba(0,0,0,0.02);
+	color: rgba(0,0,0,0.7)
+}
+.tubi.selection.list .item:active {
+	background-color: rgba(0,0,0,0.05);
+	color: rgba(0,0,0,0.7)
+}
+.tubi.selection.list .item.active, .tubi.divided.list .item.active {
+	background-color: rgba(0,0,0,0.04);
+	color: rgba(0,0,0,0.7)
+}
+.tubi.animated.list .item {
+	-webkit-transition: .2s color ease, .2s padding-left ease, .2s background-color ease;
+	transition: .2s color ease, .2s padding-left ease, .2s background-color ease
+}
+.tubi.animated.list:not(.horizontal) .item:hover {
+	padding-left: 1em
+}
+.tubi.animated.list:not(.horizontal) .item:hover .item:hover {
+	padding-left: .5em
+}
+/* == Bulleted == */
+ul.tubi.list, .tubi.bulleted.list {
+	margin-left: 1.5em
+}
+ul.tubi.list li, .tubi.bulleted.list .item {
+	position: relative
+}
+ul.tubi.list li:before, .tubi.bulleted.list .item:before {
+	position: absolute;
+	left: -1.5em;
+	content: 'â€¢';
+	line-height: 1.2rem;
+	vertical-align: top
+}
+ul.tubi.list ul, .tubi.bulleted.list .list {
+	padding-left: 1.5em
+}
+ul.tubi.horizontal.bulleted.list, .tubi.horizontal.bulleted.list {
+	margin-left: 0
+}
+ul.tubi.horizontal.bulleted.list li, .tubi.horizontal.bulleted.list .item {
+	margin-left: 1.5em
+}
+ul.tubi.horizontal.bulleted.list li:before, .tubi.horizontal.bulleted.list .item:before {
+	left: -.9em
+}
+ul.tubi.horizontal.bulleted.list li:first-child, .tubi.horizontal.bulleted.list .item:first-child {
+	margin-left: 0
+}
+ul.tubi.horizontal.bulleted.list li:first-child::before, .tubi.horizontal.bulleted.list .item:first-child::before {
+	display: none
+}
+/* == Ordered == */
+ol.tubi.list, .tubi.ordered.list {
+	counter-reset: ordered;
+	margin-left: 2em;
+	list-style-type: none
+}
+ol.tubi.list li, .tubi.ordered.list .item {
+	list-style-type: none;
+	position: relative
+}
+ol.tubi.list li:before, .tubi.ordered.list .item:before {
+	position: absolute;
+	left: -2em;
+	counter-increment: ordered;
+	content: counters(ordered, ".");
+	text-align: right;
+	vertical-align: top;
+	opacity: 0.75
+}
+ol.tubi.list ol, .tubi.ordered.list .list {
+	counter-reset: ordered;
+	padding-left: 2.5em
+}
+ol.tubi.list ol li:before, .tubi.ordered.list .list .item:before {
+	left: -2.5em
+}
+ol.tubi.horizontal.list, .tubi.ordered.horizontal.list {
+	margin-left: 0
+}
+ol.tubi.horizontal.list li:before, .tubi.ordered.horizontal.list .item:before {
+	position: static;
+	margin: 0 .5em 0 0
+}
+/* == Divided == */
+.tubi.divided.list > .item, .tubi.divided.list:not(.horizontal) > .list {
+	border-top: 1px solid rgba(0,0,0,0.1);
+	padding-left: .5em;
+	padding-right: .5em
+}
+.tubi.divided.list .item .menu .item {
+	border-width: 0
+}
+.tubi.divided.list .item:first-child {
+	border-top-width: 0
+}
+.tubi.divided.list:not(.horizontal) .list {
+	margin-left: -.5em;
+	margin-right: -.5em
+}
+.tubi.divided.list:not(.horizontal) .list .item {
+	padding-left: 1em;
+	padding-right: 1em
+}
+.tubi.divided.list:not(.horizontal) .list .item:first-child {
+	border-top-width: 1px
+}
+.tubi.divided.bulleted.list {
+	margin-left: 0
+}
+.tubi.divided.bulleted.list .item {
+	padding-left: 1.5em
+}
+.tubi.divided.bulleted.list .item:before {
+	left: .5em
+}
+.tubi.divided.ordered.list {
+	margin-left: 0
+}
+.tubi.divided.ordered.list > .item {
+	padding-left: 2em;
+	padding-right: 2em
+}
+.tubi.divided.ordered.list > .item:before {
+	left: .5em
+}
+.tubi.divided.ordered.list .item .list {
+	margin-left: -2em;
+	margin-right: -2em
+}
+.tubi.divided.horizontal.list {
+	margin-left: 0
+}
+.tubi.divided.horizontal.list > .item {
+	border-top: none;
+	border-left: 1px solid rgba(0,0,0,0.1);
+	margin: 0;
+	padding-left: .75em;
+	padding-right: .75em;
+	line-height: 0.6
+}
+.tubi.horizontal.divided.list > .item:first-child {
+	border-left: none;
+	padding-left: 0
+}
+/* == Celled == */
+.tubi.celled.list > .item, .tubi.celled.list > .list {
+	border-top: 1px solid rgba(0,0,0,0.1);
+	padding-left: .5em;
+	padding-right: .5em
+}
+.tubi.celled.list > .item:last-child {
+	border-bottom: 1px solid rgba(0,0,0,0.1)
+}
+.tubi.celled.list .item .list {
+	margin-left: -.5em;
+	margin-right: -.5em
+}
+.tubi.celled.list .item .list .item {
+	border-width: 0
+}
+.tubi.celled.list .list .item:first-child {
+	border-top-width: 0
+}
+.tubi.celled.bulleted.list {
+	margin-left: 0
+}
+.tubi.celled.bulleted.list > .item {
+	padding-left: 1.5em
+}
+.tubi.celled.bulleted.list > .item:before {
+	left: .5em
+}
+.tubi.celled.ordered.list {
+	margin-left: 0
+}
+.tubi.celled.ordered.list .item {
+	padding-left: 2em;
+	padding-right: 2em
+}
+.tubi.celled.ordered.list .item:before {
+	left: .5em
+}
+.tubi.celled.ordered.list .item .list {
+	margin-left: -2em;
+	margin-right: -2em
+}
+.tubi.horizontal.celled.list {
+	margin-left: 0
+}
+.tubi.horizontal.celled.list .item {
+	border-top: none;
+	border-left: 1px solid rgba(0,0,0,0.1);
+	margin: 0;
+	padding-left: .75em;
+	padding-right: .75em;
+	line-height: 0.6
+}
+.tubi.horizontal.celled.list .item:last-child {
+	border-bottom: none;
+	border-right: 1px solid rgba(0,0,0,0.1)
+}
+/* == Grid List == */	
+.tubi.grid {
+	position: relative;
+	overflow: hidden;
+	width: 100%/*
+  position: relative;
+  z-index: 1;
+  left: 0;
+  width: 100%;
+  top: 0;
+  */
+}
+.tubi.grid > .item {
+	background-color: #F7F6F2;
+	-webkit-box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.05);
+	box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.05);
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	padding: 0.5em;
+}
+.tubi.grid > .item img {
+	padding: 1px;
+}
+.tubi.grid.fitted > .item {
+	padding: 0;
+}
+.tubi.grid > .item > .tubi.label {
+	font-size: 1.4em
+}
+/* == Relaxed == */
+.tubi.relaxed.list:not(.horizontal) .item {
+	padding-top: .5em;
+	padding-bottom: .5em
+}
+.tubi.relaxed.list .header {
+	margin-bottom: .25em
+}
+.tubi.horizontal.relaxed.list .item {
+	padding-left: 1.25em;
+	padding-right: 1.25em
+}
+.tubi.very.relaxed.list:not(.horizontal) .item {
+	padding-top: 1em;
+	padding-bottom: 1em
+}
+.tubi.very.relaxed.list .header {
+	margin-bottom: .5em
+}
+.tubi.horizontal.very.relaxed.list .item {
+	padding-left: 2em;
+	padding-right: 2em
+}
+/* == Sortable == */
+ul.tubi.sortable {
+	min-height: 110px
+}
+ul.tubi.sortable-small {
+	min-height: 40px
+}
+ul.tubi.sortable, ul.tubi.sortable li {
+	list-style-type: none;
+	margin: 0;
+	padding: 0
+}
+ul.tubi.sortable li, .tubi.sortable > .list {
+	margin-bottom: 5px;
+	padding: .5em 1em;
+	list-style-type: none;
+	color: rgba(0,0,0,0.4);
+	background-color: rgba(0,0,0,0.05);
+ box-shadow: 0 -.2rem 0 rgba(0,0,0,0.1) inset;
+	text-shadow: 0 1px 0 #fff;
+	border-radius: .225em
+}
+ul.tubi.sortable-no li, .tubi.sortable-no > .list {
+	max-width: 255px;
+	margin: 5px;
+}
+ul.tubi.sortable li:before {
+	content: "";
+	left: 0
+}
+ul.tubi.sortable li:last-child, .tubi.sortable list:last-child {
+	margin-bottom: 0
+}
+ul.tubi.sortable li a {
+	display: inline-block
+}
+.tubi.sortable a.list {
+	display: block
+}
+.tubi.sortable a.list:hover {
+	background-color: #F0B174;
+	text-shadow: none;
+	color: #fff
+}
+ul.tubi.sortable li .icon.reorder {
+	opacity: .75;
+	margin-right: .5em;
+	cursor: move
+}
+.placeholder {
+	background-color: #FFC!important;
+	border: 1px solid #FC9;
+	height: 32px;
+}
+.alttaraf li {
+	width: 25%;
+	float: left
+}
+ @media screen and (min-width:650px) and (max-width:1024px) {
+.alttaraf li {
+	width: 30%;
+	float: left
+}
+}
+ @media screen and (max-width:769px) {
+.alttaraf li {
+	width: 45%;
+	float: left
+}
+}
+/* == Sizes == */
+.tubi.mini.list .item {
+font-size:.7rem
+}
+.tubi.tiny.list .item {
+font-size:.8125rem
+}
+.tubi.small.list .item {
+font-size:.875rem
+}
+.tubi.list .item {
+	font-size: 1em
+}
+.tubi.large.list .item {
+	font-size: 1.125rem
+}
+.tubi.big.list .item {
+	font-size: 1.25rem
+}
+.tubi.huge.list .item {
+	font-size: 1.375rem
+}
+.tubi.massive.list .item {
+	font-size: 1.5rem
+}
+/* == Modal Filegrid == */
+.filegrid {
+	position: relative
+}
+.filegrid, .filegrid li {
+	margin: 0px;
+	padding: 0px;
+	list-style-type: none;
+}
+.filegrid li a {
+	box-shadow: inset 0 0 0 1px rgba(0,0,0,0.1);
+	line-height: 0;
+	padding: .25em;
+	margin: .25em;
+	display: block;
+}
+.filegrid.alt li {
+	float: left;
+	width: 146px;
+	height: 121px;
+	overflow: hidden;
+	text-align: center;
+	vertical-align: middle;
+	box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+	margin: 2px;
+}
+.filegrid.alt li a {
+	box-shadow: none;
+	padding: 0;
+	margin: 0;
+	line-height: 125px
+}
+.filegrid li a img {
+	vertical-align: middle;
+}

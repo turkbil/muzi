@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language>
+  <phrase data="_PLG_JT_TITLE1">Edit Tab</phrase>
+  <phrase data="_PLG_JT_INFO1">Here you can update your tab item.</phrase>
+  <phrase data="_PLG_JT_SUBTITLE1">Editing Tab / </phrase>
+  <phrase data="_PLG_JT_TITLE">Tab Title</phrase>
+  <phrase data="_PLG_JT_PUB">Tab Published</phrase>
+  <phrase data="_PLG_JT_BODY">Tab Body</phrase>
+  <phrase data="_PLG_JT_UPDATE">Update Tab</phrase>
+  <phrase data="_PLG_JT_TITLE2">Add Tab</phrase>
+  <phrase data="_PLG_JT_INFO2">Here you can add your tab item.</phrase>
+  <phrase data="_PLG_JT_SUBTITLE2">Adding Tab Item</phrase>
+  <phrase data="_PLG_JT_ADD">Add Tab Item</phrase>
+  <phrase data="_PLG_JT_TITLE3">Manage CMS Tabs Plugin</phrase>
+  <phrase data="_PLG_JT_INFO3">Here you can configure tabs plugin. To reorder items click and drag item reorder handle, position it where you want it. Position will be updated automatically.</phrase>
+  <phrase data="_PLG_JT_SUBTITLE3">Viewing All Tabs</phrase>
+  <phrase data="_PLG_JT_POS">Position</phrase>
+  <phrase data="_PLG_JT_TAB">Tab</phrase>
+  <phrase data="_PLG_JT_NOTABS">You don't have any tabs yet. Please add!</phrase>
+  <phrase data="_PLG_JT_UPDATED">Tab item updated successfully!</phrase>
+  <phrase data="_PLG_JT_ADDED">Tab item added successfully!</phrase>
+</language>

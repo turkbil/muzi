@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<language>
+  <phrase data="_MOD_FAQ_A">C:</phrase>
+  <phrase data="_MOD_FAQ_ADD">Soru Ekle</phrase>
+  <phrase data="_MOD_FAQ_ADDED">Soru eklendi!</phrase>
+  <phrase data="_MOD_FAQ_COL">Tümünü Daralt</phrase>
+  <phrase data="_MOD_FAQ_DELETE">Soruyu Sil</phrase>
+  <phrase data="_MOD_FAQ_DELETE_OK">Soru [FAQNAME] silindi!</phrase>
+  <phrase data="_MOD_FAQ_DESC">Yanıt</phrase>
+  <phrase data="_MOD_FAQ_EXP">Tümünü Aç</phrase>
+  <phrase data="_MOD_FAQ_FAQ">S.S.S.</phrase>
+  <phrase data="_MOD_FAQ_INFO">Burada yeni içerik ekleyebilirsiniz.</phrase>
+  <phrase data="_MOD_FAQ_INFO1">Burada ekli içerikleri güncelleyebilirsiniz.</phrase>
+  <phrase data="_MOD_FAQ_INFO3">İçerik modüülündesiniz, sürükle bırak yaparak sıralamayı düzenleyebilirsiniz. Otomatik olarak sıralama kayıt olacaktır.</phrase>
+  <phrase data="_MOD_FAQ_NAME">Yazar Adı</phrase>
+  <phrase data="_MOD_FAQ_NOFAQS">Ekli içerik yok. Lütfen ekleyin.</phrase>
+  <phrase data="_MOD_FAQ_POS">Sıralama</phrase>
+  <phrase data="_MOD_FAQ_SUBTITLE">Yeni İçerik Ekleniyor</phrase>
+  <phrase data="_MOD_FAQ_SUBTITLE1">İçerik Düzenleniyor / </phrase>
+  <phrase data="_MOD_FAQ_SUBTITLE3">Tüm İçerikler Görüntüleniyor</phrase>
+  <phrase data="_MOD_FAQ_SUPDATED">Sıralama düzenlendi!</phrase>
+  <phrase data="_MOD_FAQ_TITLE1">İçeriği Düzenle</phrase>
+  <phrase data="_MOD_FAQ_TITLE2">Yeni İçerik</phrase>
+  <phrase data="_MOD_FAQ_TITLE3">İçerikler Yönetimi</phrase>
+  <phrase data="_MOD_FAQ_TITLE">İçerik</phrase>
+  <phrase data="_MOD_FAQ_UPDATE">İçeriği Güncelle</phrase>
+  <phrase data="_MOD_FAQ_UPDATED">İçerik güncellendi!</phrase>
+  <phrase data="_MOD_FAQ_Q">S:</phrase>
+</language>

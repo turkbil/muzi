@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language>
+	<phrase data="_PLG_RSS_TITLE1"> RSS Çözümleyici Eklentisi Yönetimi</phrase>
+	<phrase data="_PLG_RSS_INFO1">Burada rss çözümleyici yapılandırmasını güncelleyebilirsiniz.</phrase>
+	<phrase data="_PLG_RSS_SUBTITLE1">Rss Ayarlarını Düzenle</phrase>
+	<phrase data="_PLG_RSS_URL">Url Ayrıştırma </phrase>
+	<phrase data="_PLG_RSS_URL_T">http:// ile başlayan tam url girin</phrase>
+	<phrase data="_PLG_RSS_TITLETRIM">Başlık Uzunsa Kırpma</phrase>
+	<phrase data="_PLG_RSS_TITLETRIM_T">Kaç karakterden sonra başlık uzunluğunu kesilecekse onu girin. Hiçbir  kesim olmaması için 0 (sıfır) seçin.</phrase>
+	<phrase data="_PLG_RSS_SHOW_BODY">Haber Özetini Göster</phrase>
+	<phrase data="_PLG_RSS_BODYTRIM">Haber Özetini Kırpma</phrase>
+	<phrase data="_PLG_RSS_BODYTRIM_T">Kaç karakterden sonra özet uzunluğunu kesilecekse onu girin. Hiçbir kesim olmaması için 0 (sıfır) seçin.</phrase>
+	<phrase data="_PLG_RSS_SHOW_DATE">Tarih Göster</phrase>
+	<phrase data="_PLG_RSS_DATEFORMAT">Tarih Formatı</phrase>
+	<phrase data="_PLG_RSS_DATE_T">--- Tarih Formatını Seçin ---</phrase>
+	<phrase data="_PLG_RSS_ITEMS">Toplam Öğe</phrase>
+	<phrase data="_PLG_RSS_ITEMS_T">Görüntülenen öğe sayısı.</phrase>
+	<phrase data="_PLG_RSS_UPDATE">Güncelleme Ayarları</phrase>
+	<phrase data="_PLG_RSS_UPDATED">Rss ayarları başarıyla güncellendi!</phrase>
+	<phrase data="_PLG_RSS_HELP">Rss Yardım</phrase>
+</language>
