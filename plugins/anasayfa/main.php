@@ -12,7 +12,7 @@ $muzibu = new Muzibu();
 $latestArticle = geti2("*","mod_blog","WHERE cid= '1' ORDER BY created DESC");
 $latestRelease = $muzibu->homepage->getLatestNewRelease();
 $newReleases = $muzibu->homepage->getNewReleases(5);
-$latestPlaylists = $muzibu->playlist->getPlaylists(1,10);
+$latestPlaylists = $muzibu->playlist->getSystemPlaylistsHome(10);
 $popularWeek = $muzibu->homepage->getPopularThisWeek(5);
 $topRecommendations = $muzibu->homepage->getTopRecommendations(5);
 $popularGenres = $muzibu->homepage->getPopularGenres(7);
@@ -111,7 +111,6 @@ $upcomingRelease = $muzibu->homepage->getUpcomingReleases();
 <!-- Trending Music Start -->
 <section class="pb-40">
     <h4>Son Eklenen Oynatma Listeleri</h4>
-    <p class="fs-13 mb-24">Önceki dinleme geçmişinize dayanarak.</p>
     <div class="music-slider row" data-slick='{"autoplay": true, "infinite": true}'>
         <?php if ($latestPlaylists): 
             foreach ($latestPlaylists as $playlist): 
@@ -122,7 +121,6 @@ $upcomingRelease = $muzibu->homepage->getUpcomingReleases();
                 <img src="<?php echo SITEURL;?>/thumbmaker.php?src=<?php echo SITEURL;?>/modules/muzibu/dataimages/<?php echo $playlist->thumb != "" ? $playlist->thumb : $playlist->album_thumb ;?>&amp;h=410&amp;w=410&amp;s=1&amp;a=c&amp;q=80; ?>" alt="<?php echo $trend->title_tr; ?>">
                 <div class="content">
                     <h6><?php echo $playlist->title_tr; ?></h6>
-                    <p class="fs-13 color-white"><?php echo $playlist->song_count;?> Şarkı</p>
                 </div>
             </a>
         </div>
@@ -255,7 +253,6 @@ $upcomingRelease = $muzibu->homepage->getUpcomingReleases();
 <!-- Artist Area Start -->
 <section class="py-40">
     <h4>Sevebileceğiniz Popüler Müzik Türleri</h4>
-    <p class="fs-13 mb-24">Size hitap eden müzik türlerine göz atabilirsiniz</p>
     <div class="music-slider row" data-slick='{"autoplay": true, "infinite": true}'>
         <?php if ($popularGenres): 
             foreach ($popularGenres as $genre): 

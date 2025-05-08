@@ -1,0 +1,67 @@
+.membership-warning {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 10000;
+    display: none;
+}
+
+.warning-overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.warning-box {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 30px;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.warning-box h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.warning-box p {
+    font-size: 16px;
+    margin-bottom: 25px;
+    color: #666;
+}
+
+.warning-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.membership-btn {
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 1px solid #ddd;
+    color: #333;
+}
+
+.membership-btn.primary {
+    background-color: #5f2eea;
+    color: #fff;
+    border-color: #5f2eea;
+}
+
+.membership-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}

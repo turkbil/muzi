@@ -81,13 +81,49 @@ if ( !defined( "_VALID_PHP" ) )
 <!-- Mobile Menu End -->
 </div>
 <!-- Audio Bar -->
+<!-- Audio Bar -->
 <div class="audio-bar">
     <!-- Audio Player -->
     <audio id="audio-player" preload="none" class="mejs__player" controls data-mejsoptions='{"defaultAudioHeight": "50", "alwaysShowControls": "true"}' style="max-width:100%;">
         <source src="<?php echo THEMEURL; ?>/assets/media/tracks/maq-amor.mp3" type="audio/mp3">
     </audio>
+    
+    <?php 
+    // Veritabanından rastgele bir şarkı çek
+    $db = Registry::get("Database");
+    $sql = "SELECT s.*, a.title" . Lang::$lang . " as artist_title, 
+            l.title" . Lang::$lang . " as album_title, l.thumb
+            FROM muzibu_songs as s 
+            LEFT JOIN muzibu_albums as l ON l.id = s.album_id 
+            LEFT JOIN muzibu_artists as a ON a.id = l.artist_id 
+            WHERE s.active = 1 AND s.file_path IS NOT NULL
+            ORDER BY RAND() 
+            LIMIT 1";
+    
+    $randomSong = $db->first($sql);
+    
+    if ($randomSong) {
+        $trackPath = SITEURL . '/modules/muzibu/datafiles/songs/' . $randomSong->file_path;
+        $posterPath = $randomSong->thumb ? SITEURL . '/modules/muzibu/dataimages/' . $randomSong->thumb : THEMEURL . '/assets/media/tracks/poster-images/track-01.jpg';
+        $title = $randomSong->title_tr;
+        $artist = $randomSong->artist_title;
+    } else {
+        // Yedek olarak varsayılan bir şarkı
+        $trackPath = THEMEURL . '/assets/media/tracks/maq-amor.mp3';
+        $posterPath = THEMEURL . '/assets/media/tracks/poster-images/track-01.jpg';
+        $title = 'Demo Şarkı';
+        $artist = 'Demo Sanatçı';
+    }
+    ?>
+    
     <!-- Default Track - onLoad -->
-    <div id="track-onload" data-track="<?php echo THEMEURL; ?>/assets/media/tracks/clean-clean.mp3" data-poster="<?php echo THEMEURL; ?>/assets/media/tracks/poster-images/the-end-of-the-beginning.jpg" data-title="Clean Clean" data-singer="R Costello"></div>
+    <div id="track-onload" 
+         data-track="<?php echo $trackPath; ?>" 
+         data-poster="<?php echo $posterPath; ?>" 
+         data-title="<?php echo $title; ?>" 
+         data-singer="<?php echo $artist; ?>"
+         data-user-logged="<?php echo $user->logged_in ? 'true' : 'false'; ?>">
+    </div>
 </div>
 
 <?php if ($user->logged_in):?>
@@ -159,76 +195,141 @@ var trackList = [];
 var currentTrackIndex = 0;
 var isShuffle = false;
 var isLoop = false;
+var isUserLoggedIn = false;
 
 function audioInit(){
-	 var audio = $("#audio-player"),
-     playerId = audio.closest('.mejs__container').attr('id'),
-     playerObject = mejs.players[playerId];
-	 
-		// Shuffle butonunu oluÅŸtur
-		const shuffleBtn = document.createElement('div');
-		shuffleBtn.className = 'mejs__button mejs__shuffle-button shuffle-off';
-		shuffleBtn.innerHTML = '<button id="shuffle-toggle"><i class="fas fa-shuffle"></i></button>';
-		
-		shuffleBtn.addEventListener("click", function () {
-			isShuffle = !isShuffle;
-			shuffleBtn.classList.toggle("shuffle-on", isShuffle);
-			shuffleBtn.classList.toggle("shuffle-off", !isShuffle);
-			console.log("Shuffle modu: " + (isShuffle ? "Açik" : "Kapali"));
-		});
-		
-		// Loop butonunu olustur
-		const loopBtn = document.createElement('div');
-		loopBtn.className = 'mejs__button mejs__loop-button loop-off';
-		loopBtn.innerHTML = '<button id="loop-toggle"><i class="fas fa-redo"></i></button>';
-	
-		loopBtn.addEventListener("click", function () {
-			isLoop = !isLoop;
-			loopBtn.classList.toggle("loop-on", isLoop);
-			loopBtn.classList.toggle("loop-off", !isLoop);
-			console.log("Loop modu: " + (isLoop ? "Açik" : "Kapali"));
-			playerObject.media.loop = isLoop;
-		});
-		
-		// Prev butonunu olustur
-		const prevTrackBtn = document.createElement('div');
-		prevTrackBtn.className = 'mejs__button mejs__prev-button';
-		prevTrackBtn.innerHTML = '<button id="prev-btn"><i class="fa-solid fa-backward"></i></button>';
-	
-		prevTrackBtn.addEventListener("click", function () {
-			playPrevTrack();
-			console.log("Loop modu: " + (isLoop ? "Açik" : "Kapali"));
-		});
-		
-		// Next butonunu olustur
-		const nextTrackBtn = document.createElement('div');
-		nextTrackBtn.className = 'mejs__button mejs__next-button';
-		nextTrackBtn.innerHTML = '<button id="next-btn"><i class="fa-solid fa-forward"></i></button>';
-	
-		nextTrackBtn.addEventListener("click", function () {
-			playNextTrack(false);
-			console.log("Loop modu: " + (isLoop ? "Açik" : "Kapali"));
-		});
-		
-		// Süre göstergesini bul ve shuffle butonunu yanina ekle
-		const controls = jQuery(`#${playerId} .mejs__controls`);
-		const timeDisplay = controls.find('.mejs__duration-container'); // Süre göstergesi (geçen süre / toplam süre)
-			
-		if (timeDisplay.length) {
-			timeDisplay.after(shuffleBtn); // Süre güstergesinin yanina ekle
-        	timeDisplay.after(loopBtn);    // Loop butonunu ekle
-        	timeDisplay.after(nextTrackBtn);    // Loop butonunu ekle
-        	timeDisplay.after(prevTrackBtn);    // Loop butonunu ekle
-		}
-		
-		playerObject.media.addEventListener("ended", function() {
-			
-        	playNextTrack();
-    	})
+    var audio = $("#audio-player"),
+    playerId = audio.closest('.mejs__container').attr('id'),
+    playerObject = mejs.players[playerId];
+    
+    // Kullanıcı durumunu kontrol et
+    isUserLoggedIn = $('#track-onload').attr('data-user-logged') === 'true';
+    
+    // Üyelik uyarısını oluştur
+    if (!isUserLoggedIn) {
+        if (!document.querySelector('.membership-warning')) {
+            const membershipWarning = document.createElement('div');
+            membershipWarning.className = 'membership-warning';
+            membershipWarning.innerHTML = `
+                <div class="warning-overlay">
+                    <div class="warning-box">
+                        <h3>Üye Olmayan Kullanıcı</h3>
+                        <p>Şarkıları tam olarak dinlemek ve daha fazla içeriğe erişmek için üye olun!</p>
+                        <div class="warning-buttons">
+                            <a href="${SITEURL}/sayfa/login/" class="membership-btn">Giriş Yap</a>
+                            <a href="${SITEURL}/sayfa/kayit/" class="membership-btn primary">Üye Ol</a>
+                            <a href="javascript:void(0);" class="membership-btn close-warning">Kapat</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(membershipWarning);
+            
+            // Kapat butonuna tıklandığında
+            membershipWarning.querySelector('.close-warning').addEventListener('click', function() {
+                membershipWarning.style.display = 'none';
+            });
+        }
+        
+        // 30 saniye sınırlaması için doğrudan event listener ekle
+        playerObject.media.addEventListener('timeupdate', function() {
+            if (playerObject.media.currentTime >= 30) {
+                playerObject.pause();
+                document.querySelector('.membership-warning').style.display = 'block';
+            }
+        });
+    }
+    
+    // Shuffle butonunu oluştur
+    const shuffleBtn = document.createElement('div');
+    shuffleBtn.className = 'mejs__button mejs__shuffle-button shuffle-off';
+    shuffleBtn.innerHTML = '<button id="shuffle-toggle"><i class="fas fa-shuffle"></i></button>';
+    
+    shuffleBtn.addEventListener("click", function () {
+        if (!isUserLoggedIn) {
+            document.querySelector('.membership-warning').style.display = 'block';
+            return;
+        }
+        isShuffle = !isShuffle;
+        shuffleBtn.classList.toggle("shuffle-on", isShuffle);
+        shuffleBtn.classList.toggle("shuffle-off", !isShuffle);
+        console.log("Shuffle modu: " + (isShuffle ? "Açik" : "Kapali"));
+    });
+    
+    // Loop butonunu olustur
+    const loopBtn = document.createElement('div');
+    loopBtn.className = 'mejs__button mejs__loop-button loop-off';
+    loopBtn.innerHTML = '<button id="loop-toggle"><i class="fas fa-redo"></i></button>';
+
+    loopBtn.addEventListener("click", function () {
+        if (!isUserLoggedIn) {
+            document.querySelector('.membership-warning').style.display = 'block';
+            return;
+        }
+        isLoop = !isLoop;
+        loopBtn.classList.toggle("loop-on", isLoop);
+        loopBtn.classList.toggle("loop-off", !isLoop);
+        console.log("Loop modu: " + (isLoop ? "Açik" : "Kapali"));
+        playerObject.media.loop = isLoop;
+    });
+    
+    // Prev butonunu olustur
+    const prevTrackBtn = document.createElement('div');
+    prevTrackBtn.className = 'mejs__button mejs__prev-button';
+    prevTrackBtn.innerHTML = '<button id="prev-btn"><i class="fa-solid fa-backward"></i></button>';
+
+    prevTrackBtn.addEventListener("click", function () {
+        if (!isUserLoggedIn) {
+            document.querySelector('.membership-warning').style.display = 'block';
+            return;
+        }
+        playPrevTrack();
+        console.log("Loop modu: " + (isLoop ? "Açik" : "Kapali"));
+    });
+    
+    // Next butonunu olustur
+    const nextTrackBtn = document.createElement('div');
+    nextTrackBtn.className = 'mejs__button mejs__next-button';
+    nextTrackBtn.innerHTML = '<button id="next-btn"><i class="fa-solid fa-forward"></i></button>';
+
+    nextTrackBtn.addEventListener("click", function () {
+        if (!isUserLoggedIn) {
+            document.querySelector('.membership-warning').style.display = 'block';
+            return;
+        }
+        playNextTrack(false);
+        console.log("Loop modu: " + (isLoop ? "Açik" : "Kapali"));
+    });
+    
+    // Süre göstergesini bul ve shuffle butonunu yanina ekle
+    const controls = jQuery(`#${playerId} .mejs__controls`);
+    const timeDisplay = controls.find('.mejs__duration-container'); // Süre göstergesi (geçen süre / toplam süre)
+        
+    if (timeDisplay.length) {
+        timeDisplay.after(shuffleBtn); // Süre güstergesinin yanina ekle
+        timeDisplay.after(loopBtn);    // Loop butonunu ekle
+        timeDisplay.after(nextTrackBtn);    // Loop butonunu ekle
+        timeDisplay.after(prevTrackBtn);    // Loop butonunu ekle
+    }
+    
+    // Şarkı bittiğinde
+    playerObject.media.addEventListener("ended", function() {
+        if (!isUserLoggedIn) {
+            document.querySelector('.membership-warning').style.display = 'block';
+        } else {
+            playNextTrack();
+        }
+    });
 }
 
 function playNextTrack(shuffle=true) {
     if (trackList.length === 0) return;
+    
+    // Kullanıcı giriş yapmamışsa, şarkı değiştirmeye izin vermeyelim
+    if (!isUserLoggedIn) {
+        document.querySelector('.membership-warning').style.display = 'block';
+        return;
+    }
     
     let nextIndex;
     if (isShuffle && shuffle) {
@@ -242,7 +343,7 @@ function playNextTrack(shuffle=true) {
 
     currentTrackIndex = nextIndex;
     const nextTrack = trackList[currentTrackIndex];
-		console.log(nextTrack);
+    console.log(nextTrack);
 
     changeAudio(nextTrack.element, nextTrack.track, nextTrack.poster, nextTrack.title, nextTrack.singer);
 }
@@ -250,12 +351,18 @@ function playNextTrack(shuffle=true) {
 function playPrevTrack() {
     if (trackList.length === 0) return;
     
+    // Kullanıcı giriş yapmamışsa, şarkı değiştirmeye izin vermeyelim
+    if (!isUserLoggedIn) {
+        document.querySelector('.membership-warning').style.display = 'block';
+        return;
+    }
+    
     let prevIndex;
     prevIndex = (currentTrackIndex - 1) % trackList.length;
 
     currentTrackIndex = prevIndex;
     const prevTrack = trackList[currentTrackIndex];
-		console.log(prevTrack);
+    console.log(prevTrack);
 
     changeAudio(prevTrack.element, prevTrack.track, prevTrack.poster, prevTrack.title, prevTrack.singer);
 }
@@ -265,17 +372,17 @@ function changeAudio(clickEl,sourceUrl, posterUrl, trackTitle, trackSinger, play
         playerId = audio.closest('.mejs__container').attr('id'),
         playerObject = mejs.players[playerId];
 		
-		console.log(audio,playerId,playerObject);
+    console.log(audio,playerId,playerObject);
 		
     if(clickEl == checkelement){
         
-            if (playerObject.node.paused) {
-                playerObject.play();
-                jQuery(clickEl).find('i').removeClass('fas fa-play').addClass('far fa-pause');
-            } else {
-                playerObject.pause();
-                jQuery(clickEl).find('i').removeClass('far fa-pause').addClass('fas fa-play');
-            }
+        if (playerObject.node.paused) {
+            playerObject.play();
+            jQuery(clickEl).find('i').removeClass('fas fa-play').addClass('far fa-pause');
+        } else {
+            playerObject.pause();
+            jQuery(clickEl).find('i').removeClass('far fa-pause').addClass('fas fa-play');
+        }
         
         return true;
     }else{
@@ -340,9 +447,12 @@ jQuery(window).on( 'load', function(){
             posterUrl = trackOnload.attr('data-poster'), // Track Poster Image
             trackTitle = trackOnload.attr('data-title'); // Track Title
             trackSinger = trackOnload.attr('data-singer'); // Track Singer Name
+            
+        // Kullanıcının giriş yapıp yapmadığını kontrol edelim ve bunu global değişkene atayalım
+        isUserLoggedIn = trackOnload.attr('data-user-logged') === 'true';
 		
         setTimeout( function(){
-            changeAudio(trackOnload,audioTrack, posterUrl, trackTitle, trackSinger, false );
+            changeAudio(trackOnload, audioTrack, posterUrl, trackTitle, trackSinger, false );
         }, 500);
     }
 	

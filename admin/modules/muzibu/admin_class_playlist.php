@@ -82,19 +82,16 @@ class MuzibuPlaylist
     }
 
     /**
-     * MuzibuPlaylist::getPublicPlaylists()
+     * MuzibuPlaylist::getSystemPlaylists()
      * 
      * @param int $limit
      * @return
      */
-    public function getPublicPlaylists($limit = 10)
+    public function getSystemPlaylistsHome($limit = 10)
     {
-        $sql = "SELECT p.*, u.fname, u.lname, u.username, COUNT(ps.song_id) as song_count 
+        $sql = "SELECT p.* 
                 FROM " . self::playlistTable . " as p
-                LEFT JOIN " . self::usersTable . " as u ON u.id = p.user_id
-                LEFT JOIN " . self::playlistSongTable . " as ps ON ps.playlist_id = p.id
-                WHERE p.is_public = 1 AND p.active = 1
-                GROUP BY p.id
+                WHERE p.system = 1 AND p.active = 1 AND p.is_public = 1
                 ORDER BY p.created DESC
                 LIMIT " . intval($limit);
 
@@ -102,6 +99,7 @@ class MuzibuPlaylist
 
         return ($row) ? $row : 0;
     }
+
 
     /**
      * MuzibuPlaylist::getSystemPlaylists()

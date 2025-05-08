@@ -1,6 +1,9 @@
 <?php
 if (!$user->logged_in)
       redirect_to(Url::Page('login'));
+
+// Kullanıcının favori şarkılarını çek
+$songs = Registry::get('Muzibu')->getUserFavoriteSongs($user->uid);
 ?>
 
 <!-- Banner Area Start -->
@@ -23,7 +26,6 @@ if (!$user->logged_in)
             <?php if($songs):?>
             <div class="songs-list">
                 
-                <?php $songs = Registry::get('Muzibu')->getUserFavoriteSongs(2);?>
                 <?php 
                 $i=0;
                 foreach($songs as $song):
