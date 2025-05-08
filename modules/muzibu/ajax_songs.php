@@ -162,7 +162,7 @@ try {
             
         case 'load':
         default:
-            // Şarkıları yükle (alfabetik sıralı)
+            // Şarkıları yükle (alfabetik sıralı veya filtrelenmiş)
             try {
                 $whereClause = "";
                 if ($genre_id > 0) {

@@ -108,15 +108,15 @@
                         <div class="card-img">
                             <img src="<?php echo SITEURL;?>/thumbmaker.php?src=<?php echo SITEURL;?>/modules/muzibu/dataimages/<?php echo $song->album_thumb;?>&amp;h=200&amp;w=200&amp;s=1&amp;a=c&amp;q=80" alt="">
                             <div class="play">
-                                <a href="javascript:;" class="play track-list" 
-                                   data-track="<?php echo $trackPath; ?>" 
-                                   data-poster="<?php echo $thumbPath; ?>" 
-                                   data-title="<?php echo $song->title_tr; ?>" 
-                                   data-singer="<?php echo $song->artist_title; ?>"
-                                   data-id="<?php echo $song->id; ?>"
+                                <a href="javascript:;" class="track-list" 
+                                   data-track="<?php echo SITEURL;?>/modules/muzibu/datafiles/songs/<?php echo $song->file_path;?>" 
+                                   data-poster="<?php echo SITEURL;?>/thumbmaker.php?src=<?php echo SITEURL;?>/modules/muzibu/dataimages/<?php echo $song->album_thumb;?>&amp;h=410&amp;w=410&amp;s=1&amp;a=c&amp;q=80" 
+                                   data-title="<?php echo $song->title_tr;?>" 
+                                   data-singer="<?php echo $song->artist_title;?>"
+                                   data-id="<?php echo $song->id;?>"
                                    data-genre-id="<?php echo $song->genre_id; ?>"
                                    data-artist-id="<?php echo $song->artist_id; ?>">
-                                   <i class="fas fa-play"></i>
+                                   <i class="fa-solid fa-play"></i>
                                 </a>
                             </div>
                         </div>
