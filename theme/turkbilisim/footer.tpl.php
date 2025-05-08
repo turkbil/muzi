@@ -123,24 +123,43 @@ if ( !defined( "_VALID_PHP" ) )
          data-title="<?php echo $title; ?>" 
          data-singer="<?php echo $artist; ?>"
          data-id="<?php echo $randomSong ? $randomSong->id : ''; ?>"
+         data-genre-id="<?php echo $randomSong ? $randomSong->genre_id : ''; ?>"
+         data-artist-id="<?php echo $randomSong ? $randomSong->artist_id : ''; ?>"
          data-user-logged="<?php echo $user->logged_in ? 'true' : 'false'; ?>">
     </div>
 </div>
 
 <?php if ($user->logged_in):?>
-<!-- Oynatma Listesi Modalı -->
-<div class="modal fade" id="addPlaylist" tabindex="-1" aria-labelledby="addPlaylistLabel" aria-hidden="true">
+<div class="modal fade" id="addPlaylist" tabindex="-1" aria-labelledby="addPlaylist" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="addPlaylistLabel">Oynatma Listeleri</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+        <h1 class="modal-title fs-5" id="addPlaylist">Oynatma Listeleri</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <!-- Buraya playlist içeriği JavaScript ile eklenecek -->
+         
       </div>
       <div class="modal-footer">
         <div class="playlist-response"><div class="response"></div></div>
+        <a href="javascript:void();" id="addNewPlaylistBtn" class="cus2-btn "><i class="fa-solid fa-plus"></i> Yeni Oynatma Listesi Ekle</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="addNewPlaylist" tabindex="-1" aria-labelledby="addNewPlaylist" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="addPlaylist">Yeni Liste Ekle</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+                 <input type="text" id="newPlaylistName" class="form-control" placeholder="Oynatma listesi adı girin">
+      </div>
+      <div class="modal-footer">
+        <a href="javascript:void();" type="button" class="cus2-btn sec" id="cancelNewPlaylist">İptal</a>
+        <a href="javascript:void();" type="button" class="cus2-btn " id="createNewPlaylist">Oluştur</a>
       </div>
     </div>
   </div>
@@ -689,371 +708,6 @@ jQuery(window).on('load', function(){
     }
     
     audioInit();
-});
-</script>
-
-<!-- Çalma Listesine Şarkı Ekleme İşlemleri -->
-<script>
-$(document).ready(function(){
-    initPlaylistHandlers();
-});
-
-function initPlaylistHandlers() {
-    // Çalma listesi modalını açma
-    $(document).on('click', '.add-to-playlist', function() {
-        var songId = $(this).data('id');
-        if (!songId) return;
-        
-        // Çalma listesi modalını açmadan önce içeriğini temizle
-        $('#addPlaylist .modal-body').empty().append('<div class="loading">Yükleniyor...</div>');
-        
-        // Modalı göster
-        $('#addPlaylist').modal('show');
-        
-        // Kullanıcının çalma listelerini getir
-        loadUserPlaylists(songId);
-    });
-    
-    // Şarkıyı çalma listesine ekleme
-    $(document).on('click', '.add-song-to-playlist', function() {
-        var playlistId = $(this).data('playlist-id');
-        var songId = $(this).data('song-id');
-        var button = $(this);
-        
-        // Butonun durumunu değiştir ve devre dışı bırak
-        button.prop('disabled', true).html('<i class="fa-solid fa-spinner fa-spin"></i>');
-        
-        $.ajax({
-            url: SITEURL + '/modules/muzibu/ajax_playlists.php',
-            type: 'POST',
-            data: {
-                action: 'add_song_to_playlist',
-                playlist_id: playlistId,
-                song_id: songId
-            },
-            success: function(response) {
-                if (response.status === 'success') {
-                    button.removeClass('add-song-to-playlist').addClass('sec remove-song-from-playlist')
-                          .html('<i class="fa-solid fa-minus"></i> Çıkar')
-                          .prop('disabled', false);
-                    
-                    // Başarı mesajı göster
-                    $('.playlist-response .response').html('<div class="success-message">' + response.message + '</div>');
-                    setTimeout(function() {
-                        $('.playlist-response .response').empty();
-                    }, 3000);
-                } else {
-                    // Hata mesajı göster
-                    $('.playlist-response .response').html('<div class="error-message">' + response.message + '</div>');
-                    button.prop('disabled', false).html('<i class="fa-solid fa-plus"></i> Ekle');
-                }
-            },
-            error: function() {
-                $('.playlist-response .response').html('<div class="error-message">İşlem sırasında bir hata oluştu</div>');
-                button.prop('disabled', false).html('<i class="fa-solid fa-plus"></i> Ekle');
-            }
-        });
-    });
-    
-    // Şarkıyı çalma listesinden çıkarma
-    $(document).on('click', '.remove-song-from-playlist', function() {
-        var playlistId = $(this).data('playlist-id');
-        var songId = $(this).data('song-id');
-        var button = $(this);
-        
-        // Butonun durumunu değiştir ve devre dışı bırak
-        button.prop('disabled', true).html('<i class="fa-solid fa-spinner fa-spin"></i>');
-        
-        $.ajax({
-            url: SITEURL + '/modules/muzibu/ajax_playlists.php',
-            type: 'POST',
-            data: {
-                action: 'remove_song_from_playlist',
-                playlist_id: playlistId,
-                song_id: songId
-            },
-            success: function(response) {
-                if (response.status === 'success') {
-                    button.removeClass('sec remove-song-from-playlist').addClass('add-song-to-playlist')
-                          .html('<i class="fa-solid fa-plus"></i> Ekle')
-                          .prop('disabled', false);
-                    
-                    // Başarı mesajı göster
-                    $('.playlist-response .response').html('<div class="success-message">' + response.message + '</div>');
-                    setTimeout(function() {
-                        $('.playlist-response .response').empty();
-                    }, 3000);
-                } else {
-                    // Hata mesajı göster
-                    $('.playlist-response .response').html('<div class="error-message">' + response.message + '</div>');
-                    button.prop('disabled', false).html('<i class="fa-solid fa-minus"></i> Çıkar');
-                }
-            },
-            error: function() {
-                $('.playlist-response .response').html('<div class="error-message">İşlem sırasında bir hata oluştu</div>');
-                button.prop('disabled', false).html('<i class="fa-solid fa-minus"></i> Çıkar');
-            }
-        });
-    });
-    
-    // Yeni çalma listesi oluşturma işlemi
-    $(document).on('click', '#createNewPlaylist', function() {
-        var playlistName = $('#newPlaylistName').val();
-        var songId = $('#add-to-playlist-song-id').val();
-        var button = $(this);
-        
-        if (!playlistName) {
-            $('.new-playlist-response').html('<div class="error-message">Lütfen bir liste adı girin</div>');
-            return;
-        }
-        
-        // Butonun durumunu değiştir ve devre dışı bırak
-        button.prop('disabled', true).html('<i class="fa-solid fa-spinner fa-spin"></i>');
-        
-        $.ajax({
-            url: SITEURL + '/modules/muzibu/ajax_playlists.php',
-            type: 'POST',
-            data: {
-                action: 'create_playlist',
-                title: playlistName
-            },
-            success: function(response) {
-                if (response.status === 'success') {
-                    // Liste oluşturma başarılı, inputu temizle
-                    $('#newPlaylistName').val('');
-                    $('.new-playlist-response').html('<div class="success-message">' + response.message + '</div>');
-                    
-                    // Modal içeriğini yenile
-                    loadUserPlaylists(songId);
-                    
-                    // Yeni liste oluşturma alanını kapat
-                    $('.new-playlist-form').slideUp();
-                    $('#showAddPlaylistForm').show();
-                    
-                    // Butonu normal duruma getir
-                    button.prop('disabled', false).html('Oluştur');
-                } else {
-                    $('.new-playlist-response').html('<div class="error-message">' + response.message + '</div>');
-                    button.prop('disabled', false).html('Oluştur');
-                }
-            },
-            error: function() {
-                $('.new-playlist-response').html('<div class="error-message">İşlem sırasında bir hata oluştu</div>');
-                button.prop('disabled', false).html('Oluştur');
-            }
-        });
-    });
-    
-    // Playlist silme işlemi
-    $(document).on('click', '.delete-playlist', function() {
-        if (!confirm('Bu çalma listesini silmek istediğinize emin misiniz?')) {
-            return;
-        }
-        
-        var playlistId = $(this).data('playlist-id');
-        var item = $(this).closest('.playlist-item');
-        
-        $.ajax({
-            url: SITEURL + '/modules/muzibu/ajax_playlists.php',
-            type: 'POST',
-            data: {
-                action: 'delete_playlist',
-                playlist_id: playlistId
-            },
-            success: function(response) {
-                if (response.status === 'success') {
-                    item.slideUp(300, function() {
-                        $(this).remove();
-                        
-                        // Listede başka playlist kalmadıysa mesaj göster
-                        if ($('.playlist-item').length === 0) {
-                            $('.playlist-list').html('<div class="no-playlists">Henüz bir çalma listeniz yok.</div>');
-                        }
-                    });
-                    
-                    // Başarı mesajı göster
-                    $('.playlist-response .response').html('<div class="success-message">' + response.message + '</div>');
-                    setTimeout(function() {
-                        $('.playlist-response .response').empty();
-                    }, 3000);
-                } else {
-                    // Hata mesajı göster
-                    $('.playlist-response .response').html('<div class="error-message">' + response.message + '</div>');
-                }
-            },
-            error: function() {
-                $('.playlist-response .response').html('<div class="error-message">İşlem sırasında bir hata oluştu</div>');
-            }
-        });
-    });
-    
-    // Playlist düzenleme modunu aktifleştir
-    $(document).on('click', '.edit-playlist', function() {
-        var playlistId = $(this).data('playlist-id');
-        var item = $(this).closest('.playlist-item');
-        var title = item.find('.playlist-title').text();
-        
-        // Düzenleme formunu göster
-        item.find('.playlist-info').hide();
-        item.find('.playlist-edit-form').show().find('input').val(title).focus();
-    });
-    
-    // Playlist düzenleme işlemini iptal et
-    $(document).on('click', '.cancel-edit-playlist', function() {
-        var item = $(this).closest('.playlist-item');
-        
-        // Düzenleme formunu gizle
-        item.find('.playlist-edit-form').hide();
-        item.find('.playlist-info').show();
-    });
-    
-    // Playlist düzenleme işlemini kaydet
-    $(document).on('click', '.save-edit-playlist', function() {
-        var playlistId = $(this).data('playlist-id');
-        var item = $(this).closest('.playlist-item');
-        var newTitle = item.find('.edit-playlist-name').val();
-        var button = $(this);
-        
-        if (!newTitle) {
-            return;
-        }
-        
-        // Butonun durumunu değiştir ve devre dışı bırak
-        button.prop('disabled', true).html('<i class="fa-solid fa-spinner fa-spin"></i>');
-        
-        $.ajax({
-            url: SITEURL + '/modules/muzibu/ajax_playlists.php',
-            type: 'POST',
-            data: {
-                action: 'update_playlist',
-                playlist_id: playlistId,
-                title: newTitle
-            },
-            success: function(response) {
-                if (response.status === 'success') {
-                    // Başlığı güncelle
-                    item.find('.playlist-title').text(newTitle);
-                    
-                    // Düzenleme formunu gizle
-                    item.find('.playlist-edit-form').hide();
-                    item.find('.playlist-info').show();
-                    
-                    // Başarı mesajı göster
-                    $('.playlist-response .response').html('<div class="success-message">' + response.message + '</div>');
-                    setTimeout(function() {
-                        $('.playlist-response .response').empty();
-                    }, 3000);
-                } else {
-                    // Hata mesajı göster
-                    $('.playlist-response .response').html('<div class="error-message">' + response.message + '</div>');
-                }
-                
-                // Butonu normal duruma getir
-                button.prop('disabled', false).html('<i class="fa-solid fa-check"></i>');
-            },
-            error: function() {
-                $('.playlist-response .response').html('<div class="error-message">İşlem sırasında bir hata oluştu</div>');
-                button.prop('disabled', false).html('<i class="fa-solid fa-check"></i>');
-            }
-        });
-    });
-    
-    // Yeni liste oluşturma formunu göster/gizle
-    $(document).on('click', '#showAddPlaylistForm', function() {
-        $('.new-playlist-form').slideDown();
-        $(this).hide();
-        $('#newPlaylistName').focus();
-    });
-    
-    // Yeni liste oluşturma formunu iptal et
-    $(document).on('click', '#cancelNewPlaylist', function() {
-        $('.new-playlist-form').slideUp();
-        $('#showAddPlaylistForm').show();
-        $('#newPlaylistName').val('');
-        $('.new-playlist-response').empty();
-    });
-}
-
-// Kullanıcının çalma listelerini yükle
-function loadUserPlaylists(songId) {
-    // Şarkı ID'sini gizli alana kaydet
-    $('#add-to-playlist-song-id').val(songId);
-    
-    $.ajax({
-        url: SITEURL + '/modules/muzibu/ajax_playlists.php',
-        type: 'GET',
-        data: {
-            action: 'get_user_playlists',
-            song_id: songId
-        },
-        success: function(response) {
-            var modalBody = $('#addPlaylist .modal-body');
-            modalBody.empty();
-            
-            // Yeni liste oluşturma butonu
-            var newPlaylistButton = '<div class="add-playlist-button-container">' + 
-                                    '<button type="button" id="showAddPlaylistForm" class="cus2-btn sec-outline">' + 
-                                    '<i class="fa-solid fa-plus"></i> Yeni Liste Oluştur</button>' + 
-                                    '</div>';
-            
-            // Yeni liste oluşturma formu
-            var newPlaylistForm = '<div class="new-playlist-form" style="display:none;">' + 
-                                  '<div class="form-group">' + 
-                                  '<input type="text" id="newPlaylistName" class="form-control" placeholder="Liste adı girin">' + 
-                                  '</div>' + 
-                                  '<div class="form-buttons">' + 
-                                  '<button type="button" id="createNewPlaylist" class="cus2-btn">Oluştur</button>' + 
-                                  '<button type="button" id="cancelNewPlaylist" class="cus2-btn sec">İptal</button>' + 
-                                  '</div>' + 
-                                  '<div class="new-playlist-response"></div>' + 
-                                  '</div>';
-            
-            // Gizli şarkı ID alanı
-            var hiddenInput = '<input type="hidden" id="add-to-playlist-song-id" value="' + songId + '">';
-            
-            modalBody.append(newPlaylistButton + newPlaylistForm + hiddenInput);
-            
-            if (response.playlists && response.playlists.length > 0) {
-                var html = '<div class="playlist-list">';
-                
-                response.playlists.forEach(function(playlist) {
-                    var isAdded = response.song_playlists && response.song_playlists.includes(parseInt(playlist.id));
-                    
-                    html += '<div class="playlist-item">' +
-                            '<div class="playlist-info">' +
-                            '<img src="' + (playlist.thumb ? SITEURL + '/thumbmaker.php?src=' + SITEURL + '/modules/muzibu/dataimages/' + playlist.thumb + '&h=50&w=50&s=1&a=c&q=80' : THEMEURL + '/assets/media/default-playlist.jpg') + '" alt="' + playlist.title_tr + '">' +
-                            '<h4 class="playlist-title">' + playlist.title_tr + '</h4>' +
-                            '</div>' +
-                            '<div class="playlist-edit-form" style="display:none;">' +
-                            '<input type="text" class="form-control edit-playlist-name" placeholder="Liste adı girin">' +
-                            '<button type="button" class="btn-icon save-edit-playlist" data-playlist-id="' + playlist.id + '"><i class="fa-solid fa-check"></i></button>' +
-                            '<button type="button" class="btn-icon cancel-edit-playlist"><i class="fa-solid fa-times"></i></button>' +
-                            '</div>' +
-                            '<div class="playlist-actions">' +
-                            '<button type="button" class="cus2-btn ' + (isAdded ? 'sec remove-song-from-playlist' : 'add-song-to-playlist') + '" data-playlist-id="' + playlist.id + '" data-song-id="' + songId + '">' +
-                            (isAdded ? '<i class="fa-solid fa-minus"></i> Çıkar' : '<i class="fa-solid fa-plus"></i> Ekle') +
-                            '</button>' +
-                            '<button type="button" class="btn-icon edit-playlist" data-playlist-id="' + playlist.id + '"><i class="fa-solid fa-pen"></i></button>' +
-                            '<button type="button" class="btn-icon delete-playlist" data-playlist-id="' + playlist.id + '"><i class="fa-solid fa-trash"></i></button>' +
-                            '</div>' +
-                            '</div>';
-                });
-                
-                html += '</div>';
-                modalBody.append(html);
-            } else {
-                modalBody.append('<div class="no-playlists">Henüz bir çalma listeniz yok.</div>');
-            }
-        },
-        error: function() {
-            $('#addPlaylist .modal-body').html('<div class="error">Çalma listeleri yüklenirken bir hata oluştu.</div>');
-        }
-    });
-}
-
-// PJAX sonrası event handler'ları yeniden bağla
-$(document).on('pjax:complete', function() {
-    initPlaylistHandlers();
 });
 </script>
 

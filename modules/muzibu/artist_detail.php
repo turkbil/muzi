@@ -45,7 +45,9 @@
                                data-poster="<?php echo SITEURL;?>/thumbmaker.php?src=<?php echo SITEURL;?>/modules/muzibu/dataimages/<?php echo $song->thumb;?>&amp;h=410&amp;w=410&amp;s=1&amp;a=c&amp;q=80" 
                                data-title="<?php echo $song->title_tr; ?>" 
                                data-singer="<?php echo $song->artist_title; ?>"
-                               data-id="<?php echo $song->id; ?>">
+                               data-id="<?php echo $song->id; ?>"
+                               data-genre-id="<?php echo $song->genre_id; ?>"
+                               data-artist-id="<?php echo $song->artist_id; ?>">
                                <i class="fas fa-play"></i>
                             </a>
                             <span><?php echo str_pad($i,2,"0",STR_PAD_LEFT);?></span>
