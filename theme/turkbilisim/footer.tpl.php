@@ -208,8 +208,10 @@ var songPlayTimerInterval = null;
 var currentSongId = null;
 var songPlayed = false;
 
-// Preload sonraki şarkıları saklamak için
-var preloadedSongs = {};
+// Daha fazla şarkı yükleniyor mu
+var isLoadingMoreSongs = false;
+// Yeni şarkıları saklama
+var loadedSongIds = [];
 
 function audioInit(){
     var audio = $("#audio-player"),
@@ -390,30 +392,206 @@ function logSongPlay(songId) {
     });
 }
 
-// Önceden yüklenmiş şarkı var mı kontrol et, varsa yükle
-function getPreloadedSongs() {
-    // Sayfadaki tüm şarkıları bulalım
-    const allTrackElements = document.querySelectorAll('.track-list');
-    const allSongs = [];
+// Aynı tür/genre'deki şarkıları getir
+function loadMoreSongsByGenre(genreId, callback) {
+    if (!genreId || isLoadingMoreSongs) return;
     
-    allTrackElements.forEach(function(elem) {
-        allSongs.push({
-            track: elem.getAttribute('data-track'),
-            poster: elem.getAttribute('data-poster'),
-            title: elem.getAttribute('data-title'),
-            singer: elem.getAttribute('data-singer'),
-            song_id: elem.getAttribute('data-id'),
-            genre_id: elem.getAttribute('data-genre-id'),
-            artist_id: elem.getAttribute('data-artist-id')
+    isLoadingMoreSongs = true;
+    console.log('Yeni şarkılar yükleniyor... Genre ID:', genreId);
+    
+    // Çalınan şarkıları listele (tekrar çalmayı önlemek için)
+    var playedSongIds = [];
+    trackList.forEach(function(track) {
+        if (track.song_id) playedSongIds.push(parseInt(track.song_id));
+    });
+    
+    // AJAX ile şarkıları çek
+    $.ajax({
+        url: SITEURL + '/modules/muzibu/ajax_songs.php',
+        type: 'GET',
+        data: {
+            action: 'load',
+            genre_id: genreId,
+            limit: 20,
+            page: 1
+        },
+        success: function(response) {
+            isLoadingMoreSongs = false;
+            
+            if (response.songs && response.songs.length > 0) {
+                // Zaten çalınan şarkıları filtrele
+                var newSongs = response.songs.filter(function(song) {
+                    return !playedSongIds.includes(parseInt(song.id));
+                });
+                
+                if (newSongs.length > 0) {
+                    console.log('Yeni şarkılar bulundu:', newSongs.length);
+                    callback(newSongs);
+                } else {
+                    console.log('Yeni şarkı bulunamadı, farklı bir türe geçiliyor...');
+                    // Farklı bir türden şarkı bul
+                    loadRandomSongs(callback);
+                }
+            } else {
+                console.log('Yanıtta hiç şarkı yok, farklı bir türe geçiliyor...');
+                loadRandomSongs(callback);
+            }
+        },
+        error: function(xhr, status, error) {
+            isLoadingMoreSongs = false;
+            console.error('Şarkı yüklenirken hata:', error);
+            loadRandomSongs(callback);
+        }
+    });
+}
+
+// Sanatçıya ait şarkıları getir
+function loadMoreSongsByArtist(artistId, callback) {
+    if (!artistId || isLoadingMoreSongs) return;
+    
+    isLoadingMoreSongs = true;
+    console.log('Sanatçının diğer şarkıları yükleniyor... Artist ID:', artistId);
+    
+    // Çalınan şarkıları listele
+    var playedSongIds = [];
+    trackList.forEach(function(track) {
+        if (track.song_id) playedSongIds.push(parseInt(track.song_id));
+    });
+    
+    // AJAX ile şarkıları çek
+    $.ajax({
+        url: SITEURL + '/modules/muzibu/ajax_songs.php',
+        type: 'GET',
+        data: {
+            action: 'load',
+            artist_id: artistId,
+            limit: 15,
+            page: 1
+        },
+        success: function(response) {
+            isLoadingMoreSongs = false;
+            
+            if (response.songs && response.songs.length > 0) {
+                // Zaten çalınan şarkıları filtrele
+                var newSongs = response.songs.filter(function(song) {
+                    return !playedSongIds.includes(parseInt(song.id));
+                });
+                
+                if (newSongs.length > 0) {
+                    console.log('Sanatçının diğer şarkıları bulundu:', newSongs.length);
+                    callback(newSongs);
+                } else {
+                    console.log('Sanatçının başka şarkısı bulunamadı, aynı türe geçiliyor...');
+                    // Aynı türden başka şarkılar bul
+                    if (currentGenreId) {
+                        loadMoreSongsByGenre(currentGenreId, callback);
+                    } else {
+                        loadRandomSongs(callback);
+                    }
+                }
+            } else {
+                console.log('Sanatçının şarkısı bulunamadı, aynı türe geçiliyor...');
+                if (currentGenreId) {
+                    loadMoreSongsByGenre(currentGenreId, callback);
+                } else {
+                    loadRandomSongs(callback);
+                }
+            }
+        },
+        error: function(xhr, status, error) {
+            isLoadingMoreSongs = false;
+            console.error('Şarkı yüklenirken hata:', error);
+            if (currentGenreId) {
+                loadMoreSongsByGenre(currentGenreId, callback);
+            } else {
+                loadRandomSongs(callback);
+            }
+        }
+    });
+}
+
+// Rastgele şarkılar getir
+function loadRandomSongs(callback) {
+    if (isLoadingMoreSongs) return;
+    
+    isLoadingMoreSongs = true;
+    console.log('Rastgele şarkılar yükleniyor...');
+    
+    // Çalınan şarkıları listele
+    var playedSongIds = [];
+    trackList.forEach(function(track) {
+        if (track.song_id) playedSongIds.push(parseInt(track.song_id));
+    });
+    
+    // AJAX ile rastgele şarkıları çek
+    $.ajax({
+        url: SITEURL + '/modules/muzibu/ajax_songs.php',
+        type: 'GET',
+        data: {
+            action: 'load',
+            limit: 15,
+            page: 1
+        },
+        success: function(response) {
+            isLoadingMoreSongs = false;
+            
+            if (response.songs && response.songs.length > 0) {
+                // Zaten çalınan şarkıları filtrele
+                var newSongs = response.songs.filter(function(song) {
+                    return !playedSongIds.includes(parseInt(song.id));
+                });
+                
+                if (newSongs.length > 0) {
+                    console.log('Rastgele şarkılar bulundu:', newSongs.length);
+                    callback(newSongs);
+                } else {
+                    console.log('Yeni şarkı bulunamadı, liste başa dönüyor...');
+                    // Hiç şarkı bulunamadıysa, var olan listeyi temizleyip yeniden başla
+                    loadedSongIds = [];
+                    callback([]);
+                }
+            } else {
+                console.log('Hiç şarkı bulunamadı, liste başa dönüyor...');
+                callback([]);
+            }
+        },
+        error: function(xhr, status, error) {
+            isLoadingMoreSongs = false;
+            console.error('Şarkı yüklenirken hata:', error);
+            callback([]);
+        }
+    });
+}
+
+// Şarkıları oynatma listesine ekle
+function addSongsToPlaylist(songs) {
+    if (!songs || songs.length === 0) return;
+    
+    // Şarkıları oynatma listesine ekle
+    songs.forEach(function(song) {
+        var trackPath = song.file_path ? SITEURL + '/modules/muzibu/datafiles/songs/' + song.file_path : THEMEURL + '/assets/media/tracks/about-love.mp3';
+        var posterPath = song.thumb ? SITEURL + '/thumbmaker.php?src=' + SITEURL + '/modules/muzibu/dataimages/' + song.thumb + '&amp;h=410&amp;w=410&amp;s=1&amp;a=c&amp;q=80' : THEMEURL + '/assets/media/tracks/poster-images/track-01.jpg';
+        
+        // Şarkı ID'sini kontrol et (tekrar eklememek için)
+        if (loadedSongIds.includes(parseInt(song.id))) {
+            return;
+        }
+        
+        loadedSongIds.push(parseInt(song.id));
+        
+        trackList.push({
+            element: null,
+            track: trackPath,
+            poster: posterPath,
+            title: song.title_tr,
+            singer: song.artist_name || song.artist_title,
+            song_id: song.id,
+            genre_id: song.genre_id,
+            artist_id: song.artist_id
         });
     });
     
-    // Şu anda çalınan şarkı dışındaki şarkıları preload et
-    if (allSongs.length > 0) {
-        return allSongs.filter(song => song.track !== trackPlaying);
-    }
-    
-    return [];
+    console.log('Şarkılar eklendi, yeni oynatma listesi uzunluğu:', trackList.length);
 }
 
 function playNextTrack(shuffle=true) {
@@ -422,14 +600,19 @@ function playNextTrack(shuffle=true) {
         var allPageTracks = document.querySelectorAll('.track-list');
         if (allPageTracks.length > 0) {
             trackList = [];
+            loadedSongIds = [];
+            
             allPageTracks.forEach(function(elem, index) {
+                var songId = elem.getAttribute('data-id');
+                if (songId) loadedSongIds.push(parseInt(songId));
+                
                 trackList.push({
                     element: elem,
                     track: elem.getAttribute('data-track'),
                     poster: elem.getAttribute('data-poster'),
                     title: elem.getAttribute('data-title'),
                     singer: elem.getAttribute('data-singer'),
-                    song_id: elem.getAttribute('data-id'),
+                    song_id: songId,
                     genre_id: elem.getAttribute('data-genre-id'), 
                     artist_id: elem.getAttribute('data-artist-id')
                 });
@@ -459,26 +642,85 @@ function playNextTrack(shuffle=true) {
     } else {
         // Sırayla çal
         if (currentTrackIndex >= trackList.length - 1) {
-            // Liste sonuna geldik, başa dön
-            nextIndex = 0;
+            // Liste sonuna geldik, yeni şarkı yükle
+            console.log('Liste sonuna ulaşıldı. Yeni şarkılar yükleniyor...');
             
-            // Liste bitince yeni şarkılar yüklemek yerine baştakilerle devam et
-            var preloadSongs = getPreloadedSongs();
-            if (preloadSongs.length > 0) {
-                // Yeni şarkı bulunamadıysa mevcut listeyi tekrar çal
-                trackList = []; // Listeyi temizle
-                preloadSongs.forEach(function(song) {
-                    trackList.push({
-                        element: null,
-                        track: song.track,
-                        poster: song.poster,
-                        title: song.title,
-                        singer: song.singer,
-                        song_id: song.song_id,
-                        genre_id: song.genre_id,
-                        artist_id: song.artist_id
-                    });
+            // Son dinlenen şarkının tür ve sanatçı bilgilerini al
+            var lastTrack = trackList[currentTrackIndex];
+            var genreId = lastTrack.genre_id;
+            var artistId = lastTrack.artist_id;
+            
+            // Dönüşümlü olarak sanatçının diğer şarkılarını ve türün diğer şarkılarını yükle
+            if (Math.random() > 0.5 && artistId) {
+                loadMoreSongsByArtist(artistId, function(newSongs) {
+                    addSongsToPlaylist(newSongs);
+                    
+                    // Liste boş değilse devam et
+                    if (trackList.length > 0) {
+                        nextIndex = currentTrackIndex + 1;
+                        if (nextIndex >= trackList.length) {
+                            nextIndex = 0; // Sanatçının başka şarkısı yoksa başa dön
+                        }
+                        
+                        // Şarkıyı çal
+                        currentTrackIndex = nextIndex;
+                        const nextTrack = trackList[currentTrackIndex];
+                        
+                        // Genre ve Artist bilgilerini güncelle
+                        if (nextTrack.genre_id) currentGenreId = nextTrack.genre_id;
+                        if (nextTrack.artist_id) currentArtistId = nextTrack.artist_id;
+                        
+                        changeAudio(nextTrack.element, nextTrack.track, nextTrack.poster, nextTrack.title, nextTrack.singer, nextTrack.song_id);
+                    }
                 });
+                return;
+            } else if (genreId) {
+                loadMoreSongsByGenre(genreId, function(newSongs) {
+                    addSongsToPlaylist(newSongs);
+                    
+                    // Liste boş değilse devam et
+                    if (trackList.length > 0) {
+                        nextIndex = currentTrackIndex + 1;
+                        if (nextIndex >= trackList.length) {
+                            nextIndex = 0; // Tür içinde başka şarkı yoksa başa dön
+                        }
+                        
+                        // Şarkıyı çal
+                        currentTrackIndex = nextIndex;
+                        const nextTrack = trackList[currentTrackIndex];
+                        
+                        // Genre ve Artist bilgilerini güncelle
+                        if (nextTrack.genre_id) currentGenreId = nextTrack.genre_id;
+                        if (nextTrack.artist_id) currentArtistId = nextTrack.artist_id;
+                        
+                        changeAudio(nextTrack.element, nextTrack.track, nextTrack.poster, nextTrack.title, nextTrack.singer, nextTrack.song_id);
+                    }
+                });
+                return;
+            } else {
+                // Hem tür hem de sanatçı bilgisi yoksa rastgele şarkı yükle
+                loadRandomSongs(function(newSongs) {
+                    addSongsToPlaylist(newSongs);
+                    
+                    // Liste boş değilse devam et
+                    if (trackList.length > 0) {
+                        nextIndex = currentTrackIndex + 1;
+                        if (nextIndex >= trackList.length) {
+                            nextIndex = 0; // Şarkı yoksa başa dön
+                        }
+                        
+                        // Şarkıyı çal
+                        currentTrackIndex = nextIndex;
+                        const nextTrack = trackList[currentTrackIndex];
+                        
+                        // Genre ve Artist bilgilerini güncelle
+                        if (nextTrack.genre_id) currentGenreId = nextTrack.genre_id;
+                        if (nextTrack.artist_id) currentArtistId = nextTrack.artist_id;
+                        
+                        changeAudio(nextTrack.element, nextTrack.track, nextTrack.poster, nextTrack.title, nextTrack.singer, nextTrack.song_id);
+                    }
+                });
+                return;
             }
         } else {
             nextIndex = currentTrackIndex + 1;
@@ -611,14 +853,19 @@ jQuery('#pjax-container').on('click', '.track-list', function() {
     var trackItems = parentList.find('.track-list');
 
     trackList = [];
+    loadedSongIds = [];
+    
     trackItems.each(function(index) {
+        var songId = jQuery(this).attr('data-id');
+        if (songId) loadedSongIds.push(parseInt(songId));
+        
         trackList.push({
             element: this,
             track: jQuery(this).attr('data-track'),
             poster: jQuery(this).attr('data-poster'),
             title: jQuery(this).attr('data-title'),
             singer: jQuery(this).attr('data-singer'),
-            song_id: jQuery(this).attr('data-id'),
+            song_id: songId,
             genre_id: jQuery(this).attr('data-genre-id'),
             artist_id: jQuery(this).attr('data-artist-id')
         });
@@ -650,18 +897,23 @@ jQuery(window).on('load', function(){
         if (genreId) currentGenreId = genreId;
         if (artistId) currentArtistId = artistId;
         
-        // Sayfadaki tüm şarkıları bir kez bulalım - sonsuz çalma için
+        // Sayfadaki tüm şarkıları bir kez bulalım - liste başlangıcı için
         var allPageTracks = document.querySelectorAll('.track-list');
         if (allPageTracks.length > 0) {
             trackList = [];
+            loadedSongIds = [];
+            
             allPageTracks.forEach(function(elem, index) {
+                var songId = elem.getAttribute('data-id');
+                if (songId) loadedSongIds.push(parseInt(songId));
+                
                 trackList.push({
                     element: elem,
                     track: elem.getAttribute('data-track'),
                     poster: elem.getAttribute('data-poster'),
                     title: elem.getAttribute('data-title'),
                     singer: elem.getAttribute('data-singer'),
-                    song_id: elem.getAttribute('data-id'),
+                    song_id: songId,
                     genre_id: elem.getAttribute('data-genre-id'),
                     artist_id: elem.getAttribute('data-artist-id')
                 });
