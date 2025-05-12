@@ -37,11 +37,33 @@ class MuzibuAlbum
      */
     public function getAllAlbums()
     {
+        // Sayfalama için gerekli ayarlar
+        $pager = Paginator::instance();
+        $pager->items_total = countEntries(self::albumTable);
+        $pager->default_ipp = Registry::get("Core")->perpage;
+        $pager->paginate();
+
         $sql = "SELECT a.*, ar.title" . Lang::$lang . " as artist_name, 
                 COUNT(s.id) as song_count"
         . "\n FROM " . self::albumTable . " as a"
         . "\n LEFT JOIN " . self::artistTable . " as ar ON ar.id = a.artist_id"
         . "\n LEFT JOIN " . self::songTable . " as s ON s.album_id = a.id"
+        . "\n GROUP BY a.id"
+        . "\n ORDER BY a.created DESC" . $pager->limit;
+
+        $row = self::$db->fetch_all($sql);
+
+        return ($row) ? $row : 0;
+    }
+	
+	public function searchAlbums($keywords)
+    {
+        $sql = "SELECT a.*, ar.title" . Lang::$lang . " as artist_name, 
+                COUNT(s.id) as song_count"
+        . "\n FROM " . self::albumTable . " as a"
+        . "\n LEFT JOIN " . self::artistTable . " as ar ON ar.id = a.artist_id"
+        . "\n LEFT JOIN " . self::songTable . " as s ON s.album_id = a.id"
+		. "\n WHERE a.title_tr LIKE '%".$keywords."%'"
         . "\n GROUP BY a.id"
         . "\n ORDER BY a.created DESC";
 

@@ -37,11 +37,17 @@ class MuzibuArtist
      */
     public function getAllArtists()
     {
+        // Sayfalama için gerekli ayarlar
+        $pager = Paginator::instance();
+        $pager->items_total = countEntries(self::artistTable);
+        $pager->default_ipp = Registry::get("Core")->perpage;
+        $pager->paginate();
+
         $sql = "SELECT a.*, COUNT(al.id) as album_count 
                 FROM " . self::artistTable . " as a
                 LEFT JOIN " . self::albumTable . " as al ON al.artist_id = a.id
                 GROUP BY a.id
-                ORDER BY a.title" . Lang::$lang;
+                ORDER BY a.title" . Lang::$lang . $pager->limit;
 
         $row = self::$db->fetch_all($sql);
 

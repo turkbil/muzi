@@ -78,17 +78,12 @@ class Muzibu
      */
     public function getSongs()
     {
-        if (isset($_GET['album_id'])) {
-            $where = "WHERE s.album_id = '" . intval($_GET['album_id']) . "'";
-        } else {
-            $where = null;
-        }
-
+        // Sayfalama için gerekli ayarlar
         $pager = Paginator::instance();
         $pager->items_total = countEntries(self::mTable);
         $pager->default_ipp = Registry::get("Core")->perpage;
         $pager->paginate();
-      
+
         $sql = "SELECT s.*, a.id as artist_id, a.title" . Lang::$lang . " as artist_title, 
                 l.title" . Lang::$lang . " as album_title, 
                 g.title" . Lang::$lang . " as genre_title" 
@@ -97,11 +92,10 @@ class Muzibu
         . "\n LEFT JOIN " . self::artistTable . " as a ON a.id = l.artist_id" 
         . "\n LEFT JOIN " . self::genreTable . " as g ON g.id = s.genre_id" 
         . "\n LEFT JOIN " . self::playTable . " as p ON p.song_id = s.id" 
-        . "\n $where" 
         . "\n GROUP BY s.id" 
-        . "\n ORDER BY s.id DESC";
-        $row = self::$db->fetch_all($sql);
+        . "\n ORDER BY s.id DESC" . $pager->limit;
 
+        $row = self::$db->fetch_all($sql);
         return ($row) ? $row : 0;
     }
 
@@ -224,6 +218,26 @@ class Muzibu
         . "\n LEFT JOIN " . self::genreTable . " as g ON g.id = s.genre_id" 
         . "\n LEFT JOIN " . self::playTable . " as p ON p.song_id = s.id" 
         . "\n WHERE s.album_id = " . $album_id
+        . "\n GROUP BY s.id" 
+        . "\n ORDER BY s.title" . Lang::$lang;
+        
+        $row = self::$db->fetch_all($sql);
+
+        return ($row) ? $row : 0;
+    }
+	
+	public function searchSong($keywords)
+    {
+        
+        $sql = "SELECT s.*, a.id as artist_id, a.title" . Lang::$lang . " as artist_name, 
+                l.id as album_id, l.title" . Lang::$lang . " as album_title, l.thumb, 
+                g.id as genre_id, g.title" . Lang::$lang . " as genre_title" 
+        . "\n FROM " . self::mTable . " as s" 
+        . "\n LEFT JOIN " . self::albumTable . " as l ON l.id = s.album_id" 
+        . "\n LEFT JOIN " . self::artistTable . " as a ON a.id = l.artist_id" 
+        . "\n LEFT JOIN " . self::genreTable . " as g ON g.id = s.genre_id" 
+        . "\n LEFT JOIN " . self::playTable . " as p ON p.song_id = s.id" 
+        . "\n WHERE s.title_tr LIKE '%" . $keywords . "%' OR a.title_tr LIKE '%".$keywords."%' OR l.title_tr LIKE '%".$keywords."%' OR g.title_tr LIKE '%".$keywords."%'"
         . "\n GROUP BY s.id" 
         . "\n ORDER BY s.title" . Lang::$lang;
         

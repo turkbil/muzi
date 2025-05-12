@@ -69,12 +69,18 @@ class MuzibuPlaylist
      */
     public function getAllPlaylists()
     {
+        // Sayfalama için gerekli ayarlar
+        $pager = Paginator::instance();
+        $pager->items_total = countEntries(self::playlistTable);
+        $pager->default_ipp = Registry::get("Core")->perpage;
+        $pager->paginate();
+
         $sql = "SELECT p.*, u.fname, u.lname, u.username, COUNT(ps.song_id) as song_count 
                 FROM " . self::playlistTable . " as p
                 LEFT JOIN " . self::usersTable . " as u ON u.id = p.user_id
                 LEFT JOIN " . self::playlistSongTable . " as ps ON ps.playlist_id = p.id
                 GROUP BY p.id
-                ORDER BY p.created DESC";
+                ORDER BY p.created DESC" . $pager->limit;
 
         $row = self::$db->fetch_all($sql);
 
@@ -113,6 +119,21 @@ class MuzibuPlaylist
                 LEFT JOIN " . self::usersTable . " as u ON u.id = p.user_id
                 LEFT JOIN " . self::playlistSongTable . " as ps ON ps.playlist_id = p.id
                 WHERE p.system = 1 AND p.active = 1 AND p.is_public = 1
+                GROUP BY p.id
+                ORDER BY p.title" . Lang::$lang;
+
+        $row = self::$db->fetch_all($sql);
+
+        return ($row) ? $row : 0;
+    }
+	
+	public function searchSystemPlaylists($keywords)
+    {
+        $sql = "SELECT p.*, u.fname, u.lname, u.username, COUNT(ps.song_id) as song_count 
+                FROM " . self::playlistTable . " as p
+                LEFT JOIN " . self::usersTable . " as u ON u.id = p.user_id
+                LEFT JOIN " . self::playlistSongTable . " as ps ON ps.playlist_id = p.id
+                WHERE p.system = 1 AND p.active = 1 AND p.is_public = 1 AND p.title_tr LIKE '%".$keywords."%'
                 GROUP BY p.id
                 ORDER BY p.title" . Lang::$lang;
 

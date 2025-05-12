@@ -36,11 +36,17 @@ class MuzibuSector
      */
     public function getAllSectors()
     {
+        // Sayfalama için gerekli ayarlar
+        $pager = Paginator::instance();
+        $pager->items_total = countEntries(self::sectorTable);
+        $pager->default_ipp = Registry::get("Core")->perpage;
+        $pager->paginate();
+
         $sql = "SELECT s.*, COUNT(ps.playlist_id) as playlist_count 
                 FROM " . self::sectorTable . " as s
                 LEFT JOIN " . self::playlistSectorTable . " as ps ON ps.sector_id = s.id
                 GROUP BY s.id
-                ORDER BY s.title" . Lang::$lang;
+                ORDER BY s.title" . Lang::$lang . $pager->limit;
 
         $row = self::$db->fetch_all($sql);
 

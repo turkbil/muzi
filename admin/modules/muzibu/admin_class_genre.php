@@ -36,11 +36,17 @@ class MuzibuGenre
      */
     public function getAllGenres()
     {
+        // Sayfalama için gerekli ayarlar
+        $pager = Paginator::instance();
+        $pager->items_total = countEntries(self::genreTable);
+        $pager->default_ipp = Registry::get("Core")->perpage;
+        $pager->paginate();
+
         $sql = "SELECT g.*, COUNT(s.id) as song_count 
                 FROM " . self::genreTable . " as g
                 LEFT JOIN " . self::songTable . " as s ON s.genre_id = g.id
                 GROUP BY g.id
-                ORDER BY g.title" . Lang::$lang;
+                ORDER BY g.title" . Lang::$lang . $pager->limit;
 
         $row = self::$db->fetch_all($sql);
 

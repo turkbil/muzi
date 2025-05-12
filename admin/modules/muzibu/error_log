@@ -1,0 +1,15 @@
+[09-May-2025 19:29:02 Europe/Istanbul] PHP Warning:  Use of undefined constant DEBUG - assumed 'DEBUG' (this will throw an Error in a future version of PHP) in /home/muzibu/public_html/lib/class_db.php on line 971
+[09-May-2025 20:21:53 Europe/Istanbul] PHP Warning:  Use of undefined constant DEBUG - assumed 'DEBUG' (this will throw an Error in a future version of PHP) in /home/muzibu/public_html/lib/class_db.php on line 971
+[09-May-2025 20:22:41 Europe/Istanbul] PHP Warning:  Use of undefined constant DEBUG - assumed 'DEBUG' (this will throw an Error in a future version of PHP) in /home/muzibu/public_html/lib/class_db.php on line 971
+[09-May-2025 20:25:16 Europe/Istanbul] PHP Warning:  Use of undefined constant DEBUG - assumed 'DEBUG' (this will throw an Error in a future version of PHP) in /home/muzibu/public_html/lib/class_db.php on line 971
+[09-May-2025 20:34:05 Europe/Istanbul] PHP Warning:  Use of undefined constant DEBUG - assumed 'DEBUG' (this will throw an Error in a future version of PHP) in /home/muzibu/public_html/lib/class_db.php on line 971
+[09-May-2025 20:34:16 Europe/Istanbul] PHP Warning:  Use of undefined constant DEBUG - assumed 'DEBUG' (this will throw an Error in a future version of PHP) in /home/muzibu/public_html/lib/class_db.php on line 971
+[09-May-2025 21:09:38 Europe/Istanbul] PHP Fatal error:  Uncaught Error: Undefined class constant 'playlistSectorTable' in /home/muzibu/public_html/admin/modules/muzibu/controller.php:213
+Stack trace:
+#0 {main}
+  thrown in /home/muzibu/public_html/admin/modules/muzibu/controller.php on line 213
+[10-May-2025 00:16:49 Europe/Istanbul] PHP Fatal error:  Uncaught Error: Undefined class constant 'playlistSectorTable' in /home/muzibu/public_html/admin/modules/muzibu/controller.php:213
+Stack trace:
+#0 {main}
+  thrown in /home/muzibu/public_html/admin/modules/muzibu/controller.php on line 213
+[10-May-2025 12:36:07 Europe/Istanbul] PHP Warning:  Use of undefined constant DEBUG - assumed 'DEBUG' (this will throw an Error in a future version of PHP) in /home/muzibu/public_html/lib/class_db.php on line 971

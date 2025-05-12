@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <dwsync>
 <file name="admin.php" server="95.216.33.155/public_html/" local="133911992756832793" remote="133909953600000000" Dst="0" />
-<file name="admin_class.php" server="95.216.33.155/public_html/" local="133912089351217193" remote="133912053000000000" Dst="0" />
-<file name="admin_class_album.php" server="95.216.33.155/public_html/" local="133912086957181024" remote="133912050600000000" Dst="0" />
-<file name="admin_class_artist.php" server="95.216.33.155/public_html/" local="133912087251362421" remote="133912051200000000" Dst="0" />
-<file name="admin_class_genre.php" server="95.216.33.155/public_html/" local="133912087601241480" remote="133912051200000000" Dst="0" />
+<file name="admin_class.php" server="95.216.33.155/public_html/" local="133915276416263830" remote="133915240200000000" Dst="0" />
+<file name="admin_class_album.php" server="95.216.33.155/public_html/" local="133915271437790573" remote="133915235400000000" Dst="0" />
+<file name="admin_class_artist.php" server="95.216.33.155/public_html/" local="133915271119275819" remote="133915234800000000" Dst="0" />
+<file name="admin_class_genre.php" server="95.216.33.155/public_html/" local="133915271229173697" remote="133915234800000000" Dst="0" />
 <file name="admin_class_homepage.php" server="95.216.33.155/public_html/" local="133911992761129090" remote="133909953600000000" Dst="0" />
-<file name="admin_class_playlist.php" server="95.216.33.155/public_html/" local="133912087975169723" remote="133912051800000000" Dst="0" />
-<file name="admin_class_sector.php" server="95.216.33.155/public_html/" local="133912088107961610" remote="133912051800000000" Dst="0" />
+<file name="admin_class_playlist.php" server="95.216.33.155/public_html/" local="133915271749169205" remote="133915235400000000" Dst="0" />
+<file name="admin_class_sector.php" server="95.216.33.155/public_html/" local="133915271587309553" remote="133915235400000000" Dst="0" />
 <file name="ajax_songs.php" server="95.216.33.155/public_html/" local="133911992763650435" remote="133909953600000000" Dst="0" />
 <file name="controller.php" server="95.216.33.155/public_html/" local="133912086469541112" remote="133912050000000000" Dst="0" />
 <file name="config.ini" server="95.216.33.155/public_html/" local="133911992765920929" remote="133909953600000000" Dst="0" />
@@ -24,4 +24,5 @@
 <file name="section-sector.php" server="95.216.33.155/public_html/" local="133911992774975317" remote="133909953600000000" Dst="0" />
 <file name="section-song.php" server="95.216.33.155/public_html/" local="133911992776600315" remote="133909953600000000" Dst="0" />
 <file name="ajax_songplay.php" server="95.216.33.155/public_html/" local="133912060119479262" remote="133912023600000000" Dst="0" />
+<file name="error_log" server="95.216.33.155/public_html/" local="133915270216055342" remote="133913397600000000" Dst="0" />
 </dwsync>
