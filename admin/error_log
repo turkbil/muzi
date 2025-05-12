@@ -1,0 +1,23 @@
+[08-May-2025 21:36:47 Europe/Istanbul] PHP Fatal error:  Cannot redeclare MuzibuPlaylist::getSystemPlaylists() in /home/muzibu/public_html/admin/modules/muzibu/admin_class_playlist.php on line 114
+[08-May-2025 21:36:49 Europe/Istanbul] PHP Fatal error:  Cannot redeclare MuzibuPlaylist::getSystemPlaylists() in /home/muzibu/public_html/admin/modules/muzibu/admin_class_playlist.php on line 114
+[08-May-2025 21:36:50 Europe/Istanbul] PHP Fatal error:  Cannot redeclare MuzibuPlaylist::getSystemPlaylists() in /home/muzibu/public_html/admin/modules/muzibu/admin_class_playlist.php on line 114
+[08-May-2025 21:36:51 Europe/Istanbul] PHP Fatal error:  Cannot redeclare MuzibuPlaylist::getSystemPlaylists() in /home/muzibu/public_html/admin/modules/muzibu/admin_class_playlist.php on line 114
+[08-May-2025 21:37:00 Europe/Istanbul] PHP Fatal error:  Cannot redeclare MuzibuPlaylist::getSystemPlaylists() in /home/muzibu/public_html/admin/modules/muzibu/admin_class_playlist.php on line 114
+[08-May-2025 21:38:55 Europe/Istanbul] PHP Fatal error:  Cannot redeclare MuzibuPlaylist::getSystemPlaylists() in /home/muzibu/public_html/admin/modules/muzibu/admin_class_playlist.php on line 109
+[09-May-2025 22:35:07 Europe/Istanbul] PHP Warning:  session_regenerate_id(): Cannot regenerate session id - session is not active in /home/muzibu/public_html/lib/class_user.php on line 194
+[10-May-2025 17:43:02 Europe/Istanbul] PHP Warning:  session_regenerate_id(): Cannot regenerate session id - session is not active in /home/muzibu/public_html/lib/class_user.php on line 194
+[10-May-2025 19:51:44 Europe/Istanbul] PHP Warning:  Use of undefined constant DEBUG - assumed 'DEBUG' (this will throw an Error in a future version of PHP) in /home/muzibu/public_html/lib/class_db.php on line 971
+[10-May-2025 19:54:05 Europe/Istanbul] PHP Warning:  Use of undefined constant DEBUG - assumed 'DEBUG' (this will throw an Error in a future version of PHP) in /home/muzibu/public_html/lib/class_db.php on line 971
+[10-May-2025 19:57:18 Europe/Istanbul] PHP Warning:  session_regenerate_id(): Cannot regenerate session id - session is not active in /home/muzibu/public_html/lib/class_user.php on line 194
+[10-May-2025 19:58:47 Europe/Istanbul] PHP Warning:  session_regenerate_id(): Cannot regenerate session id - session is not active in /home/muzibu/public_html/lib/class_user.php on line 194
+[10-May-2025 20:00:11 Europe/Istanbul] PHP Warning:  session_regenerate_id(): Cannot regenerate session id - session is not active in /home/muzibu/public_html/lib/class_user.php on line 194
+[10-May-2025 20:01:11 Europe/Istanbul] PHP Warning:  session_regenerate_id(): Cannot regenerate session id - session is not active in /home/muzibu/public_html/lib/class_user.php on line 194
+[12-May-2025 15:16:53 Europe/Istanbul] PHP Warning:  session_regenerate_id(): Cannot regenerate session id - session is not active in /home/muzibu/public_html/lib/class_user.php on line 194
+[12-May-2025 15:46:57 Europe/Istanbul] PHP Fatal error:  Uncaught Error: Call to undefined function getSlugById() in /home/muzibu/public_html/admin/modules/muzibu/admin_class.php:214
+Stack trace:
+#0 /home/muzibu/public_html/admin/modules/muzibu/section-song.php(529): Muzibu->getSongsByGenre(5)
+#1 /home/muzibu/public_html/admin/modules/muzibu/admin.php(63): include_once('/home/muzibu/pu...')
+#2 /home/muzibu/public_html/admin/modules.php(74): include_once('/home/muzibu/pu...')
+#3 /home/muzibu/public_html/admin/index.php(27): include('/home/muzibu/pu...')
+#4 {main}
+  thrown in /home/muzibu/public_html/admin/modules/muzibu/admin_class.php on line 214

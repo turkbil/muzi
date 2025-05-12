@@ -103,11 +103,33 @@ class Muzibu
      * Muzibu::getSongsByArtist()
      * 
      * @param int $artist_id
+     * @param bool $paginate Sayfalama aktif mi?
      * @return
      */
-    public function getSongsByArtist($artist_id)
+    public function getSongsByArtist($artist_id, $paginate = false)
     {
         $artist_id = intval($artist_id);
+        
+        // Sayfalama için sayım sorgusu
+        if ($paginate) {
+            $q = "SELECT COUNT(s.id) FROM " . self::mTable . " as s
+                LEFT JOIN " . self::albumTable . " as l ON l.id = s.album_id
+                LEFT JOIN " . self::artistTable . " as a ON a.id = l.artist_id
+                WHERE a.id = " . $artist_id;
+            $record = self::$db->query($q);
+            $total = self::$db->fetchrow($record);
+            
+            $song_pager = Paginator::instance();
+            $song_pager->identifier = "song_pager"; // Farklı bir tanımlayıcı
+            $song_pager->items_total = $total[0];
+            $song_pager->default_ipp = 15; // Sayfa başına gösterilecek şarkı sayısı
+            $song_pager->path = SITEURL . "/admin/index.php?do=modules&action=config&modname=muzibu&maction=artist_songs&id=" . $artist_id . "&";
+            $song_pager->paginate();
+            
+            $limit = $song_pager->limit;
+        } else {
+            $limit = "";
+        }
         
         $sql = "SELECT s.*, a.id as artist_id, a.title" . Lang::$lang . " as artist_title, 
                 l.id as album_id, l.title" . Lang::$lang . " as album_title, 
@@ -119,7 +141,7 @@ class Muzibu
         . "\n LEFT JOIN " . self::playTable . " as p ON p.song_id = s.id" 
         . "\n WHERE a.id = " . $artist_id
         . "\n GROUP BY s.id" 
-        . "\n ORDER BY l.title" . Lang::$lang . ", s.title" . Lang::$lang;
+        . "\n ORDER BY l.title" . Lang::$lang . ", s.title" . Lang::$lang . $limit;
         
         $row = self::$db->fetch_all($sql);
 
@@ -176,11 +198,30 @@ class Muzibu
      * Muzibu::getSongsByGenre()
      * 
      * @param int $genre_id
+     * @param bool $paginate Sayfalama aktif mi?
      * @return
      */
-    public function getSongsByGenre($genre_id)
+    public function getSongsByGenre($genre_id, $paginate = false)
     {
         $genre_id = intval($genre_id);
+        
+        // Sayfalama için sayım sorgusu
+        if ($paginate) {
+            $q = "SELECT COUNT(s.id) FROM " . self::mTable . " as s
+                WHERE s.genre_id = " . $genre_id;
+            $record = self::$db->query($q);
+            $total = self::$db->fetchrow($record);
+            
+            $pager = Paginator::instance();
+            $pager->items_total = $total[0];
+            $pager->default_ipp = 15; // Sayfa başına gösterilecek şarkı sayısı
+            $pager->path = SITEURL . "/admin/index.php?do=modules&action=config&modname=muzibu&maction=genre_songs&id=" . $genre_id . "&";
+            $pager->paginate();
+            
+            $limit = $pager->limit;
+        } else {
+            $limit = "";
+        }
         
         $sql = "SELECT s.*, a.id as artist_id, a.title" . Lang::$lang . " as artist_title, 
                 l.id as album_id, l.title" . Lang::$lang . " as album_title, l.thumb, 
@@ -192,7 +233,7 @@ class Muzibu
         . "\n LEFT JOIN " . self::playTable . " as p ON p.song_id = s.id" 
         . "\n WHERE s.genre_id = " . $genre_id
         . "\n GROUP BY s.id" 
-        . "\n ORDER BY s.title" . Lang::$lang;
+        . "\n ORDER BY s.title" . Lang::$lang . $limit;
         
         $row = self::$db->fetch_all($sql);
 

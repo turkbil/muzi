@@ -136,16 +136,37 @@ class MuzibuAlbum
      * MuzibuAlbum::getAlbumsByArtist()
      * 
      * @param int $artist_id
+     * @param bool $paginate Sayfalama aktif mi?
      * @return
      */
-    public function getAlbumsByArtist($artist_id)
+    public function getAlbumsByArtist($artist_id, $paginate = false)
     {
+        $artist_id = intval($artist_id);
+        
+        // Sayfalama için sayım sorgusu
+        if ($paginate) {
+            $q = "SELECT COUNT(a.id) FROM " . self::albumTable . " as a 
+                WHERE a.artist_id = " . $artist_id . " AND a.active = 1";
+            $record = self::$db->query($q);
+            $total = self::$db->fetchrow($record);
+            
+            $pager = Paginator::instance();
+            $pager->items_total = $total[0];
+            $pager->default_ipp = 8; // Sayfa başına gösterilecek albüm sayısı
+            $pager->path = SITEURL . "/admin/index.php?do=modules&action=config&modname=muzibu&maction=artist_songs&id=" . $artist_id . "&";
+            $pager->paginate();
+            
+            $limit = $pager->limit;
+        } else {
+            $limit = "";
+        }
+        
         $sql = "SELECT a.*, COUNT(s.id) as song_count"
         . "\n FROM " . self::albumTable . " as a"
         . "\n LEFT JOIN " . self::songTable . " as s ON s.album_id = a.id"
-        . "\n WHERE a.artist_id = " . intval($artist_id) . " AND a.active = 1"
+        . "\n WHERE a.artist_id = " . $artist_id . " AND a.active = 1"
         . "\n GROUP BY a.id"
-        . "\n ORDER BY a.created DESC";
+        . "\n ORDER BY a.created DESC" . $limit;
 
         $row = self::$db->fetch_all($sql);
 

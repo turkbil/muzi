@@ -259,11 +259,16 @@ case "artist_songs":
     $artist = Registry::get("Muzibu")->artist->getArtistById($artist_id);
     if(!$artist) redirect_to("index.php?do=modules&action=config&modname=muzibu");
     
-    // Önce sanatçının albümlerini getir
-    $albums = Registry::get("Muzibu")->album->getAlbumsByArtist($artist_id);
+    // Sayfalamalı albümleri getir
+    $albums = Registry::get("Muzibu")->album->getAlbumsByArtist($artist_id, true);
+    // Albüm sayfalama nesnesini al
+    $album_pager = Paginator::instance();
     
-    // Tüm ilişkili şarkıları getir (SQL sorgusu için admin_class_song.php'de getSongsByArtist methodu eklenmeli)
-    $songs = Registry::get("Muzibu")->getSongsByArtist($artist_id);
+    // Sayfalamalı şarkıları getir
+    $songs = Registry::get("Muzibu")->getSongsByArtist($artist_id, true);
+    // Şarkı sayfalama nesnesini al
+    $song_pager = Paginator::instance();
+    $song_pager->identifier = "song_pager";
 ?>
 
 <div class="tubi icon heading message blue"> 
@@ -300,20 +305,16 @@ case "artist_songs":
       <div class="tubi segment">
         <div class="tubi relative">
           <?php if ($album->thumb): ?>
-          <img class="tubi rounded fluid image" src="<?php echo SITEURL . '/' . Muzibu::imagepath . $album->thumb; ?>" alt="<?php echo $album->{'title' . Lang::$lang}; ?>">
+          <img class="tubi rounded fluid image" src="<?php echo SITEURL; ?>/thumbmaker.php?src=<?php echo SITEURL . '/' . Muzibu::imagepath . $album->thumb; ?>&h=260&w=410&s=1&a=c&q=40" alt="<?php echo $album->{'title' . Lang::$lang}; ?>">
           <?php
-        else: ?>
-          <img class="tubi rounded fluid image" src="<?php echo SITEURL; ?>/modules/muzibu/assets/images/album-placeholder.jpg" alt="<?php echo $album->{'title' . Lang::$lang}; ?>">
+          else: ?>
+          <img class="tubi rounded fluid image" src="<?php echo SITEURL; ?>/thumbmaker.php?src=<?php echo SITEURL; ?>/modules/muzibu/assets/images/album-placeholder.jpg&h=260&w=410&s=1&a=c&q=40" alt="<?php echo $album->{'title' . Lang::$lang}; ?>">
           <?php
-        endif; ?>
+          endif; ?>
           <span class="tubi info circular label" style="position:absolute; top:10px; right:10px;"><?php echo $album->song_count; ?></span>
         </div>
         
         <h5 class="tubi header" style="margin-top: 10px;"><?php echo $album->{'title' . Lang::$lang}; ?></h5>
-        <?php if (isset($album->{'description' . Lang::$lang}) && !empty($album->{'description' . Lang::$lang})): ?>
-        <p class="tubi small text"><?php echo substr(strip_tags($album->{'description' . Lang::$lang}), 0, 100) . '...'; ?></p>
-        <?php
-        endif; ?>
         
         <a href="index.php?do=modules&amp;action=config&amp;modname=muzibu&amp;maction=album_songs&amp;id=<?php echo $album->id; ?>" class="tubi fluid info button" style="margin-top: 10px;">
           <i class="list icon"></i> Albüm Şarkılarını Gör
@@ -323,6 +324,18 @@ case "artist_songs":
     <?php
     endforeach; ?>
   </div>
+  
+  <?php if(isset($album_pager) && $album_pager->display_pages()):?>
+  <div class="tubi-grid">
+    <div class="two columns horizontal-gutters">
+      <div class="row"> <span class="tubi label"><?php echo Lang::$word->_PAG_TOTAL.': '.$album_pager->items_total;?> / <?php echo Lang::$word->_PAG_CURPAGE.': '.$album_pager->current_page.' '.Lang::$word->_PAG_OF.' '.$album_pager->num_pages;?></span> </div>
+      <div class="row">
+        <div id="pagination"><?php echo $album_pager->display_pages();?></div>
+      </div>
+    </div>
+  </div>
+  <?php endif;?>
+  
 </div>
 <?php
 else: ?>
@@ -389,6 +402,18 @@ else: ?>
 endif; ?>
     </tbody>
   </table>
+  
+  <?php if(isset($song_pager) && $song_pager->display_pages()):?>
+  <div class="tubi-grid">
+    <div class="two columns horizontal-gutters">
+      <div class="row"> <span class="tubi label"><?php echo Lang::$word->_PAG_TOTAL.': '.$song_pager->items_total;?> / <?php echo Lang::$word->_PAG_CURPAGE.': '.$song_pager->current_page.' '.Lang::$word->_PAG_OF.' '.$song_pager->num_pages;?></span> </div>
+      <div class="row">
+        <div id="pagination"><?php echo $song_pager->display_pages();?></div>
+      </div>
+    </div>
+  </div>
+  <?php endif;?>
+  
 </div>
 </div>
 
@@ -431,12 +456,12 @@ case "album_songs":
         <div class="column" style="width: 200px;">
           <?php if($album->thumb): ?>
           <figure class="tubi rounded image">
-            <img src="<?php echo SITEURL . '/' . Muzibu::imagepath . $album->thumb; ?>" alt="<?php echo $album->{'title'.Lang::$lang}; ?>">
+            <img src="<?php echo SITEURL; ?>/thumbmaker.php?src=<?php echo SITEURL . '/' . Muzibu::imagepath . $album->thumb; ?>&h=410&w=410&s=1&a=c&q=40" alt="<?php echo $album->{'title'.Lang::$lang}; ?>">
           </figure>
           <?php else: ?>
-          <figure class="tubi rounded image">
-            <img src="<?php echo SITEURL; ?>/modules/muzibu/assets/images/album-placeholder.jpg" alt="<?php echo $album->{'title'.Lang::$lang}; ?>">
-          </figure>
+            <figure class="tubi rounded image">
+              <img src="<?php echo SITEURL; ?>/thumbmaker.php?src=<?php echo SITEURL; ?>/modules/muzibu/assets/images/album-placeholder.jpg&h=410&w=410&s=1&a=c&q=40" alt="<?php echo $album->{'title'.Lang::$lang}; ?>">
+            </figure>
           <?php endif; ?>
         </div>
         <div class="column" style="margin-top: 12px;">
@@ -525,8 +550,11 @@ case "genre_songs":
     $genre = Registry::get("Muzibu")->genre->getGenreById($genre_id);
     if(!$genre) redirect_to("index.php?do=modules&action=config&modname=muzibu");
     
-    // Tür şarkılarını getir (admin_class.php'de getSongsByGenre methodu eklenmeli)
-    $songs = Registry::get("Muzibu")->getSongsByGenre($genre_id);
+    // Tür şarkılarını getir (sayfalı)
+    $songs = Registry::get("Muzibu")->getSongsByGenre($genre_id, true);
+    
+    // Sayfalama nesnesini al
+    $pager = Paginator::instance();
 ?>
 <div class="tubi icon heading message blue"> 
   <a class="helper tubi top right info corner label" data-help="muzibu"><i class="icon help"></i></a> 
@@ -598,8 +626,21 @@ case "genre_songs":
        <?php endif;?>
      </tbody>
    </table>
+   
+   <?php if(isset($pager) && $pager->display_pages()):?>
+   <div class="tubi-grid">
+     <div class="two columns horizontal-gutters">
+       <div class="row"> <span class="tubi label"><?php echo Lang::$word->_PAG_TOTAL.': '.$pager->items_total;?> / <?php echo Lang::$word->_PAG_CURPAGE.': '.$pager->current_page.' '.Lang::$word->_PAG_OF.' '.$pager->num_pages;?></span> </div>
+       <div class="row">
+         <div id="pagination"><?php echo $pager->display_pages();?></div>
+       </div>
+     </div>
+   </div>
+   <?php endif;?>
+   
  </div>
 </div>
+
 <?php
    break;
 
